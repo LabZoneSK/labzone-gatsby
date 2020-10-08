@@ -1,16 +1,32 @@
-import React from "react"
+import React from 'react'
+
+/** Gatsby */
+import { graphql } from 'gatsby'
 import { Link } from 'gatsby'
 
 import Header from '../components/header'
+import Layout from '../components/layout'
 
-export default function Home() {
+export default function Home ({ data }) {
   return (
-    <div style={{ color: `purple` }}>
-      <Link to='/contact'>Contact us</Link>
-      <Header headerText='Home page'/>
+    <Layout>
+      <div className='full-bleed'>
+        <img src='https://source.unsplash.com/random' alt='' />
+      </div>
+      <Header headerText={data.site.siteMetadata.title} />
       <p>What a beautiful world.</p>
 
-      <img src="https://source.unsplash.com/random/400x200" alt="" />
-    </div>
-  );
+      
+    </Layout>
+  )
 }
+
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
