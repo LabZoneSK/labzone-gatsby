@@ -1,8 +1,21 @@
 import Typography from 'typography'
-import fairyGateTheme from 'typography-theme-fairy-gates'
 
-fairyGateTheme.baseFontSize = '18px'
-const typography = new Typography(fairyGateTheme)
+const typography = new Typography({
+    baseFontSize: '18px',
+    baseLineHeight: 1.666,
+    headerFontFamily: ['Lato', 'Arial', 'sans-serif'],
+    headerWeight: 900,
+    bodyFontFamily: ['Lato', 'serif'],
+    googleFonts: [
+        {
+          name: 'Lato',
+          styles: [
+            '400',
+            '900'
+          ],
+        },
+      ],
+  })
 
 export const { scale, rhythm, options } = typography
 export default typography
