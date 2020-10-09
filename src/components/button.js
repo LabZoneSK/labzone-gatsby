@@ -1,23 +1,24 @@
-import React from 'react'
+import React from "react"
 
 /** Emotion + Styling */
-import styled from '@emotion/styled'
-import { color } from '../utils/color'
+import styled from "@emotion/styled"
+import { color } from "../utils/color"
 
 const PrimaryButton = styled.button`
   background: ${color.primary};
   color: #fff;
-  border-radius: 25px;
 
-  &:hover {
+  &:hover,
+  &:active {
     color: #fff;
   }
 `
-export default function Button (props) {
-  const { children } = props
+
+export default function Button(props) {
+  const { children, isLink } = props
 
   return (
-    <PrimaryButton className='button' style={{}}>
+    <PrimaryButton className="button is-rounded" style={{}}>
       {children}
     </PrimaryButton>
   )

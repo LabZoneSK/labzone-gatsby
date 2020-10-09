@@ -18,10 +18,11 @@ const StyledIcon = styled.img`
   height: ${props => handleIconSize(props.size)};
   margin: 0.5rem;
   display: inline;
+  ${props => props.isGrayscale? 'filter: grayscale(100%);' : ''};
 `
 
 export default function Icon(props) {
-  const { source, size } = props
+  const { source, size, isGrayscale } = props
 
-  return <StyledIcon size={size} src={source} />
+  return <StyledIcon size={size} src={source} isGrayscale={isGrayscale} />
 }

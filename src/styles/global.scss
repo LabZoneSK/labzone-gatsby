@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+$primary: #15B0D4;
+$link: #15B0D4;
+
+@import "~bulma/bulma.sass";
+
+html {
+  color: #202331;
+}
+
+.grid-container {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr  #{"min(85ch, 100%)"} 1fr;
+
+  & > .content-section {
+    grid-column: 2;
+  }
+}

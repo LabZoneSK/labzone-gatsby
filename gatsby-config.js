@@ -3,6 +3,7 @@
  *
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
+require('dotenv').config()
 
 module.exports = {
   /* Your site config here */
@@ -12,6 +13,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-emotion`,
     `gatsby-transformer-remark`,
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -30,6 +32,21 @@ module.exports = {
       options: {
         rule: {
           include: /\.inline\.svg$/,
+        },
+      },
+    },
+    {
+      resolve: `gatsby-source-mongodb`,
+      options: {
+        dbName: `labzone_site`,
+        collection: [`projects`],
+        connectionString:
+          `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.fe7db.mongodb.net`,
+        extraParams: {
+          replicaSet: "Cluster0-shard-0",
+          ssl: true,
+          authSource: `admin`,
+          retryWrites: true,
         },
       },
     },

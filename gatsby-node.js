@@ -18,26 +18,27 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     query {
-      allMarkdownRemark {
+      allMongodbLabzoneSiteProjects {
         edges {
           node {
-            fields {
-              slug
-            }
+            slug
           }
         }
       }
     }
   `)
-  
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+
+  console.log(result.data)
+
+  result.data.allMongodbLabzoneSiteProjects.edges.forEach(({ node }) => {
+
     createPage({
-      path: node.fields.slug,
-      component: path.resolve(`./src/templates/blog-post.js`),
+      path: node.slug,
+      component: path.resolve(`./src/templates/project-detail.js`),
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
-        slug: node.fields.slug,
+        slug: node.slug,
       },
     })
   })
