@@ -2,10 +2,11 @@ import React from "react"
 import styled from "@emotion/styled"
 
 import { device } from "../utils/device"
+import { color } from "../utils/color"
 
 const StyledSection = styled.section`
-  margin-bottom: 3rem;
-`
+  padding: 3rem 0 3rem 0;
+  `
 
 const SectionTitle = styled.h2`
   color: #00a9bb;
@@ -16,12 +17,12 @@ const SectionTitle = styled.h2`
   :before {
     display: block;
     content: " ";
-    background-color: #00a9bb;
-    height: 5px;
-    width: 105px;
+    background-color: ${color.primary};
+    height: 3px;
+    width: 25px;
     position: relative;
     top: 0.95em;
-    right: 3em;
+    right: 1em;
   }
 
   @media ${device.laptop} {
@@ -33,7 +34,7 @@ export default function Section(props) {
   const { title, children } = props
 
   return (
-    <StyledSection>
+    <StyledSection className='content-section'>
       <SectionTitle>{title}</SectionTitle>
 
       {children}

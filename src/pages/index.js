@@ -9,6 +9,7 @@ import Spacer from '../components/spacer'
 import Icon from '../components/icon'
 
 import ProjectsList from '../components/project/projectsList'
+import { color } from '../utils/color'
 
 export default function Home ({ data }) {
   return (
@@ -21,13 +22,10 @@ export default function Home ({ data }) {
         />
       </FullBleed>
 
-      <Section title='S čím Vám vieme pomôcť'>
-        <div className='columns'>
+      <Section title='We can help you with'>
+        <div className='columns mt-5 mb-3'>
           <div className='column has-text-centered'>
-            <Icon
-              source='/images/icons/svg/labzone-development.svg'
-              size='lg'
-            />
+            <Icon source='/images/icons/svg/seo.svg' size='lg' />
             <h3 className='has-text-weight-bold mb-3'>Software Development</h3>
             <ul>
               <li>Web sites / apps</li>
@@ -36,7 +34,7 @@ export default function Home ({ data }) {
             </ul>
           </div>
           <div className='column has-text-centered'>
-            <Icon source='/images/icons/svg/labzone-ux-design.svg' size='lg' />
+            <Icon source='/images/icons/svg/seo.svg' size='lg' />
             <h3 className='has-text-weight-bold mb-3'>UX / UI Desgin</h3>
             <ul>
               <li>User eXperience</li>
@@ -44,7 +42,7 @@ export default function Home ({ data }) {
             </ul>
           </div>
           <div className='column has-text-centered'>
-            <Icon source='/images/icons/svg/labzone-seo.svg' size='lg' />
+            <Icon source='/images/icons/svg/seo.svg' size='lg' />
             <h3 className='has-text-weight-bold mb-3'>SEO</h3>
             <ul>
               <li>Search Engine Optimisation</li>
@@ -52,10 +50,7 @@ export default function Home ({ data }) {
             </ul>
           </div>
           <div className='column has-text-centered'>
-            <Icon
-              source='/images/icons/svg/labzone-digital-marketing.svg'
-              size='lg'
-            />
+            <Icon source='/images/icons/svg/seo.svg' size='lg' />
             <h3 className='has-text-weight-bold mb-3'>Marketing Support</h3>
             <ul>
               <li>On-line / Off-line</li>
@@ -66,7 +61,15 @@ export default function Home ({ data }) {
         </div>
       </Section>
 
-      <Section title='Výsledky našej práce'>
+      <FullBleed color={color.dark}>
+        <div className='grid-container'>
+          <Section title='Technologies we use'>
+            <p className='has-text-white'>Here will be several icons of technologies from our stack</p>
+          </Section>
+        </div>
+      </FullBleed>
+
+      <Section title='Some of our projects'>
         <ProjectsList />
       </Section>
 
@@ -80,7 +83,7 @@ export default function Home ({ data }) {
         </Hero>
       </FullBleed>
 
-      <Section title='Spojte sa s nami'>
+      <Section title='Spojte sa s nami' className='container'>
         <div className='columns'>
           <div className='column is-half'>1</div>
           <div className='column is-half'>

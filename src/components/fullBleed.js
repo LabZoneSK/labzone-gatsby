@@ -8,11 +8,16 @@ const FullBleedDiv = styled.div`
   overflow: hidden;
   grid-column: 1 / 4;
 
+  background: ${props => props.color};
+
   & img {
     width: 100%;
   }
 `
 
 export default function FullBleed(props) {
-  return <FullBleedDiv>{props.children}</FullBleedDiv>
+
+  const { children, color } = props
+
+  return <FullBleedDiv color={color}>{children}</FullBleedDiv>
 }

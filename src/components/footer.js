@@ -1,8 +1,11 @@
 import React from 'react'
+
+/** Emotion / Styling */
 import styled from '@emotion/styled'
+import { color } from '../utils/color'
 
 const StyledFooter = styled.footer`
-  background-color: #00a9bb;
+  background-color: ${color.dark};
   margin-top: 3rem;
 `
 

@@ -13,7 +13,7 @@ const HolyGrailMain = styled.main`
   display: grid;
   grid-template-columns: 1fr min(85ch, 100%) 1fr;
 
-  & > * {
+  & > .content-section {
     grid-column: 2;
   }
 `

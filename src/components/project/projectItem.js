@@ -13,7 +13,7 @@ const ProjectItemWrapper = styled.div`
     display: block;
     content: " ";
     background-color: ${color.primary};
-    height: 1px;
+    height: 3px;
     width: 33%;
     position: relative;
     top: 3rem;
