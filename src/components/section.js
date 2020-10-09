@@ -3,10 +3,15 @@ import styled from "@emotion/styled"
 
 import { device } from "../utils/device"
 
+const StyledSection = styled.section`
+  margin-bottom: 3rem;
+`
+
 const SectionTitle = styled.h2`
   color: #00a9bb;
   font-size: 1.6em;
   font-weight: 700;
+  margin-bottom: 1.6rem;
 
   :before {
     display: block;
@@ -28,10 +33,10 @@ export default function Section(props) {
   const { title, children } = props
 
   return (
-    <section>
+    <StyledSection>
       <SectionTitle>{title}</SectionTitle>
 
       {children}
-    </section>
+    </StyledSection>
   )
 }
