@@ -20,6 +20,11 @@ const HeroTitle = styled.h1`
     width: 50%;
   }
 `
+const HeroSubTitle = styled.p`
+  font-weight: 200;
+  font-size: 1.3rem;
+  color: white;
+`
 
 export default function Hero (props) {
   const { title, subtitle, image, children, isRounded } = props
@@ -33,7 +38,7 @@ export default function Hero (props) {
               <HeroTitle className='title has-text-white'>
                 {parse(title)}
               </HeroTitle>
-              <h2 className='subtitle has-text-white'>Primary bold subtitle</h2>
+              <HeroSubTitle>{parse(subtitle)}</HeroSubTitle>
             </>
           )}
 

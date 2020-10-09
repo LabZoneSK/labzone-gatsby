@@ -16,8 +16,8 @@ export default function Home ({ data }) {
     <Layout>
       <FullBleed>
         <Hero
-          title='Virtuálne tímy<br/>pre váš reálny úspech.'
-          subtitle=''
+          title='We build virtual teams<br/>for your real success.'
+          subtitle='Using code, design and almost any other IT tool<br/>to solve your business challenges. Exclusively remote.'
           image='/images/lead-image.jpg'
         />
       </FullBleed>
@@ -64,7 +64,9 @@ export default function Home ({ data }) {
       <FullBleed color={color.dark}>
         <div className='grid-container'>
           <Section title='Technologies we use'>
-            <p className='has-text-white'>Here will be several icons of technologies from our stack</p>
+            <p className='has-text-white'>
+              Here will be several icons of technologies from our stack
+            </p>
           </Section>
         </div>
       </FullBleed>
@@ -83,9 +85,12 @@ export default function Home ({ data }) {
         </Hero>
       </FullBleed>
 
-      <Section title='Spojte sa s nami' className='container'>
+      <Section title='Connect with us' className='container'>
         <div className='columns'>
-          <div className='column is-half'>1</div>
+          <div className='column is-half'>
+            Got questions?<br/>
+            Contact us directly at info@labzone.sk
+          </div>
           <div className='column is-half'>
             <strong>LabZone s.r.o.</strong>
             <p>
@@ -103,11 +108,6 @@ export default function Home ({ data }) {
               IČ DPH: SK2120461266
             </p>
 
-            <p className='mt-3'>
-              + 421 948 272 880
-              <br />
-              info@labzone.sk
-            </p>
           </div>
         </div>
       </Section>
