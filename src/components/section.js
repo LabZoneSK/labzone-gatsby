@@ -4,17 +4,9 @@ import styled from "@emotion/styled"
 import { device } from "../utils/device"
 import { color } from "../utils/color"
 
-const StyledSection = styled.section`
-  padding: 3rem 0 3rem 0;
-  `
-
-const SectionTitle = styled.h2`
-  color: #00a9bb;
-  font-size: 1.6em;
-  font-weight: 700;
-  margin-bottom: 1.6rem;
-
-  :before {
+/** Ciarocka :)
+ 
+:before {
     display: block;
     content: " ";
     background-color: ${color.primary};
@@ -25,6 +17,17 @@ const SectionTitle = styled.h2`
     right: 1em;
     border-radius:25%;
   }
+
+ */
+const StyledSection = styled.section`
+  padding: 3rem 0 3rem 0;
+  `
+
+const SectionTitle = styled.h2`
+  color: #00a9bb;
+  font-size: 1.6em;
+  font-weight: 700;
+  margin-bottom: 1.6rem;
 
   @media ${device.laptop} {
     font-size: 2.5em;
