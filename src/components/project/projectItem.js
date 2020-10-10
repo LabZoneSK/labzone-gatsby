@@ -58,7 +58,7 @@ export default function Projectitem(props) {
                 />
               ))}
           </ProjectTechnologiesWrapper>
-          <Link className="button is-primary is-rounded" to={slug}>Read more</Link>
+          <Link className="button is-primary is-rounded" to={`/${slug}`}>Read more</Link>
         </div>
         <div className="column is-half">
           <img src={`/images/${featured}`} alt="" />
