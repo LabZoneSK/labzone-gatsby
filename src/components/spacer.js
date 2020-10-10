@@ -27,13 +27,16 @@ const SpacerSubtitle = styled.p`
 `
 
 export default function Spacer(props) {
-  const { title, subtitle } = props
+  const { title, subtitle, children } = props
 
   return (
     <div className="columns">
       <div className="column is-half mx-5-mobile">
         <SpacerTitle>{title}</SpacerTitle>
         <SpacerSubtitle>{subtitle}</SpacerSubtitle>
+      </div>
+      <div className="column is-half mx-5-mobile">
+        {children}
       </div>
     </div>
   )

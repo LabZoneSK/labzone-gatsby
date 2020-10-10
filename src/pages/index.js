@@ -44,7 +44,7 @@ export default function Home({ data }) {
         title="We build virtual teams"
         description="Using code, design and almost any other IT tool<br/>to solve your business challenges. Exclusively remote."
       />
-      
+
       <FullBleed>
         <Hero
           title="We build virtual teams<br/>for your real success."
@@ -128,7 +128,27 @@ export default function Home({ data }) {
             title="We build community"
             subtitle="In addition to various passion projects, we strive to build a solid
           community around design and information technology."
-          />
+          >
+            <div className="mt-3 is-pulled-right">
+              <div className="columns is-vcentered">
+                <div className="column is-one-fifth">
+                  <Icon source="/images/icons/github.svg" size="md" />
+                </div>
+                <div className="column pt-1">
+                  <a href="https://github.com/LabZoneSK" className="has-text-white is-size-5">View repos</a>
+                </div>
+              </div>
+
+              <div className="columns is-vcentered">
+                <div className="column is-one-fifth">
+                  <Icon source="/images/icons/discord.svg" size="md" />
+                </div>
+                <div className="column pt-1">
+                  <a href="https://discord.gg/XmBm8K9" className="has-text-white is-size-5">Join to Discord</a>
+                </div>
+              </div>
+            </div>
+          </Spacer>
         </Hero>
       </FullBleed>
 
