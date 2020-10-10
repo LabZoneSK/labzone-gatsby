@@ -4,7 +4,6 @@ import styled from "@emotion/styled"
 
 const FullBleedDiv = styled.div`
   width: 100%;
-  max-height: 500px;
   overflow: hidden;
   grid-column: 1 / 4;
 

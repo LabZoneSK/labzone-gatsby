@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 /** Emotion & Styling */
 import styled from "@emotion/styled"
 import { color } from "../../utils/color"
-import { device } from '../../utils/device'
+import { device } from "../../utils/device"
 
 /** Components */
 import Icon from "../icon"
@@ -14,17 +14,6 @@ const ProjectItemWrapper = styled.div`
 
   @media ${device.laptop} {
     padding: 4rem 0;
-  }
-
-  &:after {
-    display: block;
-    content: " ";
-    background-color: ${color.primary};
-    height: 3px;
-    width: 33%;
-    position: relative;
-    top: 3rem;
-    left: 33%;
   }
 `
 
@@ -46,9 +35,13 @@ export default function Projectitem(props) {
     <ProjectItemWrapper>
       <div className="columns column-reverse-mobile">
         <div className="column is-half has-text-centered-mobile">
-          <ProjectItemTitle className="has-text-centered-mobile">{name}</ProjectItemTitle>
+          <ProjectItemTitle className="has-text-centered-mobile">
+            {name}
+          </ProjectItemTitle>
 
-          <ProjectItemDescription className="has-text-centered-mobile">{description}</ProjectItemDescription>
+          <ProjectItemDescription className="has-text-centered-mobile">
+            {description}
+          </ProjectItemDescription>
           <ProjectTechnologiesWrapper>
             {technologies &&
               technologies.map(technology => (
@@ -58,7 +51,9 @@ export default function Projectitem(props) {
                 />
               ))}
           </ProjectTechnologiesWrapper>
-          <Link className="button is-primary is-rounded" to={`/${slug}`}>Read more</Link>
+          <Link className="button is-primary is-rounded" to={`/${slug}`}>
+            Read more
+          </Link>
         </div>
         <div className="column is-half">
           <img src={`/images/${featured}`} alt="" />

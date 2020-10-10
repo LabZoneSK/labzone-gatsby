@@ -16,6 +16,8 @@ import Spacer from "../components/spacer"
 import Card from "../components/card"
 import Icon from "../components/icon"
 
+import SeoHelmet from "../components/seo/seoHelmet"
+
 import ProjectsList from "../components/project/projectsList"
 import { color } from "../utils/color"
 
@@ -38,6 +40,11 @@ export default function Home({ data }) {
 
   return (
     <Layout>
+      <SeoHelmet
+        title="We build virtual teams"
+        description="Using code, design and almost any other IT tool<br/>to solve your business challenges. Exclusively remote."
+      />
+      
       <FullBleed>
         <Hero
           title="We build virtual teams<br/>for your real success."
@@ -54,7 +61,9 @@ export default function Home({ data }) {
                 source="/images/icons/svg/labzone-software-development.svg"
                 size="lg"
               />
-              <HeaderWithBottomLine className="mb-3">Software Development</HeaderWithBottomLine>
+              <HeaderWithBottomLine className="mb-3">
+                Software Development
+              </HeaderWithBottomLine>
               <ul>
                 <li>Web sites / apps</li>
                 <li>E-commerce</li>
@@ -68,7 +77,9 @@ export default function Home({ data }) {
                 source="/images/icons/svg/labzone-web-design.svg"
                 size="lg"
               />
-              <HeaderWithBottomLine className="mb-3">UX / UI Desgin</HeaderWithBottomLine>
+              <HeaderWithBottomLine className="mb-3">
+                UX / UI Desgin
+              </HeaderWithBottomLine>
               <ul>
                 <li>User eXperience</li>
                 <li>User Interface</li>
@@ -83,7 +94,9 @@ export default function Home({ data }) {
                 source="/images/icons/svg/labzone-digital-marketing.svg"
                 size="lg"
               />
-              <HeaderWithBottomLine className="mb-3">SEO &amp; Marketing</HeaderWithBottomLine>
+              <HeaderWithBottomLine className="mb-3">
+                SEO &amp; Marketing
+              </HeaderWithBottomLine>
               <ul>
                 <li>Banners</li>
                 <li>Marketing Support</li>
@@ -106,7 +119,7 @@ export default function Home({ data }) {
       </FullBleed>
 
       <Section title="Some of our projects">
-        <ProjectsList projects={projects} hasShowMore/>
+        <ProjectsList projects={projects} hasShowMore />
       </Section>
 
       <FullBleed>
