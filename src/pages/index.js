@@ -1,7 +1,7 @@
 import React from "react"
 
 /** Gatsby */
-import { graphql } from 'gatsby'
+import { graphql } from "gatsby"
 
 /** Components */
 import Layout from "../components/layout"
@@ -16,8 +16,7 @@ import ProjectsList from "../components/project/projectsList"
 import { color } from "../utils/color"
 
 export default function Home({ data }) {
-
-  const projects = data.allMongodbLabzoneSiteProjects.edges;
+  const projects = data.allMongodbLabzoneSiteProjects.edges
 
   return (
     <Layout>
@@ -32,7 +31,10 @@ export default function Home({ data }) {
       <Section title="We can help you with">
         <div className="columns mt-5 mb-3">
           <div className="column has-text-centered">
-            <Icon source="/images/icons/svg/seo.svg" size="lg" />
+            <Icon
+              source="/images/icons/svg/labzone-software-development.svg"
+              size="lg"
+            />
             <h3 className="has-text-weight-bold mb-3">Software Development</h3>
             <ul>
               <li>Web sites / apps</li>
@@ -41,7 +43,7 @@ export default function Home({ data }) {
             </ul>
           </div>
           <div className="column has-text-centered">
-            <Icon source="/images/icons/svg/seo.svg" size="lg" />
+            <Icon source="/images/icons/svg/labzone-web-design.svg" size="lg" />
             <h3 className="has-text-weight-bold mb-3">UX / UI Desgin</h3>
             <ul>
               <li>User eXperience</li>
@@ -50,19 +52,22 @@ export default function Home({ data }) {
           </div>
           <div className="column has-text-centered">
             <Icon source="/images/icons/svg/seo.svg" size="lg" />
-            <h3 className="has-text-weight-bold mb-3">SEO</h3>
+            <h3 className="has-text-weight-bold mb-3">Outsourcing</h3>
             <ul>
               <li>Search Engine Optimisation</li>
               <li>Analytics</li>
             </ul>
           </div>
           <div className="column has-text-centered">
-            <Icon source="/images/icons/svg/seo.svg" size="lg" />
-            <h3 className="has-text-weight-bold mb-3">Marketing Support</h3>
+            <Icon
+              source="/images/icons/svg/labzone-digital-marketing.svg"
+              size="lg"
+            />
+            <h3 className="has-text-weight-bold mb-3">SEO &amp; Marketing</h3>
             <ul>
-              <li>On-line / Off-line</li>
-              <li>Newsletters</li>
               <li>Banners</li>
+              <li>Marketing Support</li>
+              <li>On-line &amp; Off-line</li>
             </ul>
           </div>
         </div>
@@ -71,7 +76,10 @@ export default function Home({ data }) {
       <FullBleed color={color.dark}>
         <div className="grid-container">
           <Section title="Technologies we use">
-            <p>Lorem Ipsum</p>
+            <p className="has-text-white">
+              Our software speacilists will always adapt to your needs.
+              Here are some of the technologies we work with:
+            </p>
           </Section>
         </div>
       </FullBleed>

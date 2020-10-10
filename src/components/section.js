@@ -18,11 +18,12 @@ const SectionTitle = styled.h2`
     display: block;
     content: " ";
     background-color: ${color.primary};
-    height: 3px;
+    height: 2px;
     width: 25px;
     position: relative;
     top: 0.95em;
     right: 1em;
+    border-radius:25%;
   }
 
   @media ${device.laptop} {
