@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 
 /** Emotion and Styling */
 import styled from "@emotion/styled"
@@ -6,11 +7,10 @@ import styled from "@emotion/styled"
 /** Components */
 import ProjectItem from "./projectItem"
 
-import Button from "../button"
 import Center from "../center"
 
 export default function Projectslist(props) {
-  const { projects } = props
+  const { projects, hasShowMore } = props
 
   if (!projects) {
     return
@@ -28,9 +28,13 @@ export default function Projectslist(props) {
         />
       ))}
 
-      <Center className="mt-5">
-        <Button>More projects</Button>
-      </Center>
+      {hasShowMore && (
+        <Center className="mt-5">
+          <Link className="button is-primary is-rounded" to='/portfolio'>
+            Show me portfolio
+          </Link>
+        </Center>
+      )}
     </div>
   )
 }

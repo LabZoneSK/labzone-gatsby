@@ -39,7 +39,7 @@ export default function Section(props) {
 
   return (
     <StyledSection className='content-section'>
-      <SectionTitle>{title}</SectionTitle>
+      <SectionTitle className="has-text-centered-mobile">{title}</SectionTitle>
 
       {children}
     </StyledSection>

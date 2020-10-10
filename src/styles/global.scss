@@ -1,7 +1,9 @@
 @charset "utf-8";
 
-$primary: #15B0D4;
-$link: #15B0D4;
+$primary: #15b0d4;
+$link: #15b0d4;
+
+$mobile: "768px";
 
 @import "~bulma/bulma.sass";
 
@@ -12,9 +14,27 @@ html {
 .grid-container {
   width: 100vw;
   display: grid;
-  grid-template-columns: 1fr  #{"min(85ch, 100%)"} 1fr;
+  grid-template-columns: 1fr #{"min(90ch, 100%)"} 1fr;
 
   & > .content-section {
     grid-column: 2;
+
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+    @media only screen and (min-width: 1024px) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+.column-reverse-mobile {
+  display: flex;
+  flex-direction: column-reverse;
+
+  @media only screen and (min-width: $mobile) {
+    display: flex;
+    flex-direction: row;
   }
 }

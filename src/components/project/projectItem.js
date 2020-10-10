@@ -1,15 +1,20 @@
 import React from "react"
 import { Link } from "gatsby"
 
+/** Emotion & Styling */
 import styled from "@emotion/styled"
 import { color } from "../../utils/color"
+import { device } from '../../utils/device'
 
 /** Components */
-import Button from "../button"
 import Icon from "../icon"
 
 const ProjectItemWrapper = styled.div`
-  padding: 4rem 0;
+  padding: 2rem 0 4rem 0;
+
+  @media ${device.laptop} {
+    padding: 4rem 0;
+  }
 
   &:after {
     display: block;
@@ -39,18 +44,17 @@ export default function Projectitem(props) {
 
   return (
     <ProjectItemWrapper>
-      <div className="columns">
-        <div className="column is-half">
-          <ProjectItemTitle>{name}</ProjectItemTitle>
+      <div className="columns column-reverse-mobile">
+        <div className="column is-half has-text-centered-mobile">
+          <ProjectItemTitle className="has-text-centered-mobile">{name}</ProjectItemTitle>
 
-          <ProjectItemDescription>{description}</ProjectItemDescription>
+          <ProjectItemDescription className="has-text-centered-mobile">{description}</ProjectItemDescription>
           <ProjectTechnologiesWrapper>
             {technologies &&
               technologies.map(technology => (
                 <Icon
                   source={`/images/technologies/${technology}.svg`}
                   size="sm"
-                  isGrayscale
                 />
               ))}
           </ProjectTechnologiesWrapper>

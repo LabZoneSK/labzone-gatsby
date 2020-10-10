@@ -106,7 +106,7 @@ export default function Home({ data }) {
       </FullBleed>
 
       <Section title="Some of our projects">
-        <ProjectsList projects={projects} />
+        <ProjectsList projects={projects} hasShowMore/>
       </Section>
 
       <FullBleed>
