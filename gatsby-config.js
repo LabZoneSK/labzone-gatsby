@@ -3,7 +3,7 @@
  *
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
-require('dotenv').config()
+require("dotenv").config()
 
 module.exports = {
   /* Your site config here */
@@ -41,14 +41,22 @@ module.exports = {
       options: {
         dbName: `labzone_site`,
         collection: [`projects`],
-        connectionString:
-          `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.fe7db.mongodb.net`,
+        connectionString: `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.fe7db.mongodb.net`,
         extraParams: {
           replicaSet: "Cluster0-shard-0",
           ssl: true,
           authSource: `admin`,
           retryWrites: true,
         },
+      },
+    },
+    {
+      resolve: `gatsby-source-cloudinary`,
+      options: {
+        cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+        apiKey: process.env.CLOUDINARY_API_KEY,
+        apiSecret: process.env.CLOUDINARY_API_SECRET,
+        resourceType: `image`,
       },
     },
   ],

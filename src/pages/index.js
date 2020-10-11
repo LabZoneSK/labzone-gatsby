@@ -37,6 +37,7 @@ const HeaderWithBottomLine = styled.h3`
 
 export default function Home({ data }) {
   const projects = data.allMongodbLabzoneSiteProjects.edges
+  const leadImage = data.cloudinaryMedia.secure_url
 
   return (
     <Layout>
@@ -49,7 +50,7 @@ export default function Home({ data }) {
         <Hero
           title="We build virtual teams<br/>for your real success."
           subtitle="Using code, design and almost any other IT tool<br/>to solve your business challenges. Exclusively remote."
-          image="/images/lead-image.jpg"
+          image={leadImage}
         />
       </FullBleed>
 
@@ -194,6 +195,13 @@ export const query = graphql`
           slug
         }
       }
+    }
+
+    cloudinaryMedia(public_id: {eq: "lead-image_mmclvp"}) {
+      secure_url
+      url
+      id
+      public_id
     }
   }
 `

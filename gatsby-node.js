@@ -27,9 +27,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-
-  console.log(result.data)
-
+  
   result.data.allMongodbLabzoneSiteProjects.edges.forEach(({ node }) => {
 
     createPage({
