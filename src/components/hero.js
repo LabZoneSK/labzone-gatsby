@@ -1,18 +1,21 @@
-import React from 'react'
-import parse from 'html-react-parser'
+import React from "react"
+import parse from "html-react-parser"
+
+import { graphql, useStaticQuery } from "gatsby"
+import BackgroundImage from "gatsby-background-image"
 
 /** Emotion */
-import styled from '@emotion/styled'
-import { device } from '../utils/device'
-
-const HeroSection = styled.section`
+import styled from "@emotion/styled"
+import { device } from "../utils/device"
+/*
+const HeroSection = styled()`
   margin-bottom: 3rem;
   background: ${props => `url(${props.image})`};
   background-repeat: no-repeat;
   background-size: cover;
 
-  ${props => props.isRounded && 'border-radius: 0 100px 0 100px'};
-`
+  ${props => props.isRounded && "border-radius: 0 100px 0 100px"};
+`*/
 
 const HeroTitle = styled.h1`
   @media ${device.laptop} {
@@ -26,16 +29,42 @@ const HeroSubTitle = styled.p`
   color: white;
 `
 
-export default function Hero (props) {
+export default function Hero(props) {
   const { title, subtitle, image, children, isRounded } = props
 
+  const data = useStaticQuery(
+    graphql`
+      query {
+        allImageSharp {
+          edges {
+            node {
+              fluid {
+                originalName
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    `
+  )
+
+  const imageFluid = data.allImageSharp.edges.find(edge => {
+    return edge.node.fluid.originalName == image
+  })
+
   return (
-    <HeroSection className='hero is-medium' image={image} isRounded={isRounded}>
-      <div className='hero-body'>
-        <div className='container'>
+    <BackgroundImage
+      Tag="section"
+      className="hero is-medium"
+      fluid={imageFluid.node.fluid}
+      backgroundColor={`#040e18`}
+    >
+      <div className="hero-body">
+        <div className="container">
           {title && (
             <>
-              <HeroTitle className='title has-text-white'>
+              <HeroTitle className="title has-text-white">
                 {parse(title)}
               </HeroTitle>
               <HeroSubTitle>{parse(subtitle)}</HeroSubTitle>
@@ -45,6 +74,6 @@ export default function Hero (props) {
           {children}
         </div>
       </div>
-    </HeroSection>
+    </BackgroundImage>
   )
 }

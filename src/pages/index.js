@@ -49,7 +49,7 @@ export default function Home({ data }) {
         <Hero
           title="We build virtual teams<br/>for your real success."
           subtitle="Using code, design and almost any other IT tool<br/>to solve your business challenges. Exclusively remote."
-          image='/images/lead-image.jpg'
+          image='lead-image.jpg'
         />
       </FullBleed>
 
@@ -123,7 +123,7 @@ export default function Home({ data }) {
       </Section>
 
       <FullBleed>
-        <Hero image="/images/community-home.jpg" isRounded>
+        <Hero image="community-home.jpg" isRounded>
           <Spacer
             title="We build community"
             subtitle="In addition to various passion projects, we strive to build a solid

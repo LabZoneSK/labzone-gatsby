@@ -5,8 +5,9 @@
  */
 require("dotenv").config()
 
+const path = require("path")
+
 module.exports = {
-  /* Your site config here */
   siteMetadata: {
     title: `Welcome to LabZone s.r.o.`,
   },
@@ -15,11 +16,20 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `src`,
         path: `${__dirname}/src/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: path.join(__dirname, `src`, `images`),
       },
     },
     {
