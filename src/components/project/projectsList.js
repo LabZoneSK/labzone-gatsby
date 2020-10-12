@@ -25,6 +25,7 @@ export default function Projectslist(props) {
           technologies={project.node.technologies}
           featured={project.node.featured}
           slug={project.node.slug}
+          key={project.node.name}
         />
       ))}
 

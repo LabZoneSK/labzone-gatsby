@@ -1,13 +1,16 @@
 import React from "react"
+
+/** Gatsby */
 import { Link } from "gatsby"
+import { graphql } from "gatsby"
 
 /** Emotion & Styling */
 import styled from "@emotion/styled"
-import { color } from "../../utils/color"
 import { device } from "../../utils/device"
 
 /** Components */
 import Icon from "../icon"
+import ImageFluid from "../imageFluid"
 
 const ProjectItemWrapper = styled.div`
   padding: 2rem 0 4rem 0;
@@ -48,6 +51,7 @@ export default function Projectitem(props) {
                 <Icon
                   source={`/images/technologies/${technology}.svg`}
                   size="sm"
+                  key={`icon-${technology}`}
                 />
               ))}
           </ProjectTechnologiesWrapper>
@@ -57,8 +61,19 @@ export default function Projectitem(props) {
         </div>
         <div className="column is-half">
           <img src={`/images/${featured}`} alt="" />
+          <ImageFluid originalName={featured} />
         </div>
       </div>
     </ProjectItemWrapper>
   )
 }
+
+export const query = graphql`
+  query($slug: String!) {
+    mongodbLabzoneSiteProjects(slug: { eq: $slug }) {
+      name
+      technologies
+      description
+    }
+  }
+`
