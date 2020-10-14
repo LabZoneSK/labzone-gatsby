@@ -117,11 +117,11 @@ export default function Home({ data }) {
               some of the technologies we work with:
             </p>
 
-            <div className="columns is-multiline mt-5">
+            <div className="columns is-multiline mt-5 is-mobile">
               {technologies &&
                 technologies.map(technnologyIcon => {
                   return (
-                    <div className="column is-one-fifth">
+                    <div className="column is-one-third-mobile is-one-fifth-desktop">
                       <Icon
                         source={technnologyIcon.node.relativePath}
                         alt=""
