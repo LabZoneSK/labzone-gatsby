@@ -60,8 +60,7 @@ export default function Projectitem(props) {
           </Link>
         </div>
         <div className="column is-half">
-          <img src={`/images/${featured}`} alt="" />
-          <ImageFluid originalName={featured} />
+          <ImageFluid originalName={featured} alt=""/>
         </div>
       </div>
     </ProjectItemWrapper>

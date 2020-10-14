@@ -17,6 +17,15 @@ const HeroSection = styled()`
   ${props => props.isRounded && "border-radius: 0 100px 0 100px"};
 `*/
 
+const StyledBackground = styled(BackgroundImage)`
+  &::before,
+  &::after {
+    ${({ isRounded }) => {
+      return isRounded ? "border-radius: 0 100px 0 100px" : ''
+    }}
+  }
+`
+
 const HeroTitle = styled.h1`
   @media ${device.laptop} {
     font-size: 3em;
@@ -38,9 +47,9 @@ export default function Hero(props) {
         allImageSharp {
           edges {
             node {
-              fluid {
+              fluid(quality: 80, maxWidth: 1920) {
                 originalName
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
@@ -54,11 +63,12 @@ export default function Hero(props) {
   })
 
   return (
-    <BackgroundImage
+    <StyledBackground
       Tag="section"
       className="hero is-medium"
       fluid={imageFluid.node.fluid}
       backgroundColor={`#040e18`}
+      isRounded={isRounded}
     >
       <div className="hero-body">
         <div className="container">
@@ -74,6 +84,6 @@ export default function Hero(props) {
           {children}
         </div>
       </div>
-    </BackgroundImage>
+    </StyledBackground>
   )
 }
