@@ -38,6 +38,8 @@ const HeaderWithBottomLine = styled.h3`
 export default function Home({ data }) {
   const projects = data.allMongodbLabzoneSiteProjects.edges
 
+  const technologies = data.allFile.edges
+
   return (
     <Layout>
       <SeoHelmet
@@ -49,7 +51,7 @@ export default function Home({ data }) {
         <Hero
           title="We build virtual teams<br/>for your real success."
           subtitle="Using code, design and almost any other IT tool<br/>to solve your business challenges. Exclusively remote."
-          image='lead-image.jpg'
+          image="lead-image.jpg"
         />
       </FullBleed>
 
@@ -114,6 +116,22 @@ export default function Home({ data }) {
               Our software speacilists will always adapt to your needs. Here are
               some of the technologies we work with:
             </p>
+
+            <div className="columns is-multiline mt-5">
+              {technologies &&
+                technologies.map(technnologyIcon => {
+                  return (
+                    <div className="column is-one-fifth">
+                      <Icon
+                        source={technnologyIcon.node.relativePath}
+                        alt=""
+                        size="md"
+                        isWhite
+                      />
+                    </div>
+                  )
+                })}
+            </div>
           </Section>
         </div>
       </FullBleed>
@@ -135,7 +153,12 @@ export default function Home({ data }) {
                   <Icon source="/images/icons/github.svg" size="md" />
                 </div>
                 <div className="column pt-1">
-                  <a href="https://github.com/LabZoneSK" className="has-text-white is-size-5">View repos</a>
+                  <a
+                    href="https://github.com/LabZoneSK"
+                    className="has-text-white is-size-5"
+                  >
+                    View repos
+                  </a>
                 </div>
               </div>
 
@@ -144,7 +167,12 @@ export default function Home({ data }) {
                   <Icon source="/images/icons/discord.svg" size="md" />
                 </div>
                 <div className="column pt-1">
-                  <a href="https://discord.gg/XmBm8K9" className="has-text-white is-size-5">Join to Discord</a>
+                  <a
+                    href="https://discord.gg/XmBm8K9"
+                    className="has-text-white is-size-5"
+                  >
+                    Join to Discord
+                  </a>
                 </div>
               </div>
             </div>
@@ -192,6 +220,14 @@ export const query = graphql`
           description
           featured
           slug
+        }
+      }
+    }
+
+    allFile(filter: { relativeDirectory: { eq: "images/technologies" } }) {
+      edges {
+        node {
+          relativePath
         }
       }
     }
