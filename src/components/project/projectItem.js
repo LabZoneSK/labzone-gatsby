@@ -25,12 +25,27 @@ const ProjectItemTitle = styled.h2`
   font-size: 1.6rem;
   margin-bottom: 1.6rem;
 `
-const ProjectItemDescription = styled.p``
+const ProjectItemDescription = styled.p`
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+`
 
 const ProjectTechnologiesWrapper = styled.div`
   margin-bottom: 1.6rem;
 `
 
+/** Ak by sme chceli aj ikonky
+ <ProjectTechnologiesWrapper>
+            {technologies &&
+              technologies.map(technology => (
+                <Icon
+                  source={`/images/technologies/${technology}.svg`}
+                  size="sm"
+                  key={`icon-${technology}`}
+                />
+              ))}
+          </ProjectTechnologiesWrapper>
+ */
 export default function Projectitem(props) {
   const { name, description, technologies, featured, slug } = props
 
@@ -45,22 +60,13 @@ export default function Projectitem(props) {
           <ProjectItemDescription className="has-text-centered-mobile">
             {description}
           </ProjectItemDescription>
-          <ProjectTechnologiesWrapper>
-            {technologies &&
-              technologies.map(technology => (
-                <Icon
-                  source={`/images/technologies/${technology}.svg`}
-                  size="sm"
-                  key={`icon-${technology}`}
-                />
-              ))}
-          </ProjectTechnologiesWrapper>
-          <Link className="button is-primary is-rounded" to={`/${slug}`}>
+
+          <Link className="btn is-primary" to={`/${slug}`}>
             Read more
           </Link>
         </div>
         <div className="column is-half">
-          <ImageFluid originalName={featured} alt=""/>
+          <ImageFluid originalName={featured} alt="" />
         </div>
       </div>
     </ProjectItemWrapper>

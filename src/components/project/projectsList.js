@@ -31,7 +31,7 @@ export default function Projectslist(props) {
 
       {hasShowMore && (
         <Center className="mt-5">
-          <Link className="button is-secondary is-rounded" to='/portfolio'>
+          <Link className="btn is-tertiary" to='/portfolio'>
             Show me portfolio
           </Link>
         </Center>
