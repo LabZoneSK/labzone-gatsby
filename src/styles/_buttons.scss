@@ -1,0 +1,50 @@
+@import "colors";
+
+.btn {
+  border: none;
+  border-radius: 20px;
+
+  padding: calc(0.65em - 1px) calc(1em + 0.25em);
+
+  white-space: nowrap;
+  &.is-primary {
+    background-color: $primary;
+    border: none;
+    color: #fff;
+
+    &:hover {
+        background-color: $primary-accent;
+    }
+  }
+
+  &.is-secondary {
+    background-color: $secondary;
+    border: none;
+    color: #fff;
+
+    &:hover {
+        background-color: $secondary-accent;
+    }
+  }
+
+  &.is-tertiary {
+    background: transparent;
+    border: 1px solid $primary;
+    color: $primary; 
+
+    &:hover {
+        border: 2px solid $primary;
+        padding: calc(0.65em - 2px) calc(1em + 0.25em);
+    }
+  }
+
+  &.is-ghost {
+    background: transparent;
+    border: none;
+    color: $primary; 
+
+    &:hover {
+        text-decoration: underline;
+    }
+  }
+}

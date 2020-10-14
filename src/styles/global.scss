@@ -1,14 +1,14 @@
 @charset "utf-8";
 
-$primary: #15b0d4;
-$link: #15b0d4;
+@import "colors";
+@import "buttons";
 
 $mobile: "768px";
 
 @import "~bulma/bulma.sass";
 
 html {
-    font-family: 'Lato';
+  font-family: "Lato";
   color: #202331;
 }
 
@@ -41,6 +41,6 @@ html {
 }
 
 .is-secondary {
-    background-color: #85A8B8;
-    color: white;
+  background-color: #85a8b8;
+  color: white;
 }

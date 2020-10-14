@@ -55,7 +55,7 @@ export default function Projectitem(props) {
                 />
               ))}
           </ProjectTechnologiesWrapper>
-          <Link className="button is-primary is-rounded" to={`/${slug}`}>
+          <Link className="btn is-primary" to={`/${slug}`}>
             Read more
           </Link>
         </div>
