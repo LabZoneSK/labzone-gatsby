@@ -10,7 +10,7 @@
     npm install -g gatsby-cli
     ```
 
-2.  **Clone this repor and CD into it**
+2.  **Clone this repo and CD into it**
 
     ```shell
     npm install
@@ -21,7 +21,7 @@
     ```shell
     cp temp.env .evn
     ```
-    *ask repor ownder for credentials
+    *ask repo ownder for credentials
 
 
 ## Daily development
