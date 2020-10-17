@@ -44,7 +44,7 @@
     Open the `my-hello-world-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
 
-If you need more info on gatsby, see README_GATSBY.md
+If you need more info on gatsby, see [README_GATSBY.md](README_GATSBY.md)
 
 
 
