@@ -59,7 +59,7 @@ export default function Hero(props) {
   )
 
   const imageFluid = data.allImageSharp.edges.find(edge => {
-    return edge.node.fluid.originalName == image
+    return edge.node.fluid.originalName === image
   })
 
   return (
