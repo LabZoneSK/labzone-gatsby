@@ -1,34 +1,75 @@
 import React from "react"
 
 /** Emotion & Styling */
-import styled from "@emotion/styled"
-import { color } from "../utils/color"
+import styled from "@emotion/styled";
+import { css } from "@emotion/core";
 
-const CardWrapper = styled.div`
-  background-color: ${color.accentDark};
-  border-radius: 6px;
-  color: white;
-  padding: 1rem;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+import Icon from "../components/icon"
+
+const HeaderWithBottomLine = styled.h3`
+  font-weight: 600;
+
+  &:after {
+    content: " ";
+    display: block;
+    height: 0.1rem;
+    background-color: #fff;
+    width: 50px;
+    position: relative;
+    left: calc(50% - 25px);
+    top: 0.5rem;
+  }
+`
+
+const CardWrapperVariant = props => props.isDark ? 
+css`
+  background-color: #fff;
+
+  li {
+    color: #222
+  }
+` : 
+css`
+  background-color: var(--accent-dark);
+  color: #fff;
 
   img {
     filter: invert(95%);
   }
+
+  li {
+    color: #eee
+  }
 `
-const CardWrapperDark = styled.div`
-  background-color: #fff;
-  border-radius: 6px;
+const CardWrapper = styled.div`
+  border-radius: var(--global-border-radius);
   padding: 1rem;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  ${CardWrapperVariant};
 `
 
 export default function Card(props) {
-  const { isDark, children } = props
+  const { service } = props;
 
-  if(isDark) {
-    return <CardWrapperDark>{children}</CardWrapperDark>
-  }
-  return <CardWrapper>{children}</CardWrapper>
+  return (
+    <CardWrapper>
+      <Icon
+        source={service.icon}
+        size="lg"
+      />
+      <HeaderWithBottomLine className="mb-3">
+        {service.title}
+      </HeaderWithBottomLine>
+      <ul>
+        {service.list &&
+          service.list.map((item,i) => {
+            return (
+              <li key={i}>
+                {item}
+              </li>
+            )
+          })
+        }
+      </ul>
+    </CardWrapper>
+  )
 }

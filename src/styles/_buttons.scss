@@ -2,7 +2,7 @@
 
 .btn {
   border: none;
-  border-radius: 20px;
+  border-radius: var(--global-border-radius);
 
   padding: calc(0.65em - 1px) calc(1em + 0.25em);
 

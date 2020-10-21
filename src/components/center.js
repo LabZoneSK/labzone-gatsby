@@ -9,5 +9,5 @@ const CenterWrapper = styled.div`
 `
 
 export default function Center (props) {
-  return <CenterWrapper className={props.className}r>{props.children}</CenterWrapper>
+  return <CenterWrapper className={props.className}>{props.children}</CenterWrapper>
 }

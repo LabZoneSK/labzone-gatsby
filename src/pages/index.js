@@ -3,9 +3,6 @@ import React from "react"
 /** Gatsby */
 import { graphql } from "gatsby"
 
-/** Emotion & Styling */
-import styled from "@emotion/styled"
-
 /** Components */
 import Layout from "../components/layout"
 import Hero from "../components/hero"
@@ -21,24 +18,40 @@ import SeoHelmet from "../components/seo/seoHelmet"
 import ProjectsList from "../components/project/projectsList"
 import { color } from "../utils/color"
 
-const HeaderWithBottomLine = styled.h3`
-  &:after {
-    content: " ";
-    display: block;
-    height: 0.1rem;
-    background-color: #fff;
-    width: 50px;
-
-    position: relative;
-    left: calc(50% - 25px);
-    top: 0.5rem;
-  }
-`
-
 export default function Home({ data }) {
   const projects = data.allMongodbLabzoneSiteProjects.edges
 
   const technologies = data.allFile.edges
+
+  const services = [
+    {
+      title: "Software Development",
+      icon: "/images/icons/svg/labzone-software-development.svg",
+      list: [
+        "Web sites / apps",
+        "E-commerce",
+        "Mobile applications"
+      ]
+    },
+    {
+      title: "UX / UI Desgin",
+      icon: "/images/icons/svg/labzone-web-design.svg",
+      list: [
+        "User eXperience",
+        "User Interface",
+        "Copywritting"
+      ]
+    },
+    {
+      title: "SEO & Marketing",
+      icon: "/images/icons/svg/labzone-digital-marketing.svg",
+      list: [
+        "Banners",
+        "Marketing Support",
+        "On-line & Off-line"
+      ]
+    }
+  ]
 
   return (
     <Layout>
@@ -57,55 +70,18 @@ export default function Home({ data }) {
 
       <Section title="We can help you with">
         <div className="columns mt-5 mb-3">
-          <div className="column has-text-centered">
-            <Card>
-              <Icon
-                source="/images/icons/svg/labzone-software-development.svg"
-                size="lg"
-              />
-              <HeaderWithBottomLine className="mb-3">
-                Software Development
-              </HeaderWithBottomLine>
-              <ul>
-                <li>Web sites / apps</li>
-                <li>E-commerce</li>
-                <li>Mobile applications</li>
-              </ul>
-            </Card>
-          </div>
-          <div className="column has-text-centered">
-            <Card>
-              <Icon
-                source="/images/icons/svg/labzone-web-design.svg"
-                size="lg"
-              />
-              <HeaderWithBottomLine className="mb-3">
-                UX / UI Desgin
-              </HeaderWithBottomLine>
-              <ul>
-                <li>User eXperience</li>
-                <li>User Interface</li>
-                <li>Copywritting</li>
-              </ul>
-            </Card>
-          </div>
 
-          <div className="column has-text-centered">
-            <Card>
-              <Icon
-                source="/images/icons/svg/labzone-digital-marketing.svg"
-                size="lg"
-              />
-              <HeaderWithBottomLine className="mb-3">
-                SEO &amp; Marketing
-              </HeaderWithBottomLine>
-              <ul>
-                <li>Banners</li>
-                <li>Marketing Support</li>
-                <li>On-line &amp; Off-line</li>
-              </ul>
-            </Card>
-          </div>
+          {services &&
+            services.map((service,i) => {
+              return (
+                <div 
+                  className="column has-text-centered"
+                  key={i}
+                >
+                  <Card service={service} />
+                </div>
+              )
+            })}
         </div>
       </Section>
 
@@ -119,9 +95,12 @@ export default function Home({ data }) {
 
             <div className="columns is-multiline mt-5 is-mobile">
               {technologies &&
-                technologies.map(technnologyIcon => {
+                technologies.map((technnologyIcon,i) => {
                   return (
-                    <div className="column is-one-third-mobile is-one-fifth-desktop">
+                    <div 
+                      className="column is-one-third-mobile is-one-fifth-desktop"
+                      key={i}
+                    >
                       <Icon
                         source={technnologyIcon.node.relativePath}
                         alt=""
