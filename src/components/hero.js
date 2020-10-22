@@ -21,7 +21,7 @@ const StyledBackground = styled(BackgroundImage)`
   &::before,
   &::after {
     ${({ isRounded }) => {
-      return isRounded ? "border-radius: 0 100px 0 100px" : ''
+      return isRounded ? "border-radius: 0 var(--global-border-radius) 0 var(--global-border-radius)" : ''
     }}
   }
 `
@@ -59,7 +59,7 @@ export default function Hero(props) {
   )
 
   const imageFluid = data.allImageSharp.edges.find(edge => {
-    return edge.node.fluid.originalName == image
+    return edge.node.fluid.originalName === image
   })
 
   return (
@@ -68,7 +68,6 @@ export default function Hero(props) {
       className="hero is-medium"
       fluid={imageFluid.node.fluid}
       backgroundColor={`#040e18`}
-      isRounded={isRounded}
     >
       <div className="hero-body">
         <div className="container">

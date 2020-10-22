@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "@emotion/styled"
-import { css } from "@emotion/core"
+// import { css } from "@emotion/core"
 
 const handleIconSize = size => {
   switch (size) {
@@ -27,3 +27,4 @@ export default function Icon(props) {
 
   return <StyledIcon size={size} src={source} isGrayscale={isGrayscale} isWhite={isWhite} />
 }
+

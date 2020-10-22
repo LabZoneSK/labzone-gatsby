@@ -7,7 +7,7 @@ import Img from "gatsby-image"
 import styled from "@emotion/styled"
 
 /** Components */
-import Icon from "../components/icon"
+// import Icon from "../components/icon"
 
 const CustomizedNav = styled.nav`
   box-shadow: 0 2px 0 0 #f5f5f5;
@@ -49,16 +49,15 @@ export default function Navbar() {
           <span>LabZone</span>
         </Link>
 
-        <a
-          role="button"
-          className="navbar-burger"
+        <button
+          className="navbar-burger button"
           aria-label="menu"
           aria-expanded="false"
         >
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
-        </a>
+        </button>
       </div>
       <div className="navbar-menu">
         <div className="navbar-end">
@@ -73,3 +72,4 @@ export default function Navbar() {
     </CustomizedNav>
   )
 }
+
