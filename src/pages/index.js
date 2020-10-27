@@ -21,6 +21,8 @@ import { color } from "../utils/color"
 /** Icons */
 import LinkedIn from "../images/svg/linkedin.inline.svg"
 import Twitter from "../images/svg/twitter.inline.svg"
+import Discord from "../images/svg/discord.inline.svg"
+import Github from "../images/svg/github.inline.svg"
 
 export default function Home({ data }) {
   const projects = data.allMongodbLabzoneSiteProjects.edges
@@ -114,33 +116,55 @@ export default function Home({ data }) {
             subtitle="In addition to various passion projects, we strive to build a solid
           community around design and information technology."
           >
-            <div className="mt-3 is-pulled-right">
-              <div className="columns is-vcentered">
-                <div className="column is-one-fifth">
-                  <Icon source="/images/icons/github.svg" size="md" />
+            <div className="is-hidden-mobile">
+              <div className="mt-3 is-pulled-right">
+                <div className="columns is-vcentered">
+                  <div className="column is-one-fifth">
+                  <Github className="p-4" />
+                  </div>
+                  <div className="column pt-1">
+                    <a
+                      href="https://github.com/LabZoneSK"
+                      className="has-text-white is-size-5"
+                    >
+                      View repos
+                    </a>
+                  </div>
                 </div>
-                <div className="column pt-1">
-                  <a
-                    href="https://github.com/LabZoneSK"
-                    className="has-text-white is-size-5"
-                  >
-                    View repos
-                  </a>
+
+                <div className="columns is-vcentered">
+                  <div className="column is-one-fifth">
+                  <Discord className="p-4" />
+                  </div>
+                  <div className="column pt-1">
+                    <a
+                      href="https://discord.gg/XmBm8K9"
+                      className="has-text-white is-size-5"
+                    >
+                      Join to Discord
+                    </a>
+                  </div>
                 </div>
               </div>
-
-              <div className="columns is-vcentered">
-                <div className="column is-one-fifth">
-                  <Icon source="/images/icons/discord.svg" size="md" />
-                </div>
-                <div className="column pt-1">
-                  <a
-                    href="https://discord.gg/XmBm8K9"
-                    className="has-text-white is-size-5"
-                  >
-                    Join to Discord
-                  </a>
-                </div>
+            </div>
+            <div className="is-hidden-tablet">
+              <div className="is-vcentered">
+                <a
+                  href="https://github.com/LabZoneSK"
+                  className="has-text-white is-size-5"
+                >
+                  <Github className="social-icon p-0 mr-3" />
+                  View repos
+                </a>
+              </div>
+              <div className="mt-3">
+                <a
+                  href="https://discord.gg/XmBm8K9"
+                  className="has-text-white is-size-5"
+                >
+                  <Discord className="social-icon p-0 mr-3" />
+                  Join to Discord
+                </a>
               </div>
             </div>
           </Spacer>
