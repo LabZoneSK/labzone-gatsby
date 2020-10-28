@@ -13,7 +13,8 @@ import Center from "../components/center"
 
 import ProjectsList from "../components/project/projectsList"
 export default function Portfolio({ data }) {
-  const projects = data.allMongodbLabzoneSiteProjects.edges
+  console.log(data)
+  const projects = data.allPrismicProject.edges
 
   return (
     <Layout>
@@ -34,14 +35,25 @@ export default function Portfolio({ data }) {
 
 export const query = graphql`
   {
-    allMongodbLabzoneSiteProjects {
+    allPrismicProject {
       edges {
         node {
-          technologies
-          name
-          description
-          featured
-          slug
+          data {
+            project_title {
+              text
+            }
+            slug {
+              text
+            }
+            project_summary {
+              html
+            }
+            featured_image {
+              fluid(maxWidth: 400, maxHeight: 300) {
+                ...GatsbyPrismicImageFluid
+              }
+            }
+          }
         }
       }
     }

@@ -1,0 +1,33 @@
+{
+  "Main": {
+    "project_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Project title"
+      }
+    },
+    "slug": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "slug"
+      }
+    },
+    "project_summary": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph, strong, em",
+        "label": "Project Summary"
+      }
+    },
+    "featured_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "featured_image"
+      }
+    }
+  }
+}

@@ -10,7 +10,7 @@ import { device } from "../../utils/device"
 
 /** Components */
 import Icon from "../icon"
-import ImageFluid from "../imageFluid"
+import Img from "gatsby-image"
 
 const ProjectItemWrapper = styled.div`
   padding: 2rem 0 4rem 0;
@@ -47,7 +47,9 @@ const ProjectTechnologiesWrapper = styled.div`
           </ProjectTechnologiesWrapper>
  */
 export default function Projectitem(props) {
-  const { name, description, technologies, featured, slug } = props
+  const { name, description, featured, slug } = props
+
+  console.log(featured);
 
   return (
     <ProjectItemWrapper>
@@ -57,16 +59,19 @@ export default function Projectitem(props) {
             {name}
           </ProjectItemTitle>
 
-          <ProjectItemDescription className="has-text-centered-mobile">
-            {description}
-          </ProjectItemDescription>
+          <ProjectItemDescription
+            className="has-text-centered-mobile"
+            dangerouslySetInnerHTML={{
+              __html: description,
+            }}
+          />
 
           <Link className="btn is-primary" to={`/${slug}`}>
             Read more
           </Link>
         </div>
         <div className="column is-half">
-          <ImageFluid originalName={featured} alt="" />
+          <Img fluid={featured.fluid} alt="" />
         </div>
       </div>
     </ProjectItemWrapper>

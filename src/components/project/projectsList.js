@@ -1,5 +1,5 @@
 import React from "react"
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types"
 import { Link } from "gatsby"
 
 /** Emotion and Styling */
@@ -21,18 +21,17 @@ export default function Projectslist(props) {
     <div>
       {projects.map(project => (
         <ProjectItem
-          name={project.node.name}
-          description={project.node.description}
-          technologies={project.node.technologies}
-          featured={project.node.featured}
-          slug={project.node.slug}
-          key={project.node.name}
+          name={project.node.data.project_title.text}
+          description={project.node.data.project_summary.html}
+          featured={project.node.data.featured_image}
+          slug={project.node.data.slug.text}
+          key={project.node.data.project_title.text}
         />
       ))}
 
       {hasShowMore && (
         <Center className="mt-5">
-          <Link className="btn is-tertiary" to='/portfolio'>
+          <Link className="btn is-tertiary" to="/portfolio">
             Show me portfolio
           </Link>
         </Center>

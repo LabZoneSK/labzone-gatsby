@@ -25,7 +25,8 @@ import Discord from "../images/svg/discord.inline.svg"
 import Github from "../images/svg/github.inline.svg"
 
 export default function Home({ data }) {
-  const projects = data.allMongodbLabzoneSiteProjects.edges
+  //const projects = data.allMongodbLabzoneSiteProjects.edges
+  const projects = data.allPrismicProject.edges
 
   const technologies = data.allFile.edges
 
@@ -219,6 +220,29 @@ export const query = graphql`
           description
           featured
           slug
+        }
+      }
+    }
+
+    allPrismicProject {
+      edges {
+        node {
+          data {
+            project_title {
+              text
+            }
+            slug {
+              text
+            }
+            project_summary {
+              html
+            }
+            featured_image {
+              fluid(maxWidth: 400, maxHeight: 300) {
+                ...GatsbyPrismicImageFluid
+              }
+            }
+          }
         }
       }
     }
