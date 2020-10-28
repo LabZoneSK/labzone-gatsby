@@ -76,5 +76,13 @@ module.exports = {
       },
     },
     `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-gtag`,
+      options: {
+        trackingId: `G-RYRDQD3E0N`,
+        head: false,
+        anonymize: true,
+      },
+    },
   ],
 }
