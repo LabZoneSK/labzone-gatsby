@@ -18,6 +18,12 @@ import SeoHelmet from "../components/seo/seoHelmet"
 import ProjectsList from "../components/project/projectsList"
 import { color } from "../utils/color"
 
+/** Icons */
+import LinkedIn from "../images/svg/linkedin.inline.svg"
+import Twitter from "../images/svg/twitter.inline.svg"
+import Discord from "../images/svg/discord.inline.svg"
+import Github from "../images/svg/github.inline.svg"
+
 export default function Home({ data }) {
   const projects = data.allMongodbLabzoneSiteProjects.edges
 
@@ -27,30 +33,18 @@ export default function Home({ data }) {
     {
       title: "Software Development",
       icon: "/images/icons/svg/labzone-software-development.svg",
-      list: [
-        "Web sites / apps",
-        "E-commerce",
-        "Mobile applications"
-      ]
+      list: ["Web sites / apps", "E-commerce", "Mobile applications"],
     },
     {
       title: "UX / UI Desgin",
       icon: "/images/icons/svg/labzone-web-design.svg",
-      list: [
-        "User eXperience",
-        "User Interface",
-        "Copywritting"
-      ]
+      list: ["User eXperience", "User Interface", "Copywritting"],
     },
     {
       title: "SEO & Marketing",
       icon: "/images/icons/svg/labzone-digital-marketing.svg",
-      list: [
-        "Banners",
-        "Marketing Support",
-        "On-line & Off-line"
-      ]
-    }
+      list: ["Banners", "Marketing Support", "On-line & Off-line"],
+    },
   ]
 
   return (
@@ -70,14 +64,10 @@ export default function Home({ data }) {
 
       <Section title="We can help you with">
         <div className="columns mt-5 mb-3">
-
           {services &&
-            services.map((service,i) => {
+            services.map((service, i) => {
               return (
-                <div 
-                  className="column has-text-centered"
-                  key={i}
-                >
+                <div className="column has-text-centered" key={i}>
                   <Card service={service} />
                 </div>
               )
@@ -95,9 +85,9 @@ export default function Home({ data }) {
 
             <div className="columns is-multiline mt-5 is-mobile">
               {technologies &&
-                technologies.map((technnologyIcon,i) => {
+                technologies.map((technnologyIcon, i) => {
                   return (
-                    <div 
+                    <div
                       className="column is-one-third-mobile is-one-fifth-desktop"
                       key={i}
                     >
@@ -126,33 +116,55 @@ export default function Home({ data }) {
             subtitle="In addition to various passion projects, we strive to build a solid
           community around design and information technology."
           >
-            <div className="mt-3 is-pulled-right">
-              <div className="columns is-vcentered">
-                <div className="column is-one-fifth">
-                  <Icon source="/images/icons/github.svg" size="md" />
+            <div className="is-hidden-mobile">
+              <div className="mt-3 is-pulled-right">
+                <div className="columns is-vcentered">
+                  <div className="column is-one-fifth">
+                  <Github className="p-4" />
+                  </div>
+                  <div className="column pt-1">
+                    <a
+                      href="https://github.com/LabZoneSK"
+                      className="has-text-white is-size-5"
+                    >
+                      View repos
+                    </a>
+                  </div>
                 </div>
-                <div className="column pt-1">
-                  <a
-                    href="https://github.com/LabZoneSK"
-                    className="has-text-white is-size-5"
-                  >
-                    View repos
-                  </a>
+
+                <div className="columns is-vcentered">
+                  <div className="column is-one-fifth">
+                  <Discord className="p-4" />
+                  </div>
+                  <div className="column pt-1">
+                    <a
+                      href="https://discord.gg/XmBm8K9"
+                      className="has-text-white is-size-5"
+                    >
+                      Join to Discord
+                    </a>
+                  </div>
                 </div>
               </div>
-
-              <div className="columns is-vcentered">
-                <div className="column is-one-fifth">
-                  <Icon source="/images/icons/discord.svg" size="md" />
-                </div>
-                <div className="column pt-1">
-                  <a
-                    href="https://discord.gg/XmBm8K9"
-                    className="has-text-white is-size-5"
-                  >
-                    Join to Discord
-                  </a>
-                </div>
+            </div>
+            <div className="is-hidden-tablet">
+              <div className="is-vcentered">
+                <a
+                  href="https://github.com/LabZoneSK"
+                  className="has-text-white is-size-5"
+                >
+                  <Github className="social-icon p-0 mr-3" />
+                  View repos
+                </a>
+              </div>
+              <div className="mt-3">
+                <a
+                  href="https://discord.gg/XmBm8K9"
+                  className="has-text-white is-size-5"
+                >
+                  <Discord className="social-icon p-0 mr-3" />
+                  Join to Discord
+                </a>
               </div>
             </div>
           </Spacer>
@@ -165,6 +177,14 @@ export default function Home({ data }) {
             Got questions?
             <br />
             Contact us directly at info@labzone.sk
+            <div className="mt-1">
+              <a href="https://www.linkedin.com/company/labzonesk">
+                <LinkedIn className="social-icon linkedin" />
+              </a>
+              <a href="https://twitter.com/LabZoneSK">
+                <Twitter className="social-icon twitter" />
+              </a>
+            </div>
           </div>
           <div className="column is-half">
             <strong>LabZone s.r.o.</strong>

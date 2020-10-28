@@ -45,3 +45,18 @@ html {
   background-color: #85a8b8;
   color: white;
 }
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+
+  transition: 100ms ease-in;
+
+  &.linkedin:hover {
+    fill:#0073b1;
+  }
+  &.twitter:hover {
+    fill:rgba(29,161,242,1.00);
+  }
+}

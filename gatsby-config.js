@@ -12,6 +12,18 @@ module.exports = {
     title: `Welcome to LabZone s.r.o.`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `LabZone Website`,
+        short_name: `LabZone`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#15b0d4`,
+        display: `standalone`,
+        icon: `src/images/logo-black.png`,
+      },
+    },
     `gatsby-plugin-emotion`,
     `gatsby-transformer-remark`,
     `gatsby-plugin-sass`,
