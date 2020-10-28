@@ -1,0 +1,27 @@
+@import "colors";
+@import "variables";
+
+.blockquote {
+  border-top: 1px solid $spacer;
+  border-bottom: 1px solid $spacer;
+  @media only screen and (min-width: $mobile) {
+    padding: 0 1rem;
+  }
+
+  .blockquote-content {
+    font-size: 1.2rem;
+    color: #888;
+    font-weight: 300;
+    margin: 0.4em 0 1em;
+  }
+
+  footer {
+    font-size: 1rem;
+    font-weight: 400;
+    color: $primary;
+  }
+
+  footer:before {
+    content: "― ";
+  }
+}

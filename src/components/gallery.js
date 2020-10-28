@@ -10,7 +10,7 @@ export default function Gallery({ images }) {
   }
   const imageElements = images.map(data => {
     return (
-      <div className="column is-4">
+      <div className="column is-6">
         <Img
           fluid={data.image.fluid}
           alt=""

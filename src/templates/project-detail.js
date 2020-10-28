@@ -9,6 +9,7 @@ import Section from "../components/section"
 import Content from "../components/content"
 import Icon from "../components/icon"
 import Gallery from "../components/gallery"
+import Blockquote from "../components/blockquote"
 
 export default function ProjectDetail({ data }) {
   const {
@@ -19,6 +20,7 @@ export default function ProjectDetail({ data }) {
     featured_image,
     technologies,
     team,
+    testimonials,
   } = data.prismicProject.data
 
   const usedTechnologies = technologies.text.split(",")
@@ -34,8 +36,6 @@ export default function ProjectDetail({ data }) {
 
   const galleryImages = data.prismicProject.data.body[0].items
 
-  console.log(galleryImages)
-
   return (
     <Layout>
       <Section title={project_title.text}>
@@ -49,6 +49,14 @@ export default function ProjectDetail({ data }) {
             <Img fluid={featured_image.fluid} alt="" />
           </div>
         </div>
+
+        {testimonials && (
+          <Blockquote
+            image={testimonials[0].testimonial_image}
+            quote={testimonials[0].blockquote.text}
+            footer={testimonials[0].footer.text}
+          />
+        )}
 
         {assignment && <Content title="Assignment" content={assignment.html} />}
 
@@ -64,7 +72,7 @@ export default function ProjectDetail({ data }) {
           </div>
           <div className="column">
             {technologies && (
-              <Content title="Used technologies">{icons}</Content>
+              <Content title="Technologies Stack">{icons}</Content>
             )}
           </div>
         </div>
@@ -103,6 +111,19 @@ export const query = graphql`
         }
         team {
           html
+        }
+        testimonials {
+          blockquote {
+            text
+          }
+          footer {
+            text
+          }
+          testimonial_image {
+            fluid(maxWidth: 400, maxHeight: 300) {
+              ...GatsbyPrismicImageFluid
+            }
+          }
         }
         body {
           ... on PrismicProjectBodyImageGallery {

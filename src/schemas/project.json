@@ -1,110 +1,150 @@
 {
-  "Main" : {
-    "project_title" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "heading1",
-        "label" : "Project title"
+  "Main": {
+    "project_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Project title"
       }
     },
-    "slug" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "paragraph",
-        "label" : "slug"
+    "slug": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "slug"
       }
     },
-    "project_summary" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "paragraph, strong, em",
-        "label" : "Project Summary"
+    "project_summary": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph, strong, em",
+        "label": "Project Summary"
       }
     },
-    "featured_image" : {
-      "type" : "Image",
-      "config" : {
-        "constraint" : { },
-        "thumbnails" : [ ],
-        "label" : "featured_image"
+    "featured_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "featured_image"
       }
     },
-    "assignment" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, list-item, o-list-item",
-        "label" : "assignment"
+    "assignment": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, list-item, o-list-item",
+        "label": "assignment"
       }
     },
-    "result" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph, heading2, heading3, heading4, heading5, strong, em, list-item, o-list-item",
-        "label" : "result"
+    "result": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, heading2, heading3, heading4, heading5, strong, em, list-item, o-list-item",
+        "label": "result"
       }
     },
-    "technologies" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph",
-        "label" : "technologies"
+    "technologies": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "technologies"
       }
     },
-    "team" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "list-item",
-        "label" : "team"
+    "team": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "list-item",
+        "label": "team"
       }
     },
-    "body" : {
-      "type" : "Slices",
-      "fieldset" : "Slice zone",
-      "config" : {
-        "labels" : {
-          "image_gallery" : [ {
-            "name" : "gallery",
-            "display" : "Gallery"
-          } ]
+    "testimonials": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "testimonial_image": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "testimonial_image"
+            }
+          },
+          "blockquote": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, strong, list-item, o-list-item",
+              "label": "blockquote"
+            }
+          },
+          "footer": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph",
+              "label": "footer"
+            }
+          }
         },
-        "choices" : {
-          "image_gallery" : {
-            "type" : "Slice",
-            "fieldset" : "Image Gallery",
-            "description" : "An image gallery section",
-            "icon" : "apps",
-            "non-repeat" : { },
-            "repeat" : {
-              "alt_text" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "single" : "paragraph",
-                  "label" : "Alt Text",
-                  "placeholder" : "Image alt text..."
+        "label": "Testimonials"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "image_gallery": [
+            {
+              "name": "gallery",
+              "display": "Gallery"
+            }
+          ],
+          "testimonial": [
+            {
+              "name": "testimonials",
+              "display": "Testimonials"
+            }
+          ]
+        },
+        "choices": {
+          "image_gallery": {
+            "type": "Slice",
+            "fieldset": "Image Gallery",
+            "description": "An image gallery section",
+            "icon": "apps",
+            "non-repeat": {},
+            "repeat": {
+              "alt_text": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph",
+                  "label": "Alt Text",
+                  "placeholder": "Image alt text..."
                 }
               },
-              "caption" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "single" : "paragraph, strong, em",
-                  "label" : "Caption",
-                  "placeholder" : "Image caption..."
+              "caption": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph, strong, em",
+                  "label": "Caption",
+                  "placeholder": "Image caption..."
                 }
               },
-              "image" : {
-                "type" : "Image",
-                "config" : {
-                  "constraint" : { },
-                  "thumbnails" : [ {
-                    "name" : "thumbnail",
-                    "width" : 200,
-                    "height" : 200
-                  } ],
-                  "label" : "Image"
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [
+                    {
+                      "name": "thumbnail",
+                      "width": 200,
+                      "height": 200
+                    }
+                  ],
+                  "label": "Image"
                 }
               }
             },
-            "display" : "grid"
+            "display": "grid"
           }
         }
       }
