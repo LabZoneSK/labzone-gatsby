@@ -10,6 +10,9 @@ const path = require("path")
 module.exports = {
   siteMetadata: {
     title: `Welcome to LabZone s.r.o.`,
+    description: `Using code, design and almost any other IT tool to solve business challenges. Exclusively remote.`,
+    author: `LabZone`,
+    siteUrl: `https://labzone.tech`,
   },
   plugins: [
     {
@@ -72,5 +75,6 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-sitemap`,
   ],
 }
