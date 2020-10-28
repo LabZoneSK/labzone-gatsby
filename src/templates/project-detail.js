@@ -3,6 +3,7 @@ import React from "react"
 /** Gatsby */
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
+
 /** Components */
 import Layout from "../components/layout"
 import Section from "../components/section"
@@ -10,6 +11,7 @@ import Content from "../components/content"
 import Icon from "../components/icon"
 import Gallery from "../components/gallery"
 import Blockquote from "../components/blockquote"
+import ContactUs from "../components/contactUs"
 
 export default function ProjectDetail({ data }) {
   const {
@@ -79,6 +81,8 @@ export default function ProjectDetail({ data }) {
         {result && <Content title="Result" content={result.html} />}
 
         <Gallery images={galleryImages} />
+
+        <ContactUs hasLinkToPortfolio="Show me other projects"/>
       </Section>
     </Layout>
   )

@@ -1,9 +1,5 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { Link } from "gatsby"
-
-/** Emotion and Styling */
-import styled from "@emotion/styled"
 
 /** Components */
 import ProjectItem from "./projectItem"

@@ -30,8 +30,6 @@ export default function Navbar() {
     }
   `)
 
-  console.log(data)
-
   return (
     <CustomizedNav
       className="navbar"

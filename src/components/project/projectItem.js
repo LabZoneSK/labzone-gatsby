@@ -9,7 +9,6 @@ import styled from "@emotion/styled"
 import { device } from "../../utils/device"
 
 /** Components */
-import Icon from "../icon"
 import Img from "gatsby-image"
 
 const ProjectItemWrapper = styled.div`
@@ -30,26 +29,8 @@ const ProjectItemDescription = styled.p`
   margin-bottom: 2rem;
 `
 
-const ProjectTechnologiesWrapper = styled.div`
-  margin-bottom: 1.6rem;
-`
-
-/** Ak by sme chceli aj ikonky
- <ProjectTechnologiesWrapper>
-            {technologies &&
-              technologies.map(technology => (
-                <Icon
-                  source={`/images/technologies/${technology}.svg`}
-                  size="sm"
-                  key={`icon-${technology}`}
-                />
-              ))}
-          </ProjectTechnologiesWrapper>
- */
 export default function Projectitem(props) {
   const { name, description, featured, slug } = props
-
-  console.log(featured);
 
   return (
     <ProjectItemWrapper>
