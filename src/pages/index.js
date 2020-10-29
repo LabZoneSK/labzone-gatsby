@@ -153,7 +153,7 @@ export default function Home({ data }) {
                   href="https://github.com/LabZoneSK"
                   className="has-text-white is-size-5"
                 >
-                  <Github className="social-icon p-0 mr-3" />
+                  <Github className="social-icon social-icon--line-centered p-0 mr-3" />
                   View repos
                 </a>
               </div>
@@ -162,7 +162,7 @@ export default function Home({ data }) {
                   href="https://discord.gg/XmBm8K9"
                   className="has-text-white is-size-5"
                 >
-                  <Discord className="social-icon p-0 mr-3" />
+                  <Discord className="social-icon social-icon--line-centered p-0 mr-3" />
                   Join to Discord
                 </a>
               </div>
