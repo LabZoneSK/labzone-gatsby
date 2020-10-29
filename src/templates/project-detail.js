@@ -1,7 +1,7 @@
 import React from "react"
 
 /** Gatsby */
-import { graphql } from "gatsby"
+import { agraphql } from "gatsby"
 import Img from "gatsby-image"
 
 /** Components */
@@ -29,7 +29,7 @@ export default function ProjectDetail({ data }) {
   const icons = usedTechnologies.map(technology => {
     return (
       <Icon
-        source={`/images/technologies/${technology.toLowerCase()}.svg`}
+        source={`/images/technologies/${technology.toLowerCase().trim()}.svg`}
         size="sm"
         alt={technology}
       />
