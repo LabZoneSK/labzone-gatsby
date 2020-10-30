@@ -2,8 +2,11 @@ import React from "react"
 
 /** Emotion and Styling */
 import { ClassNames } from "@emotion/core"
+
+import { extractTextFromHTMLString } from "../utils/helpers"
+
 export default function Content({ title, content, children, customClasses }) {
-  if (!content && !children) {
+  if ((!content || extractTextFromHTMLString(content).length === 0) && !children) {
     return ``
   }
 
