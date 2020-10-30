@@ -27,6 +27,12 @@ module.exports = {
         icon: `src/images/logo-black.png`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-preconnect',
+      options: {
+        domains: ['https://fonts.googleapis.com', 'https://fonts.gstatic.com', 'https://www.googletagmanager.com','https://ajax.cloudflare.com/'],
+      },
+    },
     `gatsby-plugin-emotion`,
     `gatsby-transformer-remark`,
     `gatsby-plugin-sass`,
