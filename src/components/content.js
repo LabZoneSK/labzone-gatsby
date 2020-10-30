@@ -19,7 +19,7 @@ export default function Content({ title, content, children, customClasses }) {
             <div
               className={cx({
                 "section-content": true,
-                [customClasses]: true,
+                [customClasses]: customClasses,
               })}
               dangerouslySetInnerHTML={{
                 __html: content,

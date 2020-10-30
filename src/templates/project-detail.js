@@ -13,7 +13,6 @@ import Gallery from "../components/gallery"
 import Blockquote from "../components/blockquote"
 import ContactUs from "../components/contactUs"
 
-
 export default function ProjectDetail({ data }) {
   const {
     project_title,
@@ -53,7 +52,7 @@ export default function ProjectDetail({ data }) {
           </div>
         </div>
 
-        {testimonials && (
+        {testimonials && testimonials[0].blockquote.text.length > 0 && (
           <Blockquote
             image={testimonials[0].testimonial_image}
             quote={testimonials[0].blockquote.text}
@@ -134,6 +133,12 @@ export const query = graphql`
           ... on PrismicProjectBodyImageGallery {
             id
             items {
+              caption {
+                text
+              }
+              alt_text {
+                text
+              }
               image {
                 fluid(maxWidth: 400, maxHeight: 300) {
                   ...GatsbyPrismicImageFluid
