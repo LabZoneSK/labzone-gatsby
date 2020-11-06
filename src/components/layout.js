@@ -9,7 +9,6 @@ import Navbar from "../components/navbar"
 import Footer from "../components/footer"
 
 const HolyGrailMain = styled.main`
-  width: 100vw;
   display: grid;
   grid-template-columns: 1fr min(90ch, 100%) 1fr;
 

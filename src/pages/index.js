@@ -3,6 +3,9 @@ import React from "react"
 /** Gatsby */
 import { graphql } from "gatsby"
 
+/** Emotion & Styling */
+import styled from "@emotion/styled"
+
 /** Components */
 import Layout from "../components/layout"
 import Hero from "../components/hero"
@@ -17,12 +20,34 @@ import SeoHelmet from "../components/seo/seoHelmet"
 
 import ProjectsList from "../components/project/projectsList"
 import { color } from "../utils/color"
+import { device } from "../utils/device"
 
 /** Icons */
 import LinkedIn from "../images/svg/linkedin.inline.svg"
 import Twitter from "../images/svg/twitter.inline.svg"
 import Discord from "../images/svg/discord.inline.svg"
 import Github from "../images/svg/github.inline.svg"
+
+const TechIcons = styled.div`
+  padding-top: 40px;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+
+  @media ${device.tablet} {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  > img {
+    opacity: 0.8;
+    transition: 0.2s opacity;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+`
+
 
 export default function Home({ data }) {
   //const projects = data.allMongodbLabzoneSiteProjects.edges
@@ -84,24 +109,20 @@ export default function Home({ data }) {
               some of the technologies we work with:
             </p>
 
-            <div className="columns is-multiline mt-5 is-mobile">
+            <TechIcons>
               {technologies &&
                 technologies.map((technnologyIcon, i) => {
                   return (
-                    <div
-                      className="column is-one-third-mobile is-one-fifth-desktop"
+                    <Icon
                       key={i}
-                    >
-                      <Icon
-                        source={technnologyIcon.node.relativePath}
-                        alt=""
-                        size="md"
-                        isWhite
-                      />
-                    </div>
+                      source={technnologyIcon.node.relativePath}
+                      alt=""
+                      size="md"
+                      isWhite
+                    />
                   )
                 })}
-            </div>
+            </TechIcons>
           </Section>
         </div>
       </FullBleed>
@@ -154,7 +175,7 @@ export default function Home({ data }) {
                   href="https://github.com/LabZoneSK"
                   className="has-text-white is-size-5"
                 >
-                  <Github className="social-icon p-0 mr-3" />
+                  <Github className="social-icon social-icon--line-centered p-0 mr-3" />
                   View repos
                 </a>
               </div>
@@ -163,7 +184,7 @@ export default function Home({ data }) {
                   href="https://discord.gg/XmBm8K9"
                   className="has-text-white is-size-5"
                 >
-                  <Discord className="social-icon p-0 mr-3" />
+                  <Discord className="social-icon social-icon--line-centered p-0 mr-3" />
                   Join to Discord
                 </a>
               </div>

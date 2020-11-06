@@ -17,6 +17,16 @@ const BrandIcon = styled(Img)`
   margin-right: 0.5rem;
 `
 
+const Button = styled.button`
+  background-color: transparent;
+  border: 0;
+
+  &:active,
+  &:hover {
+    background-color: transparent;
+  }
+`
+
 export default function Navbar() {
   const data = useStaticQuery(graphql`
     {
@@ -47,7 +57,7 @@ export default function Navbar() {
           <span>LabZone</span>
         </Link>
 
-        <button
+        <Button
           className="navbar-burger button"
           aria-label="menu"
           aria-expanded="false"
@@ -55,7 +65,7 @@ export default function Navbar() {
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
-        </button>
+        </Button>
       </div>
       <div className="navbar-menu">
         <div className="navbar-end">

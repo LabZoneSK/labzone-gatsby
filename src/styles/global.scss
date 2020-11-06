@@ -14,7 +14,6 @@ html {
 }
 
 .grid-container {
-  width: 100vw;
   display: grid;
   grid-template-columns: 1fr #{"min(90ch, 100%)"} 1fr;
 
@@ -50,6 +49,11 @@ html {
   width: 24px;
   height: 24px;
   padding: 4px;
+
+  &--line-centered {
+    top: 5px;
+    position: relative;
+  }
 
   transition: 100ms ease-in;
 
