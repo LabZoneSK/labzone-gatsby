@@ -1,10 +1,10 @@
 @charset "utf-8";
 
 @import "colors";
+@import "components";
 @import "variables";
 @import "buttons";
-
-$mobile: "768px";
+@import "typography";
 
 @import "~bulma/bulma.sass";
 

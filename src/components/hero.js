@@ -7,24 +7,6 @@ import BackgroundImage from "gatsby-background-image"
 /** Emotion */
 import styled from "@emotion/styled"
 import { device } from "../utils/device"
-/*
-const HeroSection = styled()`
-  margin-bottom: 3rem;
-  background: ${props => `url(${props.image})`};
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  ${props => props.isRounded && "border-radius: 0 100px 0 100px"};
-`*/
-
-const StyledBackground = styled(BackgroundImage)`
-  &::before,
-  &::after {
-    ${({ isRounded }) => {
-      return isRounded ? "border-radius: 0 var(--global-border-radius) 0 var(--global-border-radius)" : ''
-    }}
-  }
-`
 
 const HeroTitle = styled.h1`
   @media ${device.laptop} {
@@ -39,7 +21,7 @@ const HeroSubTitle = styled.p`
 `
 
 export default function Hero(props) {
-  const { title, subtitle, image, children, isRounded } = props
+  const { title, subtitle, image, children} = props
 
   const data = useStaticQuery(
     graphql`
@@ -63,7 +45,7 @@ export default function Hero(props) {
   })
 
   return (
-    <StyledBackground
+    <BackgroundImage
       Tag="section"
       className="hero is-medium"
       fluid={imageFluid.node.fluid}
@@ -83,6 +65,6 @@ export default function Hero(props) {
           {children}
         </div>
       </div>
-    </StyledBackground>
+    </BackgroundImage>
   )
 }

@@ -68,6 +68,16 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-prismic`,
+      options: {
+        repositoryName: `labzonetech`,
+        accessToken: `${process.env.PRISMIC_API}`,
+        schemas: {
+          project: require('./src/schemas/project.json'),
+        },
+      },
+    },
+    {
       resolve: `gatsby-source-mongodb`,
       options: {
         dbName: `labzone_site`,

@@ -23,8 +23,8 @@ const StyledIcon = styled.img`
 `
 
 export default function Icon(props) {
-  const { source, size, isGrayscale, isWhite } = props
+  const { source, size, isGrayscale, isWhite, alt } = props
 
-  return <StyledIcon size={size} src={source} isGrayscale={isGrayscale} isWhite={isWhite} />
+  return <StyledIcon size={size} src={source} isGrayscale={isGrayscale} isWhite={isWhite} alt={alt} title={alt} />
 }
 
