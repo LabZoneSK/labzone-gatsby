@@ -2,7 +2,6 @@ import React from "react"
 
 /** Gatsby */
 import { Link } from "gatsby"
-import { graphql } from "gatsby"
 
 /** Emotion & Styling */
 import styled from "@emotion/styled"
@@ -24,7 +23,7 @@ const ProjectItemTitle = styled.h2`
   font-size: 1.6rem;
   margin-bottom: 1.6rem;
 `
-const ProjectItemDescription = styled.p`
+const ProjectItemDescription = styled.div`
   margin-top: 2rem;
   margin-bottom: 2rem;
 `
@@ -58,13 +57,3 @@ export default function Projectitem(props) {
     </ProjectItemWrapper>
   )
 }
-
-export const query = graphql`
-  query($slug: String!) {
-    mongodbLabzoneSiteProjects(slug: { eq: $slug }) {
-      name
-      technologies
-      description
-    }
-  }
-`
