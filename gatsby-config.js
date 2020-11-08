@@ -8,7 +8,6 @@ require("dotenv").config()
 const path = require("path")
 
 module.exports = {
-  pathPrefix: "/labzone-gatsby",
   siteMetadata: {
     title: `Welcome to LabZone s.r.o.`,
     description: `Using code, design and almost any other IT tool to solve business challenges. Exclusively remote.`,
