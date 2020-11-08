@@ -52,7 +52,7 @@ export default function ProjectDetail({ data }) {
           </div>
         </div>
 
-        {testimonials && testimonials[0].blockquote.text.length > 0 && (
+        {testimonials && testimonials[0] && testimonials[0].blockquote && testimonials[0].blockquote.text.length > 0 && (
           <Blockquote
             image={testimonials[0].testimonial_image}
             quote={testimonials[0].blockquote.text}
