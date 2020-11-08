@@ -8,6 +8,7 @@ require("dotenv").config()
 const path = require("path")
 
 module.exports = {
+  pathPrefix: "/labzone-gatsby",
   siteMetadata: {
     title: `Welcome to LabZone s.r.o.`,
     description: `Using code, design and almost any other IT tool to solve business challenges. Exclusively remote.`,
@@ -28,9 +29,14 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-preconnect',
+      resolve: "gatsby-plugin-preconnect",
       options: {
-        domains: ['https://fonts.googleapis.com', 'https://fonts.gstatic.com', 'https://www.googletagmanager.com','https://ajax.cloudflare.com/'],
+        domains: [
+          "https://fonts.googleapis.com",
+          "https://fonts.gstatic.com",
+          "https://www.googletagmanager.com",
+          "https://ajax.cloudflare.com/",
+        ],
       },
     },
     `gatsby-plugin-emotion`,
@@ -73,7 +79,7 @@ module.exports = {
         repositoryName: `labzonetech`,
         accessToken: `${process.env.PRISMIC_API}`,
         schemas: {
-          project: require('./src/schemas/project.json'),
+          project: require("./src/schemas/project.json"),
         },
       },
     },
