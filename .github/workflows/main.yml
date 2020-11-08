@@ -15,3 +15,6 @@ jobs:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-branch: gh-pages
           gatsby-args: --prefix-paths
+        env:
+          PRISMIC_API: ${{ secrets.PRISMIC_API }}
+
