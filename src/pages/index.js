@@ -50,7 +50,6 @@ const TechIcons = styled.div`
 
 
 export default function Home({ data }) {
-  //const projects = data.allMongodbLabzoneSiteProjects.edges
   const projects = data.allPrismicProject.edges
 
   const technologies = data.allFile.edges
@@ -233,18 +232,6 @@ export default function Home({ data }) {
 
 export const query = graphql`
   {
-    allMongodbLabzoneSiteProjects {
-      edges {
-        node {
-          technologies
-          name
-          description
-          featured
-          slug
-        }
-      }
-    }
-
     allPrismicProject {
       edges {
         node {
