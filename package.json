@@ -33,7 +33,6 @@
     "gatsby-plugin-sitemap": "^2.4.17",
     "gatsby-plugin-typography": "^2.5.13",
     "gatsby-source-filesystem": "^2.3.34",
-    "gatsby-source-mongodb": "^2.3.12",
     "gatsby-source-prismic": "^3.2.1",
     "gatsby-transformer-remark": "^2.8.38",
     "gatsby-transformer-sharp": "^2.5.17",
