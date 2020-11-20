@@ -12,7 +12,7 @@ module.exports = {
     title: `Welcome to LabZone s.r.o.`,
     description: `Using code, design and almost any other IT tool to solve business challenges. Exclusively remote.`,
     author: `LabZone`,
-    siteUrl: `https://labzone.tech`,
+    siteUrl: `https://www.labzone.tech`,
   },
   plugins: [
     {
