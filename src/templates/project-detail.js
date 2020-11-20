@@ -36,7 +36,14 @@ export default function ProjectDetail({ data }) {
     )
   })
 
-  const galleryImages = data.prismicProject.data.body[0].items
+  let galleryImages = []
+  if (
+    data.prismicProject.data &&
+    data.prismicProject.data.body[0] &&
+    data.prismicProject.data.body[0].items
+  ) {
+    galleryImages = data.prismicProject.data.body[0].items
+  }
 
   return (
     <Layout>
@@ -52,13 +59,16 @@ export default function ProjectDetail({ data }) {
           </div>
         </div>
 
-        {testimonials && testimonials[0] && testimonials[0].blockquote && testimonials[0].blockquote.text.length > 0 && (
-          <Blockquote
-            image={testimonials[0].testimonial_image}
-            quote={testimonials[0].blockquote.text}
-            footer={testimonials[0].footer.text}
-          />
-        )}
+        {testimonials &&
+          testimonials[0] &&
+          testimonials[0].blockquote &&
+          testimonials[0].blockquote.text.length > 0 && (
+            <Blockquote
+              image={testimonials[0].testimonial_image}
+              quote={testimonials[0].blockquote.text}
+              footer={testimonials[0].footer.text}
+            />
+          )}
 
         {assignment && <Content title="Assignment" content={assignment.html} />}
 
