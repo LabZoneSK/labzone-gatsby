@@ -27,5 +27,5 @@ export default function ContactUs({ hasLinkToPortfolio }) {
 }
 
 ContactUs.propTypes = {
-  hasLinkToPortfolio: PropTypes.string.isRequired
+  hasLinkToPortfolio: PropTypes.string
 }
