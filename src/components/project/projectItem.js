@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 /** Gatsby */
 import { Link } from "gatsby"
@@ -28,7 +29,7 @@ const ProjectItemDescription = styled.div`
   margin-bottom: 2rem;
 `
 
-export default function Projectitem(props) {
+export default function ProjectItem(props) {
   const { name, description, featured, slug } = props
 
   return (
@@ -56,4 +57,11 @@ export default function Projectitem(props) {
       </div>
     </ProjectItemWrapper>
   )
+}
+
+ProjectItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  featured: PropTypes.object,
+  slug: PropTypes.string.isRequired
 }

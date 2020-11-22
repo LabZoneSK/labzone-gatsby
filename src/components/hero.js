@@ -1,4 +1,6 @@
 import React from "react"
+import PropTypes from "prop-types"
+
 import parse from "html-react-parser"
 
 import { graphql, useStaticQuery } from "gatsby"
@@ -21,7 +23,7 @@ const HeroSubTitle = styled.p`
 `
 
 export default function Hero(props) {
-  const { title, subtitle, image, children} = props
+  const { title, subtitle, image, children } = props
 
   const data = useStaticQuery(
     graphql`
@@ -67,4 +69,11 @@ export default function Hero(props) {
       </div>
     </BackgroundImage>
   )
+}
+
+Hero.propTypes = {
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  image: PropTypes.string.isRequired,
+  children: PropTypes.node,
 }

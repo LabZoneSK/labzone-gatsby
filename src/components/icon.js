@@ -1,4 +1,7 @@
 import React from "react"
+import PropTypes from "prop-types"
+
+/** Emotion & Styling */
 import styled from "@emotion/styled"
 // import { css } from "@emotion/core"
 
@@ -28,3 +31,17 @@ export default function Icon(props) {
   return <StyledIcon size={size} src={source} isGrayscale={isGrayscale} isWhite={isWhite} alt={alt} title={alt} />
 }
 
+Icon.defaultProps = {
+  size: 'lg',
+  isGrayscale: false,
+  isWhite: false
+}
+
+Icon.propTypes = {
+  source: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  isGrayscale: PropTypes.bool,
+  isWhite: PropTypes.bool,
+  title: PropTypes.string
+}
