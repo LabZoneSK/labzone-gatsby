@@ -17,6 +17,7 @@ import Card from "../components/card"
 import Icon from "../components/icon"
 
 import SeoHelmet from "../components/seo/seoHelmet"
+import config from "../components/config"
 
 import ProjectsList from "../components/project/projectsList"
 import { color } from "../utils/color"
@@ -72,11 +73,38 @@ export default function Home({ data }) {
     },
   ]
 
+  const getOrganizationData = () => {
+    return(
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Trenčín, Slovakia",
+          "postalCode": "91108",
+          "streetAddress": "Liptovská 2708/6"
+        },
+        "email": "info(at)labzone.sk",
+        "url": config.url,
+        "name": config.name,
+        "legalName": config.name,
+        "vatID": "SK2120461266",
+        "contactPoint": {
+          '@type': 'ContactPoint',
+          "telephone": '+421-948-272-880',
+          "email": 'info(at)labzone.sk',
+          "contactType": 'General contact',
+        },
+      }
+    )
+  }
+
   return (
     <Layout>
       <SeoHelmet
         title="We build virtual teams"
         description="Using code, design and almost any other IT tool<br/>to solve your business challenges. Exclusively remote."
+        schemaOrgJSONLD={getOrganizationData()}
       />
 
       <FullBleed>
