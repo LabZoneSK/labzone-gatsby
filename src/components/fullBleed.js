@@ -1,5 +1,7 @@
 import React from "react"
+import PropTypes from "prop-types"
 
+/** Emotion & styling */
 import styled from "@emotion/styled"
 
 const FullBleedDiv = styled.div`
@@ -19,4 +21,9 @@ export default function FullBleed(props) {
   const { children, color } = props
 
   return <FullBleedDiv color={color}>{children}</FullBleedDiv>
+}
+
+FullBleed.propTypes = {
+  color: PropTypes.string,
+  children: PropTypes.node.isRequired
 }

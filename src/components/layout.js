@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 /** Emotion */
 import styled from "@emotion/styled"
@@ -35,4 +36,8 @@ export default function Layout({ children }) {
       <Footer />
     </>
   )
+}
+
+Layout.propTypes = {
+  children: PropTypes.node,
 }

@@ -1,6 +1,12 @@
-import React from 'react'
-import containerStyles from './container.module.scss'
+import React from "react"
+import PropTypes from "prop-types"
 
-export default function Container ({ children }) {
+import containerStyles from "./container.module.scss"
+
+export default function Container({ children }) {
   return <div className={containerStyles.container}>{children}</div>
+}
+
+Container.propTypes = {
+  children: PropTypes.node.isRequired,
 }

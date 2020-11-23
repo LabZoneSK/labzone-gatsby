@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 /** Emotion and styles */
 import styled from "@emotion/styled"
@@ -40,4 +41,10 @@ export default function Spacer(props) {
       </div>
     </div>
   )
+}
+
+Spacer.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  children: PropTypes.node
 }

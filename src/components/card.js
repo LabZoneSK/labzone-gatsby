@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 /** Emotion & Styling */
 import styled from "@emotion/styled";
@@ -55,6 +56,7 @@ export default function Card(props) {
       <Icon
         source={service.icon}
         size="lg"
+        alt={`Offering card icon for ${service.title}`}
       />
       <HeaderWithBottomLine className="mb-3">
         {service.title}
@@ -72,4 +74,12 @@ export default function Card(props) {
       </ul>
     </CardWrapper>
   )
+}
+
+Card.propTypes = {
+  service: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
+    list: PropTypes.arrayOf(PropTypes.string)
+  }).isRequired
 }

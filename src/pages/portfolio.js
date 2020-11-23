@@ -7,19 +7,27 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Section from "../components/section"
 import ContactUs from "../components/contactUs"
+import SeoHelmet from "../components/seo/seoHelmet"
 
 import ProjectsList from "../components/project/projectsList"
 export default function Portfolio({ data }) {
   const projects = data.allPrismicProject.edges
 
   return (
-    <Layout>
-      <Section title="Check our portfolio">
-        <ProjectsList projects={projects} />
+    <>
+      <SeoHelmet
+        title={`Portfolio | LabZone`}
+        description='Labzone teams have completed software development projects for clients from Slovakia, Czech Republic, and Finland.'
+      />
 
-        <ContactUs />
-      </Section>
-    </Layout>
+      <Layout>
+        <Section title="Check our portfolio">
+          <ProjectsList projects={projects} />
+
+          <ContactUs />
+        </Section>
+      </Layout>
+    </>
   )
 }
 
