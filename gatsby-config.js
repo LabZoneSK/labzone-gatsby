@@ -87,6 +87,7 @@ module.exports = {
         accessToken: `${process.env.PRISMIC_API}`,
         schemas: {
           project: require("./src/schemas/project.json"),
+          post: require("./src/schemas/post.json"),
         },
       },
     },
