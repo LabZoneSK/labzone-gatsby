@@ -5,19 +5,23 @@ import { graphql } from "gatsby"
 
 /** Components */
 import Layout from "../components/layout"
-import Header from "../components/header"
+import FullBleed from "../components/fullBleed"
+import Img from "gatsby-image"
 import SeoHelmet from "../components/seo/seoHelmet"
 
 export default function PostDetail({ data }) {
-  const { title, content } = data.prismicPost.data
+  const { title, content, hero_image } = data.prismicPost.data
 
   return (
     <>
       <SeoHelmet title={`${title.text} | LabZone`} />
 
       <Layout>
-        <article className="blog-article content-section">
-          <h1 className="title is-2 has-text-primary">{title.text}</h1>
+        <FullBleed>
+            <Img fluid={hero_image.fluid} alt={hero_image.alt}/>
+        </FullBleed>
+        <article className="blog-article content-section mt-6">
+          <h1 className="title is-size-2-desktop has-text-primary">{title.text}</h1>
           <div
             dangerouslySetInnerHTML={{
               __html: content.html,
@@ -36,6 +40,12 @@ export const query = graphql`
       data {
         content {
           html
+        }
+        hero_image {
+          alt
+          fluid(maxHeight: 400) {
+            ...GatsbyPrismicImageFluid
+          }
         }
         title {
           text
