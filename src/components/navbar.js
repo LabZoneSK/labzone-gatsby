@@ -91,6 +91,9 @@ export default function Navbar() {
           <Link to="/portfolio" className="navbar-item">
             Portfolio
           </Link>
+          <Link to="/blog" className="navbar-item">
+            Blog
+          </Link>
         </div>
       </div>
     </CustomizedNav>

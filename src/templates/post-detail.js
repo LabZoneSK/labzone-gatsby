@@ -5,6 +5,7 @@ import { graphql } from "gatsby"
 
 /** Components */
 import Layout from "../components/layout"
+import ContactUs from "../components/contactUs"
 import FullBleed from "../components/fullBleed"
 import Img from "gatsby-image"
 import SeoHelmet from "../components/seo/seoHelmet"
@@ -18,15 +19,21 @@ export default function PostDetail({ data }) {
 
       <Layout>
         <FullBleed>
-            <Img fluid={hero_image.fluid} alt={hero_image.alt}/>
+          <Img fluid={hero_image.fluid} alt={hero_image.alt} style={{
+              height:"500px"
+          }}/>
         </FullBleed>
         <article className="blog-article content-section mt-6">
-          <h1 className="title is-size-2-desktop has-text-primary">{title.text}</h1>
+          <h1 className="title is-size-2-desktop has-text-primary">
+            {title.text}
+          </h1>
           <div
             dangerouslySetInnerHTML={{
               __html: content.html,
             }}
           ></div>
+
+          <ContactUs />
         </article>
       </Layout>
     </>
