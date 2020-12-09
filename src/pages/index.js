@@ -12,6 +12,7 @@ import Hero from "../components/hero"
 import Section from "../components/section"
 import FullBleed from "../components/fullBleed"
 import Spacer from "../components/spacer"
+import PostsList from "../components/blog/postsList"
 
 import Card from "../components/card"
 import Icon from "../components/icon"
@@ -49,9 +50,9 @@ const TechIcons = styled.div`
   }
 `
 
-
 export default function Home({ data }) {
   const projects = data.allPrismicProject.edges
+  const posts = data.allPrismicPost.edges
 
   const technologies = data.allFile.edges
 
@@ -74,33 +75,31 @@ export default function Home({ data }) {
   ]
 
   const getOrganizationData = () => {
-    return(
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Trenčín, Slovakia",
-          "postalCode": "91108",
-          "streetAddress": "Liptovská 2708/6"
-        },
-        "email": "info(at)labzone.sk",
-        "url": config.url,
-        "name": config.name,
-        "legalName": config.name,
-        "vatID": "SK2120461266",
-        "contactPoint": {
-          '@type': 'ContactPoint',
-          "telephone": '+421-948-272-880',
-          "email": 'info(at)labzone.sk',
-          "contactType": 'General contact',
-        },
-      }
-    )
+    return {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Trenčín, Slovakia",
+        postalCode: "91108",
+        streetAddress: "Liptovská 2708/6",
+      },
+      email: "info(at)labzone.sk",
+      url: config.url,
+      name: config.name,
+      legalName: config.name,
+      vatID: "SK2120461266",
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+421-948-272-880",
+        email: "info(at)labzone.sk",
+        contactType: "General contact",
+      },
+    }
   }
 
   return (
-    <Layout>
+    <Layout hasLastDark>
       <SeoHelmet
         title="We build virtual teams"
         description="Using code, design and almost any other IT tool<br/>to solve your business challenges. Exclusively remote."
@@ -169,7 +168,7 @@ export default function Home({ data }) {
               <div className="mt-3 is-pulled-right">
                 <div className="columns is-vcentered">
                   <div className="column is-one-fifth">
-                  <Github className="p-4" />
+                    <Github className="p-4" />
                   </div>
                   <div className="column pt-1">
                     <a
@@ -183,7 +182,7 @@ export default function Home({ data }) {
 
                 <div className="columns is-vcentered">
                   <div className="column is-one-fifth">
-                  <Discord className="p-4" />
+                    <Discord className="p-4" />
                   </div>
                   <div className="column pt-1">
                     <a
@@ -220,40 +219,48 @@ export default function Home({ data }) {
         </Hero>
       </FullBleed>
 
-      <Section title="Connect with us" className="container">
-        <div className="columns">
-          <div className="column is-half">
-            Got questions?
-            <br />
-            Contact us directly at info@labzone.sk
-            <div className="mt-1">
-              <a href="https://www.linkedin.com/company/labzonesk">
-                <LinkedIn className="social-icon linkedin" />
-              </a>
-              <a href="https://twitter.com/LabZoneSK">
-                <Twitter className="social-icon twitter" />
-              </a>
-            </div>
-          </div>
-          <div className="column is-half">
-            <strong>LabZone s.r.o.</strong>
-            <p>
-              <br />
-              Liptovská 2708/6
-              <br />
-              911 08 Trenčín
-            </p>
-
-            <p className="mt-3">
-              IČO: 50753681
-              <br />
-              DIČ: 2120461266
-              <br />
-              IČ DPH: SK2120461266
-            </p>
-          </div>
-        </div>
+      <Section title="The LabZone Blog">
+        <PostsList posts={posts} />
       </Section>
+
+      <FullBleed color="#f4f4f4">
+        <div className="grid-container">
+          <Section title="Connect with us" className="container">
+            <div className="columns">
+              <div className="column is-half">
+                Got questions?
+                <br />
+                Contact us directly at info@labzone.sk
+                <div className="mt-1">
+                  <a href="https://www.linkedin.com/company/labzonesk">
+                    <LinkedIn className="social-icon linkedin" />
+                  </a>
+                  <a href="https://twitter.com/LabZoneSK">
+                    <Twitter className="social-icon twitter" />
+                  </a>
+                </div>
+              </div>
+              <div className="column is-half">
+                <strong>LabZone s.r.o.</strong>
+                <p>
+                  <br />
+                  Liptovská 2708/6
+                  <br />
+                  911 08 Trenčín
+                </p>
+
+                <p className="mt-3">
+                  IČO: 50753681
+                  <br />
+                  DIČ: 2120461266
+                  <br />
+                  IČ DPH: SK2120461266
+                </p>
+              </div>
+            </div>
+          </Section>
+        </div>
+      </FullBleed>
     </Layout>
   )
 }
@@ -279,6 +286,29 @@ export const query = graphql`
               }
             }
           }
+        }
+      }
+    }
+
+    allPrismicPost(limit: 3) {
+      edges {
+        node {
+          data {
+            hero_image {
+              alt
+              fluid(maxHeight: 400) {
+                ...GatsbyPrismicImageFluid
+              }
+            }
+            title {
+              text
+            }
+            summary {
+              text
+            }
+          }
+          uid
+          tags
         }
       }
     }
