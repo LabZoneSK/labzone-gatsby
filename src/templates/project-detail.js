@@ -50,7 +50,7 @@ export default function ProjectDetail({ data }) {
   return (
     <>
       <SeoHelmet
-        title={`${project_title.text} | LabZone`}
+        title={`${project_title.text}`}
         description={project_summary.text}
         image={featured_image.fluid.src}
       />
