@@ -30,7 +30,7 @@ export default function ProjectsList(props) {
 
       {hasShowMore && (
         <Center className="mt-5">
-          <Link className="btn is-tertiary" to="/portfolio">
+          <Link className="btn is-tertiary" to="/portfolio/">
             Show me portfolio
           </Link>
         </Center>
