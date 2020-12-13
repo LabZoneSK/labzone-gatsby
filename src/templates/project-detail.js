@@ -13,6 +13,8 @@ import Gallery from "../components/gallery"
 import Blockquote from "../components/blockquote"
 import ContactUs from "../components/contactUs"
 
+import SeoHelmet from "../components/seo/seoHelmet"
+
 export default function ProjectDetail({ data }) {
   const {
     project_title,
@@ -36,55 +38,75 @@ export default function ProjectDetail({ data }) {
     )
   })
 
-  const galleryImages = data.prismicProject.data.body[0].items
+  let galleryImages = []
+  if (
+    data.prismicProject.data &&
+    data.prismicProject.data.body[0] &&
+    data.prismicProject.data.body[0].items
+  ) {
+    galleryImages = data.prismicProject.data.body[0].items
+  }
 
   return (
-    <Layout>
-      <Section title={project_title.text}>
-        <div className="columns">
-          <div className="column">
-            {assignment && (
-              <Content title="Summary" content={project_summary.html} />
-            )}
+    <>
+      <SeoHelmet
+        title={`${project_title.text} | LabZone`}
+        description={project_summary.text}
+        image={featured_image.fluid.src}
+      />
+
+      <Layout>
+        <Section title={project_title.text}>
+          <div className="columns">
+            <div className="column">
+              {assignment && (
+                <Content title="Summary" content={project_summary.html} />
+              )}
+            </div>
+            <div className="column">
+              <Img fluid={featured_image.fluid} alt="" />
+            </div>
           </div>
-          <div className="column">
-            <Img fluid={featured_image.fluid} alt="" />
-          </div>
-        </div>
 
-        {testimonials && testimonials[0].blockquote.text.length > 0 && (
-          <Blockquote
-            image={testimonials[0].testimonial_image}
-            quote={testimonials[0].blockquote.text}
-            footer={testimonials[0].footer.text}
-          />
-        )}
-
-        {assignment && <Content title="Assignment" content={assignment.html} />}
-
-        <div className="columns">
-          <div className="column">
-            {team && (
-              <Content
-                title="Team"
-                content={team.html}
-                customClasses="person"
+          {testimonials &&
+            testimonials[0] &&
+            testimonials[0].blockquote &&
+            testimonials[0].blockquote.text.length > 0 && (
+              <Blockquote
+                image={testimonials[0].testimonial_image}
+                quote={testimonials[0].blockquote.text}
+                footer={testimonials[0].footer.text}
               />
             )}
-          </div>
-          <div className="column">
-            {technologies && (
-              <Content title="Technologies Stack">{icons}</Content>
-            )}
-          </div>
-        </div>
-        {result && <Content title="Result" content={result.html} />}
 
-        <Gallery images={galleryImages} />
+          {assignment && (
+            <Content title="Assignment" content={assignment.html} />
+          )}
 
-        <ContactUs hasLinkToPortfolio="Show me other projects" />
-      </Section>
-    </Layout>
+          <div className="columns">
+            <div className="column">
+              {team && (
+                <Content
+                  title="Team"
+                  content={team.html}
+                  customClasses="person"
+                />
+              )}
+            </div>
+            <div className="column">
+              {technologies && (
+                <Content title="Technologies Stack">{icons}</Content>
+              )}
+            </div>
+          </div>
+          {result && <Content title="Result" content={result.html} />}
+
+          <Gallery images={galleryImages} />
+
+          <ContactUs hasLinkToPortfolio="Show me other projects" />
+        </Section>
+      </Layout>
+    </>
   )
 }
 
@@ -99,6 +121,7 @@ export const query = graphql`
           }
         }
         project_summary {
+          text
           html
         }
         project_title {

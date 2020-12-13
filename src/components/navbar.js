@@ -40,6 +40,20 @@ export default function Navbar() {
     }
   `)
 
+  const handleMobileButtonClick = event => {
+
+    const el = event.target
+    const target = el.dataset.target
+    const $target = document.getElementById(target)
+
+    if ($target) {
+      el.classList.toggle("is-active")
+      $target.classList.toggle("is-active")
+    } else {
+      console.error("Mobile menu button cannot find main menu element.")
+    }
+  }
+
   return (
     <CustomizedNav
       className="navbar"
@@ -61,13 +75,15 @@ export default function Navbar() {
           className="navbar-burger button"
           aria-label="menu"
           aria-expanded="false"
+          data-target="navMenu"
+          onClick={handleMobileButtonClick}
         >
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </Button>
       </div>
-      <div className="navbar-menu">
+      <div className="navbar-menu" id="navMenu">
         <div className="navbar-end">
           <Link to="/" className="navbar-item">
             Home
@@ -75,9 +91,11 @@ export default function Navbar() {
           <Link to="/portfolio" className="navbar-item">
             Portfolio
           </Link>
+          <Link to="/blog" className="navbar-item">
+            Blog
+          </Link>
         </div>
       </div>
     </CustomizedNav>
   )
 }
-

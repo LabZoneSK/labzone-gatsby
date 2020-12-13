@@ -5,6 +5,14 @@
  */
 require("dotenv").config()
 
+const {
+  NODE_ENV,
+  URL: NETLIFY_SITE_URL = "https://www.labzone.tech",
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  CONTEXT: NETLIFY_ENV = NODE_ENV,
+} = process.env
+const isNetlifyProduction = NETLIFY_ENV === "production"
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
 const path = require("path")
 
 module.exports = {
@@ -12,7 +20,7 @@ module.exports = {
     title: `Welcome to LabZone s.r.o.`,
     description: `Using code, design and almost any other IT tool to solve business challenges. Exclusively remote.`,
     author: `LabZone`,
-    siteUrl: `https://labzone.tech`,
+    siteUrl: `https://www.labzone.tech`,
   },
   plugins: [
     {
@@ -28,9 +36,14 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-preconnect',
+      resolve: "gatsby-plugin-preconnect",
       options: {
-        domains: ['https://fonts.googleapis.com', 'https://fonts.gstatic.com', 'https://www.googletagmanager.com','https://ajax.cloudflare.com/'],
+        domains: [
+          "https://fonts.googleapis.com",
+          "https://fonts.gstatic.com",
+          "https://www.googletagmanager.com",
+          "https://ajax.cloudflare.com/",
+        ],
       },
     },
     `gatsby-plugin-emotion`,
@@ -73,25 +86,35 @@ module.exports = {
         repositoryName: `labzonetech`,
         accessToken: `${process.env.PRISMIC_API}`,
         schemas: {
-          project: require('./src/schemas/project.json'),
+          project: require("./src/schemas/project.json"),
+          post: require("./src/schemas/post.json"),
         },
       },
     },
-    {
-      resolve: `gatsby-source-mongodb`,
-      options: {
-        dbName: `labzone_site`,
-        collection: [`projects`],
-        connectionString: `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.fe7db.mongodb.net`,
-        extraParams: {
-          replicaSet: "Cluster0-shard-0",
-          ssl: true,
-          authSource: `admin`,
-          retryWrites: true,
-        },
-      },
-    },
+    /* SEO */
     `gatsby-plugin-sitemap`,
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        resolveEnv: () => NETLIFY_ENV,
+        env: {
+          production: {
+            policy: [{ userAgent: '*' }],
+          },
+          'branch-deploy': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null,
+          },
+          'deploy-preview': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null,
+          },
+        },
+      },
+    },
+    /* Analytics */
     {
       resolve: `gatsby-plugin-gtag`,
       options: {

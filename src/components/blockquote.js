@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 /** Gatsby */
 import Img from "gatsby-image"
@@ -24,4 +25,10 @@ export default function Blockquote({ quote, footer, image }) {
       </div>
     </div>
   )
+}
+
+Blockquote.propTypes = {
+  quote: PropTypes.string.isRequired,
+  footer: PropTypes.string,
+  image: PropTypes.object,
 }

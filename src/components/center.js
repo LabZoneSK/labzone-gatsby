@@ -1,6 +1,8 @@
-import React from 'react'
+import React from "react"
+import PropTypes from "prop-types"
 
-import styled from '@emotion/styled'
+/** Emotion & styling */
+import styled from "@emotion/styled"
 
 const CenterWrapper = styled.div`
   display: flex;
@@ -8,6 +10,11 @@ const CenterWrapper = styled.div`
   justify-content: center;
 `
 
-export default function Center (props) {
-  return <CenterWrapper className={props.className}>{props.children}</CenterWrapper>
+export default function Center({ className, children }) {
+  return <CenterWrapper className={className}>{children}</CenterWrapper>
+}
+
+Center.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
 }

@@ -58,9 +58,35 @@ html {
   transition: 100ms ease-in;
 
   &.linkedin:hover {
-    fill:#0073b1;
+    fill: #0073b1;
   }
   &.twitter:hover {
-    fill:rgba(29,161,242,1.00);
+    fill: rgba(29, 161, 242, 1);
   }
+}
+
+/** Blog Article */
+.blog-article {
+  p {
+    line-height: 1.6rem;
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    color: $primary;
+    font-size: 1.6rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  ol,
+  ul {
+    margin: 0 0 2rem 0;
+    padding: 0 1.6rem;
+    list-style: square outside none;
+  }
+}
+
+.is-dark + footer {
+  margin-top: 0;
 }

@@ -16,7 +16,7 @@
     npm install
     ```
 
-3.  **Create and fill out MongoDB credentials\***
+3.  **Create and fill out Prismic CMS API key\***
 
     ```shell
     cp temp.env .evn

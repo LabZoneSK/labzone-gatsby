@@ -1,10 +1,10 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 /** Gatsby */
 import Img from "gatsby-image"
 
 export default function Gallery({ images }) {
-  console.log("gallery", images)
   if (!images) {
     return <p>There are no images in gallery.</p>
   }
@@ -23,4 +23,16 @@ export default function Gallery({ images }) {
       <div className="columns is-multiline">{imageElements}</div>
     </div>
   )
+}
+
+Gallery.propTypes = {
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      alt_text: PropTypes.string,
+      caption: PropTypes.string,
+      image: PropTypes.shape({
+        fluid: PropTypes.object,
+      }),
+    })
+  ),
 }

@@ -1,4 +1,7 @@
 import React from "react"
+import PropTypes from "prop-types"
+
+/** Gatsby */
 import { Link } from "gatsby"
 
 /** Components */
@@ -6,7 +9,7 @@ import ProjectItem from "./projectItem"
 
 import Center from "../center"
 
-export default function Projectslist(props) {
+export default function ProjectsList(props) {
   const { projects, hasShowMore } = props
 
   if (!projects) {
@@ -34,4 +37,24 @@ export default function Projectslist(props) {
       )}
     </div>
   )
+}
+
+ProjectsList.propTypes = {
+  projects: PropTypes.arrayOf(PropTypes.shape({
+    node: PropTypes.shape({
+      data: PropTypes.shape({
+        featured_image: PropTypes.object,
+        project_summary: PropTypes.PropTypes.shape({
+          html: PropTypes.string.isRequired
+        }),
+        project_title: PropTypes.shape({
+          text: PropTypes.string.isRequired
+        }),
+        slug: PropTypes.shape({
+          text: PropTypes.string.isRequired
+        })
+      })
+    })
+  })),
+  hasShowMore: PropTypes.bool
 }

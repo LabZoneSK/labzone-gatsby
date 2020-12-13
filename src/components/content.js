@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 /** Emotion and Styling */
 import { ClassNames } from "@emotion/core"
@@ -32,4 +33,11 @@ export default function Content({ title, content, children, customClasses }) {
       }}
     </ClassNames>
   )
+}
+
+Content.propTypes = {
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string,
+  children: PropTypes.node,
+  customClasses: PropTypes.string
 }

@@ -1,8 +1,8 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 /** Gatsby */
 import { Link } from "gatsby"
-import { graphql } from "gatsby"
 
 /** Emotion & Styling */
 import styled from "@emotion/styled"
@@ -24,12 +24,12 @@ const ProjectItemTitle = styled.h2`
   font-size: 1.6rem;
   margin-bottom: 1.6rem;
 `
-const ProjectItemDescription = styled.p`
+const ProjectItemDescription = styled.div`
   margin-top: 2rem;
   margin-bottom: 2rem;
 `
 
-export default function Projectitem(props) {
+export default function ProjectItem(props) {
   const { name, description, featured, slug } = props
 
   return (
@@ -59,12 +59,9 @@ export default function Projectitem(props) {
   )
 }
 
-export const query = graphql`
-  query($slug: String!) {
-    mongodbLabzoneSiteProjects(slug: { eq: $slug }) {
-      name
-      technologies
-      description
-    }
-  }
-`
+ProjectItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  featured: PropTypes.object,
+  slug: PropTypes.string.isRequired
+}

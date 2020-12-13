@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 /** Emotion */
 import styled from "@emotion/styled"
@@ -25,14 +26,23 @@ const HolyGrailMain = styled.main`
   }
 `
 
-export default function Layout({ children }) {
+export default function Layout({ children, hasLastDark }) {
   return (
     <>
       <Navbar />
 
       <HolyGrailMain>{children}</HolyGrailMain>
 
-      <Footer />
+      <Footer hasLastDark={hasLastDark} />
     </>
   )
+}
+
+Layout.propTypes = {
+  children: PropTypes.node,
+  hasLastDark: PropTypes.bool
+}
+
+Layout.defaultProps = {
+  hasLastDark: false
 }
