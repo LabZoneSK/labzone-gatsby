@@ -15,6 +15,8 @@ export default function SeoHelmet(props) {
     schemaOrgJSONLD,
   } = props
 
+  const imageUrl = image ? image : 'https://www.labzone.tech/static/79cd74769083f985444636650e03d75a/8d10b/lz_logo_black.png';
+
   return (
     <>
       <Helmet htmlAttributes={{ lang }}>
@@ -36,14 +38,15 @@ export default function SeoHelmet(props) {
         {isBlogPost ? <meta property="og:type" content="article" /> : null}
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        {image && <meta property="og:image" content={image} />}
+        <meta property="og:type" content='website' />
+        <meta property="og:image" content={imageUrl} />
 
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:creator" content={config.twitter} />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        {image && <meta name="twitter:image" content={image} />}
+        <meta name="twitter:image" content={imageUrl} />
       </Helmet>
     </>
   )
