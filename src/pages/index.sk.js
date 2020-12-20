@@ -141,7 +141,7 @@ export default function Home({ data, location }) {
                   return (
                     <Icon
                       key={i}
-                      source={technnologyIcon.node.relativePath}
+                      source={`/${technnologyIcon.node.relativePath}`}
                       alt=""
                       size="md"
                       isWhite
