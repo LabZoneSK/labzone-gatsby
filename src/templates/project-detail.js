@@ -15,7 +15,7 @@ import ContactUs from "../components/contactUs"
 
 import SeoHelmet from "../components/seo/seoHelmet"
 
-export default function ProjectDetail({ data }) {
+export default function ProjectDetail({ data, location }) {
   const {
     project_title,
     project_summary,
@@ -55,7 +55,7 @@ export default function ProjectDetail({ data }) {
         image={featured_image.fluid.src}
       />
 
-      <Layout>
+      <Layout location={location}>
         <Section title={project_title.text}>
           <div className="columns">
             <div className="column">

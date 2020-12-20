@@ -10,14 +10,14 @@ import FullBleed from "../components/fullBleed"
 import Img from "gatsby-image"
 import SeoHelmet from "../components/seo/seoHelmet"
 
-export default function PostDetail({ data }) {
+export default function PostDetail({ data, location }) {
   const { title, content, hero_image } = data.prismicPost.data
 
   return (
     <>
       <SeoHelmet title={`${title.text}`} />
 
-      <Layout>
+      <Layout location={location}>
         <FullBleed>
           <Img fluid={hero_image.fluid} alt={hero_image.alt} style={{
               height:"500px"

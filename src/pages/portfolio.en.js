@@ -10,7 +10,7 @@ import ContactUs from "../components/contactUs"
 import SeoHelmet from "../components/seo/seoHelmet"
 
 import ProjectsList from "../components/project/projectsList"
-export default function Portfolio({ data }) {
+export default function Portfolio({ data, location }) {
   const projects = data.allPrismicProject.edges
 
   return (
@@ -20,7 +20,7 @@ export default function Portfolio({ data }) {
         description='Labzone teams have completed software development projects for clients from Slovakia, Czech Republic, and Finland.'
       />
 
-      <Layout>
+      <Layout location={location}>
         <Section title="Check our portfolio">
           <ProjectsList projects={projects} />
 

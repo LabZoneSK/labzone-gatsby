@@ -9,7 +9,7 @@ import PostsList from "../components/blog/postsList"
 import Section from "../components/section"
 import SeoHelmet from "../components/seo/seoHelmet"
 
-export default function Blog({ data }) {
+export default function Blog({ data, location }) {
   const posts = data.allPrismicPost.edges
 
   return (
