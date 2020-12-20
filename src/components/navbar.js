@@ -88,10 +88,10 @@ export default function Navbar() {
           <Link to="/" className="navbar-item">
             Home
           </Link>
-          <Link to="/portfolio" className="navbar-item">
+          <Link to="/portfolio/" className="navbar-item">
             Portfolio
           </Link>
-          <Link to="/blog" className="navbar-item">
+          <Link to="/blog/" className="navbar-item">
             Blog
           </Link>
         </div>

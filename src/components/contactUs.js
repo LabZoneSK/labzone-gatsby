@@ -16,7 +16,7 @@ export default function ContactUs({ hasLinkToPortfolio }) {
 
         {hasLinkToPortfolio && (
           <div className="mt-6">
-            <Link className="btn is-tertiary" to="/portfolio">
+            <Link className="btn is-tertiary" to="/portfolio/">
               {hasLinkToPortfolio}
             </Link>
           </div>

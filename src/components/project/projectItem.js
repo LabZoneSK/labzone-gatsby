@@ -47,7 +47,7 @@ export default function ProjectItem(props) {
             }}
           />
 
-          <Link className="btn is-primary" to={`/${slug}`}>
+          <Link className="btn is-primary" to={`/${slug}/`}>
             Read more
           </Link>
         </div>

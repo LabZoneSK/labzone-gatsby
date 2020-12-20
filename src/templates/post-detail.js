@@ -15,7 +15,7 @@ export default function PostDetail({ data }) {
 
   return (
     <>
-      <SeoHelmet title={`${title.text} | LabZone`} />
+      <SeoHelmet title={`${title.text}`} />
 
       <Layout>
         <FullBleed>
