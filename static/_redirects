@@ -1,1 +1,2 @@
-
+#SK site redirect
+https://www.labzone.sk/* https://www.labzone.tech/sk/:splat 301!
