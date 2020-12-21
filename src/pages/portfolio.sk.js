@@ -16,12 +16,12 @@ export default function Portfolio({ data, location }) {
   return (
     <>
       <SeoHelmet
-        title={`Portfolio | LabZone`}
+        title={`Portfólio`}
         description='Labzone teams have completed software development projects for clients from Slovakia, Czech Republic, and Finland.'
       />
 
       <Layout location={location}>
-        <Section title="Check our portfolio">
+        <Section title="Ukážky projektov, na ktorých sme pracovali">
           <ProjectsList projects={projects} />
 
           <ContactUs />

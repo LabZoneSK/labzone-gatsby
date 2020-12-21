@@ -61,12 +61,12 @@ export default function Home({ data, location }) {
     {
       title: "Vývoj softvéru",
       icon: "/images/icons/svg/labzone-software-development.svg",
-      list: ["Web stránky/ aplikácie", "E-commerce", "Mobilné aplikácie"],
+      list: ["Web stránky / aplikácie", "E-commerce", "Mobilné aplikácie"],
     },
     {
       title: "UX / UI dizajn",
       icon: "/images/icons/svg/labzone-web-design.svg",
-      list: ["User eXperience", "User Interface", "Copywritting"],
+      list: ["Užívateľský zážitok (UX)", "Grafické rozhranie / dizajn", "Copywriting"],
     },
     {
       title: "SEO & Marketing",
@@ -102,15 +102,15 @@ export default function Home({ data, location }) {
   return (
     <Layout hasLastDark location={location}>
       <SeoHelmet
-        title="We build virtual teams"
-        description="Using code, design and almost any other IT tool<br/>to solve your business challenges. Exclusively remote."
+        title="Budujeme virtuálne softvérové tímy"
+        description="Pomocou kódu, dizajnu a takmer ľubovoľného iného IT nástroja s nami vyriešite svoje obchodné potreby. Exkluzívne remote."
         schemaOrgJSONLD={getOrganizationData()}
       />
 
       <FullBleed>
         <Hero
           title="Virtuálne tímy<br/>pre váš reálny úspech."
-          subtitle="Using code, design and almost any other IT tool<br/>to solve your business challenges. Exclusively remote."
+          subtitle="Každé zadanie je jedinečné a pod palcom ho vždy majú naši najpovolanejší.<br>Používame overené technológie, ktoré v kombinácii s našim know-how garantujú top výsledok."
           image="lead-image.jpg"
         />
       </FullBleed>

@@ -15,13 +15,13 @@ export default function Blog({ data, location }) {
   return (
     <>
       <SeoHelmet
-        title={`Blog | LabZone`}
-        description="Actionable ideas, news, trends and customer stories."
+        title={`Blog`}
+        description="Nápady, novinky, trendy, klientské príhody a iné zo života LabZone."
       />
 
       <Layout location={location}>
-        <Section title="The LabZone Blog">
-          <p className="is-size-5 mb-5">The blog delivers the “why, how, what” behind our services, products, and strategies to solve business and technical challenges. You will find here actionable ideas, news, trends and customer stories.</p>
+        <Section title="LabZone Blog">
+          <p className="is-size-5 mb-5">Blog prináša „prečo, ako, čo“ za našimi službami, produktami a stratégiami na riešenie obchodných a technických výziev. Nájdete tu užitočné nápady, novinky, trendy a príbehy zákazníkov.</p>
           <PostsList posts={posts} />
         </Section>
       </Layout>
