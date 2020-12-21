@@ -13,6 +13,7 @@ const messages = {
     technologiesStack: "Použité technológie",
     result: "Výsledok",
     fig: "Obr.",
+    moreProjects: "Zobraziť ďalšie projekty"
 }
 
 export default messages;

@@ -28,6 +28,7 @@ export default function ProjectDetail({ data, location }) {
     team,
     testimonials,
   } = data.prismicProject.data
+  const lang = data.prismicProject.lang;
 
   const usedTechnologies = technologies.text.split(",")
   const icons = usedTechnologies.map(technology => {
@@ -105,7 +106,7 @@ export default function ProjectDetail({ data, location }) {
 
           <Gallery images={galleryImages} />
 
-          <ContactUs hasLinkToPortfolio="Show me other projects" />
+          <ContactUs lang={lang} hasLinkToPortfolio={<FormattedMessage id="moreProjects" defaultMessage="Show me other projects" />} />
         </Section>
       </Layout>
     </>
@@ -116,6 +117,7 @@ export const query = graphql`
   query($slug: String!) {
     prismicProject(data: { slug: { text: { eq: $slug } } }) {
       id
+      lang
       data {
         featured_image {
           fluid(maxWidth: 400, maxHeight: 300) {
