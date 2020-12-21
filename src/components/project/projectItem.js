@@ -1,4 +1,5 @@
 import React from "react"
+import { FormattedMessage } from "react-intl"
 import PropTypes from "prop-types"
 
 /** Gatsby */
@@ -48,7 +49,7 @@ export default function ProjectItem(props) {
           />
 
           <Link className="btn is-primary" to={`/${slug}/`}>
-            Read more
+            <FormattedMessage id="readMoreProject" defaultMessage="Read more" />
           </Link>
         </div>
         <div className="column is-half">

@@ -267,9 +267,10 @@ export default function Home({ data, location }) {
 
 export const query = graphql`
   {
-    allPrismicProject {
+    allPrismicProject(filter: {lang: {eq: "en"}}, limit: 3) {
       edges {
         node {
+          lang
           data {
             project_title {
               text
@@ -290,9 +291,10 @@ export const query = graphql`
       }
     }
 
-    allPrismicPost(limit: 3) {
+    allPrismicPost(filter: {lang: {eq: "en"}}, limit: 3) {
       edges {
         node {
+          lang
           data {
             hero_image {
               alt

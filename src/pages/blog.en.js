@@ -31,7 +31,7 @@ export default function Blog({ data, location }) {
 
 export const query = graphql`
   {
-    allPrismicPost {
+    allPrismicPost(filter: {lang: {eq: "en"}}) {
       edges {
         node {
           data {
@@ -50,6 +50,7 @@ export const query = graphql`
           }
           uid
           tags
+          lang
         }
       }
     }

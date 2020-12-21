@@ -19,7 +19,7 @@ export default function Blog({ data, location }) {
         description="Actionable ideas, news, trends and customer stories."
       />
 
-      <Layout>
+      <Layout location={location}>
         <Section title="The LabZone Blog">
           <p className="is-size-5 mb-5">The blog delivers the “why, how, what” behind our services, products, and strategies to solve business and technical challenges. You will find here actionable ideas, news, trends and customer stories.</p>
           <PostsList posts={posts} />
@@ -31,7 +31,7 @@ export default function Blog({ data, location }) {
 
 export const query = graphql`
   {
-    allPrismicPost {
+    allPrismicPost(filter: {lang: {eq: "sk"}}) {
       edges {
         node {
           data {
@@ -50,6 +50,7 @@ export const query = graphql`
           }
           uid
           tags
+          lang
         }
       }
     }

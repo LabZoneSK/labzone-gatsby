@@ -33,9 +33,10 @@ export default function Portfolio({ data, location }) {
 
 export const query = graphql`
   {
-    allPrismicProject {
+    allPrismicProject(filter: {lang: {eq: "en"}}) {
       edges {
         node {
+          lang
           data {
             project_title {
               text

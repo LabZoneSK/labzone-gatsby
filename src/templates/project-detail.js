@@ -15,6 +15,8 @@ import ContactUs from "../components/contactUs"
 
 import SeoHelmet from "../components/seo/seoHelmet"
 
+import { FormattedMessage } from "react-intl"
+
 export default function ProjectDetail({ data, location }) {
   const {
     project_title,
@@ -60,7 +62,7 @@ export default function ProjectDetail({ data, location }) {
           <div className="columns">
             <div className="column">
               {assignment && (
-                <Content title="Summary" content={project_summary.html} />
+                <Content title={<FormattedMessage id="summary" defaultMessage="Summary" />} content={project_summary.html} />
               )}
             </div>
             <div className="column">
@@ -80,14 +82,14 @@ export default function ProjectDetail({ data, location }) {
             )}
 
           {assignment && (
-            <Content title="Assignment" content={assignment.html} />
+            <Content title={<FormattedMessage id="assignment" defaultMessage="Assingment" />} content={assignment.html} />
           )}
 
           <div className="columns">
             <div className="column">
               {team && (
                 <Content
-                  title="Team"
+                  title={<FormattedMessage id="team" defaultMessage="Team" />}
                   content={team.html}
                   customClasses="person"
                 />
@@ -95,11 +97,11 @@ export default function ProjectDetail({ data, location }) {
             </div>
             <div className="column">
               {technologies && (
-                <Content title="Technologies Stack">{icons}</Content>
+                <Content title={<FormattedMessage id="technologiesStack" defaultMessage="Technologies Stack" />}>{icons}</Content>
               )}
             </div>
           </div>
-          {result && <Content title="Result" content={result.html} />}
+          {result && <Content title={<FormattedMessage id="result" defaultMessage="Result" />} content={result.html} />}
 
           <Gallery images={galleryImages} />
 

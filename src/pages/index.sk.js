@@ -21,6 +21,7 @@ import SeoHelmet from "../components/seo/seoHelmet"
 import config from "../components/config"
 
 import ProjectsList from "../components/project/projectsList"
+import { FormattedMessage } from "react-intl"
 import { color } from "../utils/color"
 import { device } from "../utils/device"
 
@@ -58,19 +59,19 @@ export default function Home({ data, location }) {
 
   const services = [
     {
-      title: "Software Development",
+      title: "Vývoj softvéru",
       icon: "/images/icons/svg/labzone-software-development.svg",
-      list: ["Web sites / apps", "E-commerce", "Mobile applications"],
+      list: ["Web stránky/ aplikácie", "E-commerce", "Mobilné aplikácie"],
     },
     {
-      title: "UX / UI Desgin",
+      title: "UX / UI dizajn",
       icon: "/images/icons/svg/labzone-web-design.svg",
       list: ["User eXperience", "User Interface", "Copywritting"],
     },
     {
       title: "SEO & Marketing",
       icon: "/images/icons/svg/labzone-digital-marketing.svg",
-      list: ["Banners", "Marketing Support", "On-line & Off-line"],
+      list: ["Banery", "Marketingová podpora", "On-line & Off-line"],
     },
   ]
 
@@ -114,7 +115,7 @@ export default function Home({ data, location }) {
         />
       </FullBleed>
 
-      <Section title="We can help you with">
+      <Section title="S čím vám vieme pomôcť">
         <div className="columns mt-5 mb-3">
           {services &&
             services.map((service, i) => {
@@ -129,10 +130,9 @@ export default function Home({ data, location }) {
 
       <FullBleed color={color.dark}>
         <div className="grid-container">
-          <Section title="Technologies we use">
+          <Section title="Používame najmodernejšie technológie">
             <p className="has-text-white">
-              Our software speacilists will always adapt to your needs. Here are
-              some of the technologies we work with:
+            Náši špecialisti sa vždy prispôsobia vašim potrebám. Toto sú niektoré z technológií, s ktorými pracujeme:
             </p>
 
             <TechIcons>
@@ -153,16 +153,15 @@ export default function Home({ data, location }) {
         </div>
       </FullBleed>
 
-      <Section title="Some of our projects">
+      <Section title="Výsledky našej práce">
         <ProjectsList projects={projects} hasShowMore />
       </Section>
 
       <FullBleed>
         <Hero image="community-home.jpg" isRounded>
           <Spacer
-            title="We build community"
-            subtitle="In addition to various passion projects, we strive to build a solid
-          community around design and information technology."
+            title="Budujeme komunitu"
+            subtitle="Okrem rôznych passion projektov sa snažíme budovať solídnu komunitu okolo dizajnu a informčných technológií."
           >
             <div className="is-hidden-mobile">
               <div className="mt-3 is-pulled-right">
@@ -175,7 +174,7 @@ export default function Home({ data, location }) {
                       href="https://github.com/LabZoneSK"
                       className="has-text-white is-size-5"
                     >
-                      View repos
+                      Pozrieť si repozitáre
                     </a>
                   </div>
                 </div>
@@ -189,7 +188,7 @@ export default function Home({ data, location }) {
                       href="https://discord.gg/XmBm8K9"
                       className="has-text-white is-size-5"
                     >
-                      Join to Discord
+                      Pridať sa na Discord
                     </a>
                   </div>
                 </div>
@@ -202,7 +201,7 @@ export default function Home({ data, location }) {
                   className="has-text-white is-size-5"
                 >
                   <Github className="social-icon social-icon--line-centered p-0 mr-3" />
-                  View repos
+                  Pozrieť si repozitáre
                 </a>
               </div>
               <div className="mt-3">
@@ -211,7 +210,7 @@ export default function Home({ data, location }) {
                   className="has-text-white is-size-5"
                 >
                   <Discord className="social-icon social-icon--line-centered p-0 mr-3" />
-                  Join to Discord
+                  Pridať sa na Discord
                 </a>
               </div>
             </div>
@@ -219,18 +218,25 @@ export default function Home({ data, location }) {
         </Hero>
       </FullBleed>
 
-      <Section title="The LabZone Blog">
+      <Section title="Blog">
         <PostsList posts={posts} />
       </Section>
 
       <FullBleed color="#f4f4f4">
         <div className="grid-container">
-          <Section title="Connect with us" className="container">
+          <Section title="Spojme sa" className="container">
             <div className="columns">
               <div className="column is-half">
-                Got questions?
+                <FormattedMessage
+                  id="gotQuestions"
+                  defaultMessage="Got questions?"
+                />
                 <br />
-                Contact us directly at info@labzone.sk
+                <FormattedMessage
+                  id="contactUs"
+                  defaultMessage="Contact us directly at {email}"
+                  values={{ email: "info@labzone.sk" }}
+                />
                 <div className="mt-1">
                   <a href="https://www.linkedin.com/company/labzonesk">
                     <LinkedIn className="social-icon linkedin" />
@@ -267,9 +273,10 @@ export default function Home({ data, location }) {
 
 export const query = graphql`
   {
-    allPrismicProject {
+    allPrismicProject(filter: {lang: {eq: "sk"}}, limit: 3) {
       edges {
         node {
+          lang
           data {
             project_title {
               text
@@ -290,9 +297,10 @@ export const query = graphql`
       }
     }
 
-    allPrismicPost(limit: 3) {
+    allPrismicPost(filter: {lang: {eq: "sk"}}, limit: 3) {
       edges {
         node {
+          lang
           data {
             hero_image {
               alt
