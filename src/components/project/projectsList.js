@@ -11,9 +11,6 @@ import ProjectItem from "./projectItem"
 
 import Center from "../center"
 
-/** Utils */
-import { sanitizeLinkForProduction } from "../../utils/helpers"
-
 export default function ProjectsList(props) {
   const { projects, hasShowMore } = props
 

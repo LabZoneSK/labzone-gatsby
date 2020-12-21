@@ -10,10 +10,3 @@ export function sanitizeLink(path, langKey){
   }
   return path.replace(`/${defaultLangKey}/`, '/');
 }
-
-export function sanitizeLinkForProduction(path, langKey){
-  if (process.env.NODE_ENV === 'production') {
-    return path.replace(`${langKey}/`, '');
-  }
-  return path;
-}
