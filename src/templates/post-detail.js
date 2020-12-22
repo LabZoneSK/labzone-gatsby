@@ -12,10 +12,11 @@ import SeoHelmet from "../components/seo/seoHelmet"
 
 export default function PostDetail({ data, location }) {
   const { title, content, hero_image } = data.prismicPost.data
+  const lang = data.prismicPost.lang;
 
   return (
     <>
-      <SeoHelmet title={`${title.text}`} />
+      <SeoHelmet title={`${title.text}`} lang={lang}/>
 
       <Layout location={location}>
         <FullBleed>
@@ -44,6 +45,7 @@ export const query = graphql`
   query($id: String!) {
     prismicPost(id: { eq: $id }) {
       uid
+      lang
       data {
         content {
           html

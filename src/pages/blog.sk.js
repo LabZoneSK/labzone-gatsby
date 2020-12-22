@@ -17,11 +17,16 @@ export default function Blog({ data, location }) {
       <SeoHelmet
         title={`Blog`}
         description="Nápady, novinky, trendy, klientské príhody a iné zo života LabZone."
+        lang="sk"
       />
 
       <Layout location={location}>
         <Section title="LabZone Blog">
-          <p className="is-size-5 mb-5">Blog prináša „prečo, ako, čo“ za našimi službami, produktami a stratégiami na riešenie obchodných a technických výziev. Nájdete tu užitočné nápady, novinky, trendy a príbehy zákazníkov.</p>
+          <p className="is-size-5 mb-5">
+            Blog prináša „prečo, ako, čo“ za našimi službami, produktami a
+            stratégiami na riešenie obchodných a technických výziev. Nájdete tu
+            užitočné nápady, novinky, trendy a príbehy zákazníkov.
+          </p>
           <PostsList posts={posts} />
         </Section>
       </Layout>
@@ -31,7 +36,7 @@ export default function Blog({ data, location }) {
 
 export const query = graphql`
   {
-    allPrismicPost(filter: {lang: {eq: "sk"}}) {
+    allPrismicPost(filter: { lang: { eq: "sk" } }) {
       edges {
         node {
           data {

@@ -105,6 +105,7 @@ export default function Home({ data, location }) {
         title="Budujeme virtuálne softvérové tímy"
         description="Pomocou kódu, dizajnu a takmer ľubovoľného iného IT nástroja s nami vyriešite svoje obchodné potreby. Exkluzívne remote."
         schemaOrgJSONLD={getOrganizationData()}
+        lang="sk"
       />
 
       <FullBleed>

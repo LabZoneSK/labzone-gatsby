@@ -17,7 +17,8 @@ export default function Portfolio({ data, location }) {
     <>
       <SeoHelmet
         title={`Portfólio`}
-        description='Labzone teams have completed software development projects for clients from Slovakia, Czech Republic, and Finland.'
+        description='Pozrite si ukážku projektov, na ktorých sme sa podielali.'
+        lang="sk"
       />
 
       <Layout location={location}>

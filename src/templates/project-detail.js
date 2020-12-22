@@ -56,6 +56,7 @@ export default function ProjectDetail({ data, location }) {
         title={`${project_title.text}`}
         description={project_summary.text}
         image={featured_image.fluid.src}
+        lang={lang}
       />
 
       <Layout location={location}>
