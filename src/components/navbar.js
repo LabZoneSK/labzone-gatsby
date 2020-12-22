@@ -60,15 +60,10 @@ export default function Navbar() {
       role="navigation"
       aria-label="main navigation"
     >
+      <div className="container">
       <div className="navbar-brand">
         <Link to="/" className="navbar-item">
-          {data.file && (
-            <BrandIcon
-              fixed={data.file.childImageSharp.fixed}
-              alt="Logo LabZone s.r.o."
-            />
-          )}
-          <span>LabZone</span>
+          <img className="brand-logo" src="/images/labzone-logo.svg" />
         </Link>
 
         <Button
@@ -95,6 +90,7 @@ export default function Navbar() {
             Blog
           </Link>
         </div>
+      </div>
       </div>
     </CustomizedNav>
   )
