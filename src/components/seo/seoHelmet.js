@@ -19,7 +19,7 @@ export default function SeoHelmet(props) {
 
   return (
     <>
-      <Helmet htmlAttributes={{ lang }}>
+      <Helmet htmlAttributes={{ lang, id: 'top' }}>
         {/* General tags */}
         <meta charSet="utf-8" />
         <title>{`${title} | LabZone`}</title>

@@ -25,3 +25,54 @@
     content: "― ";
   }
 }
+
+/** Back To Top */
+.backToTop {
+  background-color: $primary;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  width: 150px;
+  
+  position: absolute;
+  left: calc(100% - 48px);
+
+  transition: 200ms ease-in;
+
+  .arrow {
+    img {
+      margin-left: 0.75rem;
+      width: 24px;
+    }
+  }
+  .text{
+    display: none;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  &:hover, &:focus {
+    left: calc(100% - 150px);
+
+    .arrow {
+      img {
+        width: 100%;
+      }
+    }
+
+    .text {
+      display: block;
+    }
+  }
+
+  .backToTop-link{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .backToTop-link, .backToTop-link span {
+    color: white;
+  }
+}

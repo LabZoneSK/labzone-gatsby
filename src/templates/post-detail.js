@@ -9,6 +9,7 @@ import ContactUs from "../components/contactUs"
 import FullBleed from "../components/fullBleed"
 import Img from "gatsby-image"
 import SeoHelmet from "../components/seo/seoHelmet"
+import BackToTop from "../components/BackToTop"
 
 export default function PostDetail({ data }) {
   const { title, content, hero_image } = data.prismicPost.data
@@ -19,9 +20,13 @@ export default function PostDetail({ data }) {
 
       <Layout>
         <FullBleed>
-          <Img fluid={hero_image.fluid} alt={hero_image.alt} style={{
-              height:"500px"
-          }}/>
+          <Img
+            fluid={hero_image.fluid}
+            alt={hero_image.alt}
+            style={{
+              height: "500px",
+            }}
+          />
         </FullBleed>
         <article className="blog-article content-section mt-6">
           <h1 className="title is-size-2-desktop has-text-primary">
@@ -33,6 +38,7 @@ export default function PostDetail({ data }) {
             }}
           ></div>
 
+          <BackToTop />
           <ContactUs />
         </article>
       </Layout>
