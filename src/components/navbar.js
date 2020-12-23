@@ -1,6 +1,9 @@
 import React from "react"
-import { Link } from "gatsby"
+import PropTypes from "prop-types"
+
+/** Gatsby */
 import { useStaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
 import Img from "gatsby-image"
 
 /** Emotion & Styling */
@@ -8,6 +11,11 @@ import styled from "@emotion/styled"
 
 /** Components */
 // import Icon from "../components/icon"
+
+import { FormattedMessage } from "react-intl"
+
+/** Utils */
+import { sanitizeLink } from "../utils/helpers"
 
 const CustomizedNav = styled.nav`
   box-shadow: 0 2px 0 0 #f5f5f5;
@@ -27,7 +35,7 @@ const Button = styled.button`
   }
 `
 
-export default function Navbar() {
+export default function Navbar({ homeLink, lang }) {
   const data = useStaticQuery(graphql`
     {
       file(relativePath: { eq: "images/lz_logo_black.png" }) {
@@ -41,7 +49,6 @@ export default function Navbar() {
   `)
 
   const handleMobileButtonClick = event => {
-
     const el = event.target
     const target = el.dataset.target
     const $target = document.getElementById(target)
@@ -61,7 +68,7 @@ export default function Navbar() {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <Link to="/" className="navbar-item">
+        <Link to={homeLink} className="navbar-item">
           {data.file && (
             <BrandIcon
               fixed={data.file.childImageSharp.fixed}
@@ -85,17 +92,30 @@ export default function Navbar() {
       </div>
       <div className="navbar-menu" id="navMenu">
         <div className="navbar-end">
-          <Link to="/" className="navbar-item">
-            Home
+          <Link to={homeLink} className="navbar-item">
+            <FormattedMessage id="Home" defaultMessage="Home" />
           </Link>
-          <Link to="/portfolio/" className="navbar-item">
-            Portfolio
+          <Link
+            to={sanitizeLink(`/${lang}/portfolio/`)}
+            className="navbar-item"
+          >
+            <FormattedMessage id="Portfolio" defaultMessage="Portfolio" />
           </Link>
-          <Link to="/blog/" className="navbar-item">
-            Blog
+          <Link to={sanitizeLink(`/${lang}/blog/`)} className="navbar-item">
+            <FormattedMessage id="Blog" defaultMessage="Blog" />
           </Link>
         </div>
       </div>
     </CustomizedNav>
   )
+}
+
+Navbar.propTypes = {
+  homeLink: PropTypes.string,
+  lang: PropTypes.string,
+}
+
+Navbar.defaultValues = {
+  homeLink: "/",
+  lang: "en",
 }

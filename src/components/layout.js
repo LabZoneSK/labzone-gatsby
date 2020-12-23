@@ -1,4 +1,5 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import PropTypes from "prop-types"
 
 /** Emotion */
@@ -6,8 +7,15 @@ import styled from "@emotion/styled"
 import { device } from "../utils/device"
 
 /** Components */
-import Navbar from "../components/navbar"
-import Footer from "../components/footer"
+import Navbar from "./navbar"
+import Footer from "./footer"
+
+/** i18n */
+import { getCurrentLangKey } from "ptz-i18n"
+import { IntlProvider } from "react-intl"
+import "intl"
+
+import getMessages from '../data/messages';
 
 const HolyGrailMain = styled.main`
   display: grid;
@@ -26,23 +34,47 @@ const HolyGrailMain = styled.main`
   }
 `
 
-export default function Layout({ children, hasLastDark }) {
+export default function Layout({
+  children,
+  location,
+  hasLastDark,
+}) {
+  const data = useStaticQuery(graphql`
+    query LayoutQuery {
+      site {
+        siteMetadata {
+          languages {
+            defaultLangKey
+            langs
+          }
+        }
+      }
+    }
+  `)
+
+  const url = location.pathname
+  const { langs, defaultLangKey } = data.site.siteMetadata.languages
+  const langKey = getCurrentLangKey(langs, defaultLangKey, url)
+  const homeLink = `/${langKey}/`.replace(`/${defaultLangKey}/`, "/")
+
   return (
     <>
-      <Navbar />
+      <IntlProvider locale={langKey} defaultLocale={defaultLangKey} messages={getMessages(langKey)}>
+        <Navbar homeLink={homeLink} lang={langKey} />
 
-      <HolyGrailMain>{children}</HolyGrailMain>
+        <HolyGrailMain>{children}</HolyGrailMain>
 
-      <Footer hasLastDark={hasLastDark} />
+        <Footer hasLastDark={hasLastDark} />
+      </IntlProvider>
     </>
   )
 }
 
 Layout.propTypes = {
   children: PropTypes.node,
-  hasLastDark: PropTypes.bool
+  hasLastDark: PropTypes.bool,
 }
 
 Layout.defaultProps = {
-  hasLastDark: false
+  hasLastDark: false,
 }

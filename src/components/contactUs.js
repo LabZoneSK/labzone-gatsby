@@ -5,18 +5,26 @@ import { Link } from "gatsby"
 
 /** Components */
 import Center from "./center"
+import { FormattedMessage } from "react-intl"
 
-export default function ContactUs({ hasLinkToPortfolio }) {
+/** Utils */
+import { sanitizeLink } from '../utils/helpers';
+
+export default function ContactUs({ hasLinkToPortfolio, lang }) {
   return (
     <Center>
       <div className="mt-6 has-text-centered is-size-5">
-        Got questions?
+        <FormattedMessage id="gotQuestions" defaultMessage="Got questions?" />
         <br />
-        Contact us directly at info@labzone.sk
+        <FormattedMessage
+          id="contactUs"
+          defaultMessage="Contact us directly at {email}"
+          values={{ email: "info@labzone.sk" }}
+        />
 
         {hasLinkToPortfolio && (
           <div className="mt-6">
-            <Link className="btn is-tertiary" to="/portfolio/">
+            <Link className="btn is-tertiary" to={sanitizeLink(`/${lang}/portfolio/`)}>
               {hasLinkToPortfolio}
             </Link>
           </div>
@@ -27,5 +35,10 @@ export default function ContactUs({ hasLinkToPortfolio }) {
 }
 
 ContactUs.propTypes = {
-  hasLinkToPortfolio: PropTypes.string
+  hasLinkToPortfolio: PropTypes.string,
+  lang: PropTypes.string
+}
+
+ContactUs.defaultValues = {
+  lang: 'en'
 }

@@ -15,7 +15,9 @@ import ContactUs from "../components/contactUs"
 
 import SeoHelmet from "../components/seo/seoHelmet"
 
-export default function ProjectDetail({ data }) {
+import { FormattedMessage } from "react-intl"
+
+export default function ProjectDetail({ data, location }) {
   const {
     project_title,
     project_summary,
@@ -26,6 +28,7 @@ export default function ProjectDetail({ data }) {
     team,
     testimonials,
   } = data.prismicProject.data
+  const lang = data.prismicProject.lang;
 
   const usedTechnologies = technologies.text.split(",")
   const icons = usedTechnologies.map(technology => {
@@ -53,14 +56,15 @@ export default function ProjectDetail({ data }) {
         title={`${project_title.text}`}
         description={project_summary.text}
         image={featured_image.fluid.src}
+        lang={lang}
       />
 
-      <Layout>
+      <Layout location={location}>
         <Section title={project_title.text}>
           <div className="columns">
             <div className="column">
               {assignment && (
-                <Content title="Summary" content={project_summary.html} />
+                <Content title={<FormattedMessage id="summary" defaultMessage="Summary" />} content={project_summary.html} />
               )}
             </div>
             <div className="column">
@@ -80,14 +84,14 @@ export default function ProjectDetail({ data }) {
             )}
 
           {assignment && (
-            <Content title="Assignment" content={assignment.html} />
+            <Content title={<FormattedMessage id="assignment" defaultMessage="Assingment" />} content={assignment.html} />
           )}
 
           <div className="columns">
             <div className="column">
               {team && (
                 <Content
-                  title="Team"
+                  title={<FormattedMessage id="team" defaultMessage="Team" />}
                   content={team.html}
                   customClasses="person"
                 />
@@ -95,15 +99,15 @@ export default function ProjectDetail({ data }) {
             </div>
             <div className="column">
               {technologies && (
-                <Content title="Technologies Stack">{icons}</Content>
+                <Content title={<FormattedMessage id="technologiesStack" defaultMessage="Technologies Stack" />}>{icons}</Content>
               )}
             </div>
           </div>
-          {result && <Content title="Result" content={result.html} />}
+          {result && <Content title={<FormattedMessage id="result" defaultMessage="Result" />} content={result.html} />}
 
           <Gallery images={galleryImages} />
 
-          <ContactUs hasLinkToPortfolio="Show me other projects" />
+          <ContactUs lang={lang} hasLinkToPortfolio={<FormattedMessage id="moreProjects" defaultMessage="Show me other projects" />} />
         </Section>
       </Layout>
     </>
@@ -114,6 +118,7 @@ export const query = graphql`
   query($slug: String!) {
     prismicProject(data: { slug: { text: { eq: $slug } } }) {
       id
+      lang
       data {
         featured_image {
           fluid(maxWidth: 400, maxHeight: 300) {
