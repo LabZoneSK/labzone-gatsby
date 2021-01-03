@@ -15,8 +15,8 @@ export default function ContactUs({ hasLinkToPortfolio }) {
         Contact us directly at info@labzone.sk
 
         {hasLinkToPortfolio && (
-          <div className="mt-6">
-            <Link className="btn is-tertiary" to="/portfolio/">
+          <div className="mt-6 center">
+            <Link className="lz-button button--isi" to="/portfolio/">
               {hasLinkToPortfolio}
             </Link>
           </div>

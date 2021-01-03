@@ -47,7 +47,7 @@ export default function ProjectItem(props) {
             }}
           />
 
-          <Link className="btn is-primary" to={`/${slug}/`}>
+          <Link className="lz-button lz-button--border-thin button--isi button--isi--inverted" to={`/${slug}/`}>
             Read more
           </Link>
         </div>

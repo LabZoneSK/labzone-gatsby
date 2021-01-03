@@ -99,3 +99,9 @@ a {
 .is-dark + footer {
   margin-top: 0;
 }
+
+.center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
