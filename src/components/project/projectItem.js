@@ -11,14 +11,6 @@ import { device } from "../../utils/device"
 /** Components */
 import Img from "gatsby-image"
 
-const ProjectItemWrapper = styled.div`
-  padding: 2rem 0 4rem 0;
-
-  @media ${device.laptop} {
-    padding: 4rem 0;
-  }
-`
-
 const ProjectItemTitle = styled.h2`
   font-weight: 900;
   font-size: 1.6rem;
@@ -33,7 +25,7 @@ export default function ProjectItem(props) {
   const { name, description, featured, slug } = props
 
   return (
-    <ProjectItemWrapper>
+    <div className="project-item">
       <div className="columns column-reverse-mobile">
         <div className="column is-half has-text-centered-mobile">
           <ProjectItemTitle className="has-text-centered-mobile">
@@ -47,15 +39,20 @@ export default function ProjectItem(props) {
             }}
           />
 
-          <Link className="lz-button lz-button--border-thin button--isi button--isi--inverted" to={`/${slug}/`}>
-            Read more
-          </Link>
+          <div className="project-item--button-wrapper">
+            <Link
+              className="lz-button lz-button--border-thin button--isi button--isi--inverted"
+              to={`/${slug}/`}
+            >
+              Read more
+            </Link>
+          </div>
         </div>
         <div className="column is-half">
           <Img fluid={featured.fluid} alt="" />
         </div>
       </div>
-    </ProjectItemWrapper>
+    </div>
   )
 }
 
@@ -63,5 +60,5 @@ ProjectItem.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   featured: PropTypes.object,
-  slug: PropTypes.string.isRequired
+  slug: PropTypes.string.isRequired,
 }

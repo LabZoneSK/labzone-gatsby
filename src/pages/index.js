@@ -114,7 +114,7 @@ export default function Home({ data }) {
         />
       </FullBleed>
 
-      <Section title="We can help you with">
+      <Section title="How we can help you">
         <div className="columns mt-5 mb-3">
           {services &&
             services.map((service, i) => {
@@ -223,7 +223,7 @@ export default function Home({ data }) {
         <PostsList posts={posts} />
       </Section>
 
-      <FullBleed color="apricot">
+      <FullBleed color="columbia-blue">
         <div className="grid-container">
           <Section title="Connect with us" className="container">
             <div className="columns">
