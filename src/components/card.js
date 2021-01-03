@@ -31,7 +31,7 @@ css`
   }
 ` : 
 css`
-  background-color: var(--accent-dark);
+  background-color: var(--carolina-blue);
   color: #fff;
 
   img {

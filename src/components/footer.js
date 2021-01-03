@@ -6,7 +6,7 @@ import styled from '@emotion/styled'
 import { color } from '../utils/color'
 
 const StyledFooter = styled.footer`
-  background-color: ${color.dark};
+  background-color: var(--dark);
   margin-top: ${props =>
     props.hasLastDark ? '0' : '3rem'};
 `

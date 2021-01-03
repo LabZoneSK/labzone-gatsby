@@ -10,12 +10,6 @@ import BackgroundImage from "gatsby-background-image"
 import styled from "@emotion/styled"
 import { device } from "../utils/device"
 
-const HeroTitle = styled.h1`
-  @media ${device.laptop} {
-    font-size: 3em;
-    width: 50%;
-  }
-`
 const HeroSubTitle = styled.p`
   font-weight: 200;
   font-size: 1.3rem;
@@ -57,9 +51,9 @@ export default function Hero(props) {
         <div className="container">
           {title && (
             <>
-              <HeroTitle className="title has-text-white">
+              <h1 className="hero-title">
                 {parse(title)}
-              </HeroTitle>
+              </h1>
               <HeroSubTitle>{parse(subtitle)}</HeroSubTitle>
             </>
           )}

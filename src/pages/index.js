@@ -108,9 +108,9 @@ export default function Home({ data }) {
 
       <FullBleed>
         <Hero
-          title="We build virtual teams<br/>for your real success."
-          subtitle="Using code, design and almost any other IT tool<br/>to solve your business challenges. Exclusively remote."
-          image="lead-image.jpg"
+          title="We build <span class=text-red-pigment>virtual teams</span><br/>for your real success"
+          subtitle="Using code, design and almost any other IT tool<br/>to solve your business challenges. <span class=text-red-pigment>Exclusively remote.</span>"
+          image="lead-v1.jpg"
         />
       </FullBleed>
 
@@ -127,9 +127,9 @@ export default function Home({ data }) {
         </div>
       </Section>
 
-      <FullBleed color={color.dark}>
+      <FullBleed color='dark'>
         <div className="grid-container">
-          <Section title="Technologies we use">
+          <Section title="Technologies we use" titleClass="text-red-pigment">
             <p className="has-text-white">
               Our software speacilists will always adapt to your needs. Here are
               some of the technologies we work with:
@@ -223,7 +223,7 @@ export default function Home({ data }) {
         <PostsList posts={posts} />
       </Section>
 
-      <FullBleed color="#f4f4f4">
+      <FullBleed color="columbia-blue">
         <div className="grid-container">
           <Section title="Connect with us" className="container">
             <div className="columns">
