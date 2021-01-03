@@ -158,7 +158,7 @@ export default function Home({ data }) {
       </Section>
 
       <FullBleed>
-        <Hero image="community-home.jpg" isRounded>
+        <Hero image="community-labzone.jpg" isRounded>
           <Spacer
             title="We build community"
             subtitle="In addition to various passion projects, we strive to build a solid
@@ -223,7 +223,7 @@ export default function Home({ data }) {
         <PostsList posts={posts} />
       </Section>
 
-      <FullBleed color="columbia-blue">
+      <FullBleed color="apricot">
         <div className="grid-container">
           <Section title="Connect with us" className="container">
             <div className="columns">

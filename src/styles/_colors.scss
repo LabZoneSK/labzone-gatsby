@@ -1,10 +1,19 @@
 /** Color palette **/
-$primary: #15b0d4;
-$primary-accent: #05acd1;
+$red-pigment: #ff1d25ff;
+$gunmetal: #002a32ff;
+$apricot: #ffc6acff;
+$carolina-blue: #1b98e0ff;
+$columbia-blue: #c7e8f3ff;
+$dark:#111517;
+$white: #fff;
+
+$primary:$gunmetal;
+$primary-accent: $red-pigment;
 $secondary: #282633;
 $secondary-accent: #333;
 $link: #15b0d4;
 $spacer: #f4f4f4;
+
 :root {
   --primary: #15b0d4;
   --primary-accent: #05acd1;
@@ -16,13 +25,13 @@ $spacer: #f4f4f4;
   --spacer: #f4f4f4;
 
   /* Primary pallete */
-  --red-pigment: #ff1d25ff;
-  --gunmetal: #002a32ff;
-  --apricot: #ffc6acff;
-  --carolina-blue: #1b98e0ff;
-  --columbia-blue: #c7e8f3ff;
-  --dark:#111517;
-  --white: #fff;
+  --red-pigment: #{$red-pigment};
+  --gunmetal: #{$gunmetal};
+  --apricot: #{$apricot};
+  --carolina-blue: #{$carolina-blue};
+  --columbia-blue: #{$columbia-blue};
+  --dark: #{$dark};
+  --white: #{$white};
 
   /** Shades */
   --red-shade1: #da000a; 

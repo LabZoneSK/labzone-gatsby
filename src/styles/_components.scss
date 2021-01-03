@@ -71,3 +71,15 @@
     }
   }
 }
+
+
+/** Navbar */
+.navbar {
+
+  .navbar-item{
+
+    &:hover {
+      color: var(--red-pigment);
+    }
+  }
+}
