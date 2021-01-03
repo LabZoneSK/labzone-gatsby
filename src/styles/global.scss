@@ -30,6 +30,15 @@ html, body {
   }
 }
 
+a {
+  color: var(--red-pigment);
+  transform: 100ms ease-in;
+
+  &:hover, &:active {
+    color: var(--red-shade1);
+  }
+}
+
 .column-reverse-mobile {
   display: flex;
   flex-direction: column-reverse;
