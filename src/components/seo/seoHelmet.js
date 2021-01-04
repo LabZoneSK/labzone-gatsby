@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 
 import config from "../config"
 import { Helmet } from "react-helmet"
+import { useStaticQuery, graphql } from "gatsby"
 
 export default function SeoHelmet(props) {
   const {
@@ -15,7 +16,28 @@ export default function SeoHelmet(props) {
     schemaOrgJSONLD,
   } = props
 
-  const imageUrl = image ? image : 'https://www.labzone.tech/static/79cd74769083f985444636650e03d75a/8d10b/lz_logo_black.png';
+  const data = useStaticQuery(
+    graphql`
+      query {
+        imageSharp(fluid: { originalName: { eq: "logo-square-red.png" } }) {
+          fixed {
+            src
+          }
+        }
+
+        site {
+          siteMetadata {
+            siteUrl
+          }
+        }
+      }
+    `
+  )
+
+  console.log(data)
+  const imageUrl = image
+    ? image
+    : `${data.site.siteMetadata.siteUrl}${data.imageSharp.fixed.src}`
 
   return (
     <>
@@ -38,7 +60,7 @@ export default function SeoHelmet(props) {
         {isBlogPost ? <meta property="og:type" content="article" /> : null}
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:type" content='website' />
+        <meta property="og:type" content="website" />
         <meta property="og:image" content={imageUrl} />
 
         {/* Twitter Card tags */}
