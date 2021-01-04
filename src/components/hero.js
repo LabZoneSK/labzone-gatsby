@@ -6,16 +6,6 @@ import parse from "html-react-parser"
 import { graphql, useStaticQuery } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 
-/** Emotion */
-import styled from "@emotion/styled"
-import { device } from "../utils/device"
-
-const HeroSubTitle = styled.p`
-  font-weight: 200;
-  font-size: 1.3rem;
-  color: white;
-`
-
 export default function Hero(props) {
   const { title, subtitle, image, children } = props
 
@@ -51,10 +41,10 @@ export default function Hero(props) {
         <div className="container">
           {title && (
             <>
-              <h1 className="hero-title">
+              <h1 className="hero--title">
                 {parse(title)}
               </h1>
-              <HeroSubTitle>{parse(subtitle)}</HeroSubTitle>
+              <p className="hero--subtitle">{parse(subtitle)}</p>
             </>
           )}
 

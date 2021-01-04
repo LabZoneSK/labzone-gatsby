@@ -34,7 +34,7 @@
 }
 
 /** Hero */
-.hero-title {
+.hero--title {
   color: var(--white);
   font-weight: 700;
   text-transform: lowercase;
@@ -55,6 +55,12 @@
     position: relative;
     top: 1.5rem;
   }
+}
+
+.hero--subtitle {
+  font-weight: 200;
+  font-size: 1.3rem;
+  color: var(--white);
 }
 
 /** Section */

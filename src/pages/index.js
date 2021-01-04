@@ -165,7 +165,7 @@ export default function Home({ data }) {
           community around design and information technology."
           >
             <div className="is-hidden-mobile">
-              <div className="mt-3 is-pulled-right">
+              <div className="is-pulled-right">
                 <div className="columns is-vcentered">
                   <div className="column is-one-fifth">
                     <Github className="p-4" />
