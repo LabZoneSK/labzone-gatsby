@@ -1,4 +1,5 @@
 @import "colors";
+@import "responsive";
 @import "variables";
 
 .blockquote {
@@ -23,5 +24,84 @@
 
   footer:before {
     content: "― ";
+  }
+}
+
+/** Brand logo */
+.brand-logo {
+  height: 1.3rem;
+  margin-bottom: 0px;
+}
+
+/** Hero */
+.hero--title {
+  color: var(--white);
+  font-weight: 700;
+  text-transform: lowercase;
+
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
+
+  @include for-desktop-up {
+    font-size: 3.5rem;
+  }
+
+  &:after {
+    display: block;
+    content: " ";
+    width: 1ch;
+    height: 4px;
+    background-color: var(--red-pigment);
+    position: relative;
+    top: 1.5rem;
+  }
+}
+
+.hero--subtitle {
+  font-weight: 200;
+  font-size: 1.3rem;
+  color: var(--white);
+}
+
+/** Section */
+.content-section {
+  padding: 3rem 0 3rem 0;
+
+  .section-title {
+    color: var(--dark);
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 1.6rem;
+
+    @include for-desktop-up {
+      font-size: 2.5em;
+      font-weight: 700;
+    }
+  }
+}
+
+/** Navbar */
+.navbar {
+  .navbar-item {
+    &:hover {
+      color: var(--red-pigment);
+    }
+  }
+}
+
+/** Project Item */
+.project-item {
+  padding: 2rem 0 4rem 0;
+
+  @include for-tablet-landscape-up {
+    padding: 4rem 0;
+  }
+
+  .project-item--button-wrapper {
+    @include center;
+
+    @include for-tablet-landscape-up {
+      display: block;
+    }
   }
 }

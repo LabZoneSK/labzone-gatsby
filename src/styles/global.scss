@@ -8,8 +8,8 @@
 
 @import "~bulma/bulma.sass";
 
-html {
-  font-family: "Lato";
+html, body {
+  font-family: 'Montserrat';
   color: #202331;
 }
 
@@ -27,6 +27,15 @@ html {
       padding-left: 0;
       padding-right: 0;
     }
+  }
+}
+
+a {
+  color: var(--red-pigment);
+  transform: 100ms ease-in;
+
+  &:hover, &:active {
+    color: var(--red-shade1);
   }
 }
 
@@ -89,4 +98,10 @@ html {
 
 .is-dark + footer {
   margin-top: 0;
+}
+
+.center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

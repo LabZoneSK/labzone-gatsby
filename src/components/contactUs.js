@@ -23,8 +23,8 @@ export default function ContactUs({ hasLinkToPortfolio, lang }) {
         />
 
         {hasLinkToPortfolio && (
-          <div className="mt-6">
-            <Link className="btn is-tertiary" to={sanitizeLink(`/${lang}/portfolio/`)}>
+          <div className="mt-6 center">
+            <Link className="lz-button button--isi" to="/portfolio/">
               {hasLinkToPortfolio}
             </Link>
           </div>

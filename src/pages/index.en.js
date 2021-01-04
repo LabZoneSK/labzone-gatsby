@@ -108,13 +108,13 @@ export default function Home({ data, location }) {
 
       <FullBleed>
         <Hero
-          title="We build virtual teams<br/>for your real success."
-          subtitle="Using code, design and almost any other IT tool<br/>to solve your business challenges. Exclusively remote."
-          image="lead-image.jpg"
+          title="We build <span class=text-red-pigment>virtual teams</span><br/>for your real success"
+          subtitle="Using code, design and almost any other IT tool<br/>to solve your business challenges. <span class=text-red-pigment>Exclusively remote.</span>"
+          image="lead-v1.jpg"
         />
       </FullBleed>
 
-      <Section title="We can help you with">
+      <Section title="How we can help you">
         <div className="columns mt-5 mb-3">
           {services &&
             services.map((service, i) => {
@@ -127,9 +127,9 @@ export default function Home({ data, location }) {
         </div>
       </Section>
 
-      <FullBleed color={color.dark}>
+      <FullBleed color='dark'>
         <div className="grid-container">
-          <Section title="Technologies we use">
+          <Section title="Technologies we use" titleClass="text-red-pigment">
             <p className="has-text-white">
               Our software speacilists will always adapt to your needs. Here are
               some of the technologies we work with:
@@ -158,14 +158,14 @@ export default function Home({ data, location }) {
       </Section>
 
       <FullBleed>
-        <Hero image="community-home.jpg" isRounded>
+        <Hero image="community-labzone.jpg" isRounded>
           <Spacer
             title="We build community"
             subtitle="In addition to various passion projects, we strive to build a solid
           community around design and information technology."
           >
             <div className="is-hidden-mobile">
-              <div className="mt-3 is-pulled-right">
+              <div className="is-pulled-right">
                 <div className="columns is-vcentered">
                   <div className="column is-one-fifth">
                     <Github className="p-4" />
@@ -223,7 +223,7 @@ export default function Home({ data, location }) {
         <PostsList posts={posts} />
       </Section>
 
-      <FullBleed color="#f4f4f4">
+      <FullBleed color="columbia-blue">
         <div className="grid-container">
           <Section title="Connect with us" className="container">
             <div className="columns">

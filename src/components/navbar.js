@@ -67,15 +67,14 @@ export default function Navbar({ homeLink, lang }) {
       role="navigation"
       aria-label="main navigation"
     >
+      <div className="container">
       <div className="navbar-brand">
         <Link to={homeLink} className="navbar-item">
-          {data.file && (
-            <BrandIcon
-              fixed={data.file.childImageSharp.fixed}
+          <img
+          className="brand-logo"
+              src="/images/labzone-logo.svg"
               alt="Logo LabZone s.r.o."
             />
-          )}
-          <span>LabZone</span>
         </Link>
 
         <Button
@@ -105,6 +104,7 @@ export default function Navbar({ homeLink, lang }) {
             <FormattedMessage id="Blog" defaultMessage="Blog" />
           </Link>
         </div>
+      </div>
       </div>
     </CustomizedNav>
   )

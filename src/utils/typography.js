@@ -3,9 +3,9 @@ import Typography from 'typography'
 const typography = new Typography({
     baseFontSize: '22px',
     baseLineHeight: 1.666,
-    headerFontFamily: ['Lato', 'Arial', 'sans-serif'],
+    headerFontFamily: ['Nunito Sans', 'Arial', 'sans-serif'],
     headerWeight: 900,
-    bodyFontFamily: ['Lato', 'serif'],
+    bodyFontFamily: ['Montserrat', 'serif'],
     googleFonts: [
         {
           name: 'Lato',
@@ -14,6 +14,22 @@ const typography = new Typography({
             '900'
           ],
         },
+        {
+          name: 'Nunito Sans',
+          styles: [
+            '400',
+            '700',
+            '900'
+          ],
+        },
+        {
+          name: 'Montserrat',
+          styles: [
+            '400',
+            '700'
+          ],
+        },
+
       ],
   })
 

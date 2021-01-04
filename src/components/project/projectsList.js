@@ -34,11 +34,8 @@ export default function ProjectsList(props) {
 
       {hasShowMore && (
         <Center className="mt-5">
-          <Link className="btn is-tertiary" to={`/portfolio/`}>
-            <FormattedMessage
-              id="showPortfolio"
-              defaultMessage="Show me portfolio"
-            />
+          <Link className="lz-button button--isi" to="/portfolio/">
+            Show me portfolio
           </Link>
         </Center>
       )}
