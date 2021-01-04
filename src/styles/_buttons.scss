@@ -180,10 +180,14 @@
 }
 .button--isi--inverted {
 	color: var(--dark);
-	background: transparent;
+  background: transparent;
+  
+  right: -1px;
+  top: -1px;
 
   &:hover {
     color: var(--white);
+    border: 1px solid var(--dark);
   }
   
   &:before {
