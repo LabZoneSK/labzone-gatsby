@@ -10,6 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
       allPrismicProject {
         edges {
           node {
+            lang
             data {
               slug {
                 text
@@ -23,6 +24,7 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             id
             uid
+            lang
           }
         }
       }
@@ -31,7 +33,7 @@ exports.createPages = async ({ graphql, actions }) => {
   
   result.data.allPrismicProject.edges.forEach(({ node }) => {    
     createPage({
-      path: `${node.data.slug.text}/`,
+      path: `/${node.lang}/${node.data.slug.text}/`,
       component: projectTemplate,
       context: {
         slug: node.data.slug.text,
@@ -42,7 +44,7 @@ exports.createPages = async ({ graphql, actions }) => {
   
   result.data.posts.edges.forEach(({ node }) => {
     createPage({
-      path: `/blog/${node.uid}/`,
+      path: `/${node.lang}/blog/${node.uid}/`,
       component: blogTemplate,
       context: {
         id: node.id,

@@ -50,7 +50,7 @@ const TechIcons = styled.div`
   }
 `
 
-export default function Home({ data }) {
+export default function Home({ data, location }) {
   const projects = data.allPrismicProject.edges
   const posts = data.allPrismicPost.edges
 
@@ -99,7 +99,7 @@ export default function Home({ data }) {
   }
 
   return (
-    <Layout hasLastDark>
+    <Layout hasLastDark location={location}>
       <SeoHelmet
         title="We build virtual teams"
         description="Using code, design and almost any other IT tool<br/>to solve your business challenges. Exclusively remote."
@@ -267,9 +267,10 @@ export default function Home({ data }) {
 
 export const query = graphql`
   {
-    allPrismicProject {
+    allPrismicProject(filter: {lang: {eq: "en"}}, limit: 3) {
       edges {
         node {
+          lang
           data {
             project_title {
               text
@@ -290,9 +291,10 @@ export const query = graphql`
       }
     }
 
-    allPrismicPost(limit: 3) {
+    allPrismicPost(filter: {lang: {eq: "en"}}, limit: 3) {
       edges {
         node {
+          lang
           data {
             hero_image {
               alt

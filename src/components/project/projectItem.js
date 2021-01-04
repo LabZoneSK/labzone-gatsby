@@ -1,4 +1,5 @@
 import React from "react"
+import { FormattedMessage } from "react-intl"
 import PropTypes from "prop-types"
 
 /** Gatsby */

@@ -4,7 +4,9 @@ import PropTypes from "prop-types"
 /** Gatsby */
 import Img from "gatsby-image"
 
-export default function Gallery({ images }) {
+import { injectIntl } from 'react-intl'
+
+const Gallery = ({ images, intl }) => {
   if (!images) {
     return <p>There are no images in gallery.</p>
   }
@@ -13,7 +15,7 @@ export default function Gallery({ images }) {
       <div className="column is-12">
         <figure>
           <Img fluid={data.image.fluid} alt={data.alt_text.text} />
-          <figcaption>{`Fig. ${index + 1}. ${data.caption.text}`}</figcaption>
+          <figcaption>{`${intl.formatMessage({ id: 'fig' })} ${index + 1}. ${data.caption.text}`}</figcaption>
         </figure>
       </div>
     )
@@ -36,3 +38,5 @@ Gallery.propTypes = {
     })
   ),
 }
+
+export default  injectIntl(Gallery);
