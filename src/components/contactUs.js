@@ -7,10 +7,7 @@ import { Link } from "gatsby"
 import Center from "./center"
 import { FormattedMessage } from "react-intl"
 
-/** Utils */
-import { sanitizeLink } from '../utils/helpers';
-
-export default function ContactUs({ hasLinkToPortfolio, lang }) {
+export default function ContactUs({ hasLinkToPortfolio}) {
   return (
     <Center>
       <div className="mt-6 has-text-centered is-size-5">

@@ -10,12 +10,10 @@ import { FormattedMessage } from "react-intl"
 import Tags from "../tags"
 
 export default function PostItem({ post }) {
-
-  console.log(post.lang)
   return (
     <div className="column is-one-third">
       {post.tags && <Tags tags={post.tags} />}
-      <Link to={`/blog/${post.uid}/`}>
+      <Link to={`/${post.lang}/blog/${post.uid}/`}>
         <Img
           fluid={post.data.hero_image.fluid}
           alt={post.data.hero_image.alt}

@@ -33,8 +33,7 @@ export default function SeoHelmet(props) {
       }
     `
   )
-
-  console.log(data)
+  
   const imageUrl = image
     ? image
     : `${data.site.siteMetadata.siteUrl}${data.imageSharp.fixed.src}`

@@ -18,8 +18,6 @@ export default function ProjectsList(props) {
     return
   }
 
-  console.log(projects)
-
   return (
     <div>
       {projects.map(project => (
