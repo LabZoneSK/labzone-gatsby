@@ -8,10 +8,10 @@ const messages = {
     contactUs: "Neváhajte nás kontaktovať na {email}",
     readPost: "Viac",
     summary: "Zhrnutie",
-    assignment: "Zadanie",
+    challange: "Zadanie",
     team: "Tím",
     technologiesStack: "Použité technológie",
-    result: "Výsledok",
+    solution: "Riešenie",
     fig: "Obr.",
     moreProjects: "Zobraziť ďalšie projekty"
 }

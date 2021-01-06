@@ -8,10 +8,10 @@ const messages = {
     contactUs: "Contact us directly at {email}",
     readPost: "Read post",
     summary: "Summary",
-    assignment: "Assignment",
+    challange: "The challenge",
     team: "Team",
     technologiesStack: "Technologies Stack",
-    result: "Result",
+    solution: "Our solution",
     fig: "Fig.",
     moreProjects: "Show me other projects"
 }

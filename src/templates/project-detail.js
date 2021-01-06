@@ -11,11 +11,15 @@ import Content from "../components/content"
 import Icon from "../components/icon"
 import Gallery from "../components/gallery"
 import Blockquote from "../components/blockquote"
-import ContactUs from "../components/contactUs"
+import Center from "../components/center"
+import FullBleed from "../components/fullBleed"
 
 import SeoHelmet from "../components/seo/seoHelmet"
 
 import { FormattedMessage } from "react-intl"
+
+/** Prismic */
+import { RichText } from "prismic-reactjs"
 
 export default function ProjectDetail({ data, location }) {
   const {
@@ -27,8 +31,9 @@ export default function ProjectDetail({ data, location }) {
     technologies,
     team,
     testimonials,
+    call_to_action,
   } = data.prismicProject.data
-  const lang = data.prismicProject.lang;
+  const lang = data.prismicProject.lang
 
   const usedTechnologies = technologies.text.split(",")
   const icons = usedTechnologies.map(technology => {
@@ -37,6 +42,7 @@ export default function ProjectDetail({ data, location }) {
         source={`/images/technologies/${technology.toLowerCase().trim()}.svg`}
         size="sm"
         alt={technology}
+        isWhite
       />
     )
   })
@@ -60,14 +66,26 @@ export default function ProjectDetail({ data, location }) {
       />
 
       <Layout location={location}>
-        <Section title={project_title.text}>
-          <div className="columns">
+        <FullBleed color="dark">
+          <div className="grid-container">
+            <div className="content-section">
+              <h1 className="project--title">{project_title.text}</h1>
+            </div>
+          </div>
+        </FullBleed>
+        <Section>
+          <div className="columns is-flex is-flex-direction-column-reverse-mobile">
             <div className="column">
               {assignment && (
-                <Content title={<FormattedMessage id="summary" defaultMessage="Summary" />} content={project_summary.html} />
+                <Content
+                  title={
+                    <FormattedMessage id="summary" defaultMessage="Summary" />
+                  }
+                  content={project_summary.html}
+                />
               )}
             </div>
-            <div className="column">
+            <div className="column project--summary-image">
               <Img fluid={featured_image.fluid} alt="" />
             </div>
           </div>
@@ -84,30 +102,78 @@ export default function ProjectDetail({ data, location }) {
             )}
 
           {assignment && (
-            <Content title={<FormattedMessage id="assignment" defaultMessage="Assingment" />} content={assignment.html} />
-          )}
-
-          <div className="columns">
-            <div className="column">
-              {team && (
-                <Content
-                  title={<FormattedMessage id="team" defaultMessage="Team" />}
-                  content={team.html}
-                  customClasses="person"
+            <Content
+              title={
+                <FormattedMessage
+                  id="challange"
+                  defaultMessage="The challenge"
                 />
-              )}
-            </div>
-            <div className="column">
-              {technologies && (
-                <Content title={<FormattedMessage id="technologiesStack" defaultMessage="Technologies Stack" />}>{icons}</Content>
-              )}
+              }
+              content={assignment.html}
+            />
+          )}
+        </Section>
+        <FullBleed color="red-shade1">
+          <div className="grid-container is-dark">
+            <div className="content-section">
+              <div className="columns">
+                <div className="column">
+                  {team && (
+                    <>
+                      <h2 className="has-text-white has-text-weight-bold is-size-5">
+                        <FormattedMessage id="team" defaultMessage="Team" />
+                      </h2>
+                      <div
+                        className="has-text-white"
+                        dangerouslySetInnerHTML={{
+                          __html: team.html,
+                        }}
+                      />
+                    </>
+                  )}
+                </div>
+                <div className="column">
+                  {technologies && (
+                    <>
+                      <h2 className="has-text-white has-text-weight-bold is-size-5">
+                        <FormattedMessage
+                          id="technologiesStack"
+                          defaultMessage="Technologies Stack"
+                        />
+                      </h2>
+                      <div className="project--icons">{icons}</div>
+                    </>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
-          {result && <Content title={<FormattedMessage id="result" defaultMessage="Result" />} content={result.html} />}
+        </FullBleed>
+        <Section>
+          {result && (
+            <Content
+              title={
+                <FormattedMessage id="solution" defaultMessage="Our solution" />
+              }
+              content={result.html}
+            />
+          )}
 
           <Gallery images={galleryImages} />
 
-          <ContactUs lang={lang} hasLinkToPortfolio={<FormattedMessage id="moreProjects" defaultMessage="Show me other projects" />} />
+          {call_to_action && call_to_action[0] && (
+            <Center>
+              <div className="mt-6 has-text-centered is-size-5">
+                <RichText render={call_to_action[0].cta_description.raw} />
+
+                <div className="mt-6 center">
+                  <a className="lz-button button--isi" href={call_to_action[0].cta_link.url}>
+                    {call_to_action[0].cta_button_text.text}
+                  </a>
+                </div>
+              </div>
+            </Center>
+          )}
         </Section>
       </Layout>
     </>
@@ -123,6 +189,17 @@ export const query = graphql`
         featured_image {
           fluid(maxWidth: 400, maxHeight: 300) {
             ...GatsbyPrismicImageFluid
+          }
+        }
+        call_to_action {
+          cta_button_text {
+            text
+          }
+          cta_description {
+            raw
+          }
+          cta_link {
+            url
           }
         }
         project_summary {
