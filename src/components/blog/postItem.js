@@ -10,8 +10,6 @@ import { FormattedMessage } from "react-intl"
 import Tags from "../tags"
 
 export default function PostItem({ post }) {
-
-  console.log(post.lang)
   return (
     <div className="column is-one-third">
       {post.tags && <Tags tags={post.tags} />}
