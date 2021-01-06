@@ -15,7 +15,7 @@ export default function PostItem({ post }) {
   return (
     <div className="column is-one-third">
       {post.tags && <Tags tags={post.tags} />}
-      <Link to={`/blog/${post.uid}/`}>
+      <Link to={`/${post.lang}/blog/${post.uid}/`}>
         <Img
           fluid={post.data.hero_image.fluid}
           alt={post.data.hero_image.alt}
