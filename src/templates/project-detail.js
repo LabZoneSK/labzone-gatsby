@@ -53,7 +53,15 @@ export default function ProjectDetail({ data, location }) {
     data.prismicProject.data.body[0] &&
     data.prismicProject.data.body[0].items
   ) {
-    galleryImages = data.prismicProject.data.body[0].items
+    galleryImages = data.prismicProject.data.body[0].items.map(item => {
+      return {
+        thumb: item.image.thumb,
+        full: item.image.full,
+        thumbAlt: item.alt_text.text,
+        title: item.caption.text,
+        caption: item.caption.text
+      }
+    })
   }
 
   return (
@@ -167,7 +175,10 @@ export default function ProjectDetail({ data, location }) {
                 <RichText render={call_to_action[0].cta_description.raw} />
 
                 <div className="mt-6 center">
-                  <a className="lz-button button--isi" href={call_to_action[0].cta_link.url}>
+                  <a
+                    className="lz-button button--isi"
+                    href={call_to_action[0].cta_link.url}
+                  >
                     {call_to_action[0].cta_button_text.text}
                   </a>
                 </div>
@@ -245,7 +256,10 @@ export const query = graphql`
                 text
               }
               image {
-                fluid(maxWidth: 400, maxHeight: 300) {
+                thumb: fluid(maxWidth: 270, maxHeight: 270) {
+                  ...GatsbyPrismicImageFluid
+                }
+                full: fluid(maxWidth: 1024) {
                   ...GatsbyPrismicImageFluid
                 }
               }
