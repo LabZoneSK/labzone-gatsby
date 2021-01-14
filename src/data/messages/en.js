@@ -13,7 +13,8 @@ const messages = {
     technologiesStack: "Technologies Stack",
     solution: "Our solution",
     fig: "Fig.",
-    moreProjects: "Show me other projects"
+    moreProjects: "Show me other projects",
+    Contact: "Contact Us",
 }
 
 export default messages;

@@ -57,9 +57,6 @@ export default function ProjectDetail({ data, location }) {
       return {
         thumb: item.image.thumb,
         full: item.image.full,
-        thumbAlt: item.alt_text.text,
-        title: item.caption.text,
-        caption: item.caption.text
       }
     })
   }

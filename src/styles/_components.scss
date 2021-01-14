@@ -69,13 +69,12 @@
 
   .section-title {
     color: var(--dark);
-    font-size: 2em;
-    font-weight: 700;
+    font-size: 2.3em;
+    font-weight: 900;
     margin-bottom: 1.6rem;
 
     @include for-desktop-up {
       font-size: 2.5em;
-      font-weight: 700;
     }
   }
 
@@ -144,6 +143,10 @@
   ul {
     list-style: square outside none;
   }
+
+  h3 {
+    margin-top: 1.6rem;
+  }
 }
 
 .project-item {
@@ -158,6 +161,25 @@
 
     @include for-tablet-landscape-up {
       display: block;
+    }
+  }
+}
+
+/** Main Content */
+.main-content {
+
+  display: grid;
+  grid-template-columns: unquote("1fr min(90ch, 100%) 1fr");
+
+  & > .content-section {
+    grid-column: 2;
+
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+    @include for-tablet-portrait-up {
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 }

@@ -103,6 +103,9 @@ export default function Navbar({ homeLink, lang }) {
           <Link to={sanitizeLink(`/${lang}/blog/`)} className="navbar-item">
             <FormattedMessage id="Blog" defaultMessage="Blog" />
           </Link>
+          <Link to={sanitizeLink(`/${lang}/contact/`)} className="navbar-item">
+            <FormattedMessage id="Contact" defaultMessage="Contact Us" />
+          </Link>
         </div>
       </div>
       </div>

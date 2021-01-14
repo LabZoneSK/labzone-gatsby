@@ -127,7 +127,7 @@ export default function Home({ data, location }) {
         </div>
       </Section>
 
-      <FullBleed color='dark'>
+      <FullBleed color="dark">
         <div className="grid-container">
           <Section title="Technologies we use" titleClass="text-red-pigment">
             <p className="has-text-white">
@@ -153,12 +153,12 @@ export default function Home({ data, location }) {
         </div>
       </FullBleed>
 
-      <Section title="Some of our projects">
+      <Section titleClass="mt-6" title="Some of our projects">
         <ProjectsList projects={projects} hasShowMore />
       </Section>
 
       <FullBleed>
-        <Hero image="community-labzone.jpg" isRounded>
+        <Hero image="community-labzone.jpg">
           <Spacer
             title="We build community"
             subtitle="In addition to various passion projects, we strive to build a solid
@@ -230,7 +230,13 @@ export default function Home({ data, location }) {
               <div className="column is-half">
                 Got questions?
                 <br />
-                Contact us directly at info@labzone.sk
+                <div className="mt-1">
+                  Contact us directly at info@labzone.sk
+                </div>
+              </div>
+              <div className="column is-half">
+                Or follow us to stay in touch
+                <br />
                 <div className="mt-1">
                   <a href="https://www.linkedin.com/company/labzonesk">
                     <LinkedIn className="social-icon linkedin" />
@@ -239,23 +245,6 @@ export default function Home({ data, location }) {
                     <Twitter className="social-icon twitter" />
                   </a>
                 </div>
-              </div>
-              <div className="column is-half">
-                <strong>LabZone s.r.o.</strong>
-                <p>
-                  <br />
-                  Liptovská 2708/6
-                  <br />
-                  911 08 Trenčín
-                </p>
-
-                <p className="mt-3">
-                  IČO: 50753681
-                  <br />
-                  DIČ: 2120461266
-                  <br />
-                  IČ DPH: SK2120461266
-                </p>
               </div>
             </div>
           </Section>
@@ -267,7 +256,7 @@ export default function Home({ data, location }) {
 
 export const query = graphql`
   {
-    allPrismicProject(filter: {lang: {eq: "en"}}, limit: 3) {
+    allPrismicProject(filter: { lang: { eq: "en" } }, limit: 3) {
       edges {
         node {
           lang
@@ -291,7 +280,7 @@ export const query = graphql`
       }
     }
 
-    allPrismicPost(filter: {lang: {eq: "en"}}, limit: 3) {
+    allPrismicPost(filter: { lang: { eq: "en" } }, limit: 3) {
       edges {
         node {
           lang

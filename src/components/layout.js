@@ -2,10 +2,6 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import PropTypes from "prop-types"
 
-/** Emotion */
-import styled from "@emotion/styled"
-import { device } from "../utils/device"
-
 /** Components */
 import Navbar from "./navbar"
 import Footer from "./footer"
@@ -16,23 +12,6 @@ import { IntlProvider } from "react-intl"
 import "intl"
 
 import getMessages from '../data/messages';
-
-const HolyGrailMain = styled.main`
-  display: grid;
-  grid-template-columns: 1fr min(90ch, 100%) 1fr;
-
-  & > .content-section {
-    grid-column: 2;
-
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-
-    @media ${device.laptop} {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
-`
 
 export default function Layout({
   children,
@@ -62,7 +41,7 @@ export default function Layout({
       <IntlProvider locale={langKey} defaultLocale={defaultLangKey} messages={getMessages(langKey)}>
         <Navbar homeLink={homeLink} lang={langKey} />
 
-        <HolyGrailMain>{children}</HolyGrailMain>
+        <main className="main-content">{children}</main>
 
         <Footer hasLastDark={hasLastDark} />
       </IntlProvider>

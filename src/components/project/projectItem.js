@@ -7,7 +7,6 @@ import { Link } from "gatsby"
 
 /** Emotion & Styling */
 import styled from "@emotion/styled"
-import { device } from "../../utils/device"
 
 /** Components */
 import Img from "gatsby-image"
@@ -45,7 +44,7 @@ export default function ProjectItem(props) {
               className="lz-button lz-button--border-thin button--isi button--isi--inverted"
               to={`/${slug}/`}
             >
-              Read more
+              <FormattedMessage id="readMoreProject" defaultMessage="Read more" />
             </Link>
           </div>
         </div>

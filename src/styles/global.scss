@@ -31,6 +31,13 @@ html, body {
   }
 }
 
+main {
+  min-height: calc(100vh - 250px);
+}
+.footer {
+  height: auto;
+}
+
 a {
   color: var(--red-pigment);
   transform: 100ms ease-in;
