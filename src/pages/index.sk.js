@@ -22,7 +22,6 @@ import config from "../components/config"
 
 import ProjectsList from "../components/project/projectsList"
 import { FormattedMessage } from "react-intl"
-import { color } from "../utils/color"
 import { device } from "../utils/device"
 
 /** Icons */
@@ -66,7 +65,11 @@ export default function Home({ data, location }) {
     {
       title: "UX / UI dizajn",
       icon: "/images/icons/svg/labzone-web-design.svg",
-      list: ["Užívateľský zážitok (UX)", "Grafické rozhranie / dizajn", "Copywriting"],
+      list: [
+        "Užívateľský zážitok (UX)",
+        "Grafické rozhranie / dizajn",
+        "Copywriting",
+      ],
     },
     {
       title: "SEO & Marketing",
@@ -112,7 +115,7 @@ export default function Home({ data, location }) {
         <Hero
           title="Virtuálne tímy<br/>pre váš reálny úspech."
           subtitle="Každé zadanie je jedinečné a pod palcom ho vždy majú naši najpovolanejší.<br>Používame overené technológie, ktoré v kombinácii s našim know-how garantujú top výsledok."
-          image="lead-image.jpg"
+          image="lead-v1.jpg"
         />
       </FullBleed>
 
@@ -129,11 +132,15 @@ export default function Home({ data, location }) {
         </div>
       </Section>
 
-      <FullBleed color={color.dark}>
+      <FullBleed color="dark">
         <div className="grid-container">
-          <Section title="Používame najmodernejšie technológie">
+          <Section
+            title="Používame najmodernejšie technológie"
+            titleClass="text-red-pigment"
+          >
             <p className="has-text-white">
-            Náši špecialisti sa vždy prispôsobia vašim potrebám. Toto sú niektoré z technológií, s ktorými pracujeme:
+              Náši špecialisti sa vždy prispôsobia vašim potrebám. Toto sú
+              niektoré z technológií, s ktorými pracujeme:
             </p>
 
             <TechIcons>
@@ -154,12 +161,12 @@ export default function Home({ data, location }) {
         </div>
       </FullBleed>
 
-      <Section title="Výsledky našej práce">
+      <Section titleClass="mt-6" title="Výsledky našej práce">
         <ProjectsList projects={projects} hasShowMore />
       </Section>
 
       <FullBleed>
-        <Hero image="community-home.jpg" isRounded>
+        <Hero image="community-labzone.jpg">
           <Spacer
             title="Budujeme komunitu"
             subtitle="Okrem rôznych passion projektov sa snažíme budovať solídnu komunitu okolo dizajnu a informčných technológií."
@@ -223,7 +230,7 @@ export default function Home({ data, location }) {
         <PostsList posts={posts} />
       </Section>
 
-      <FullBleed color="#f4f4f4">
+      <FullBleed color="columbia-blue">
         <div className="grid-container">
           <Section title="Spojme sa" className="container">
             <div className="columns">
@@ -233,11 +240,17 @@ export default function Home({ data, location }) {
                   defaultMessage="Got questions?"
                 />
                 <br />
-                <FormattedMessage
-                  id="contactUs"
-                  defaultMessage="Contact us directly at {email}"
-                  values={{ email: "info@labzone.sk" }}
-                />
+                <div className="mt-1">
+                  <FormattedMessage
+                    id="contactUs"
+                    defaultMessage="Contact us directly at {email}"
+                    values={{ email: "info@labzone.sk" }}
+                  />
+                </div>
+              </div>
+              <div className="column is-half">
+                Alebo nás sledujte na sociálnych sieťach
+                <br />
                 <div className="mt-1">
                   <a href="https://www.linkedin.com/company/labzonesk">
                     <LinkedIn className="social-icon linkedin" />
@@ -246,23 +259,6 @@ export default function Home({ data, location }) {
                     <Twitter className="social-icon twitter" />
                   </a>
                 </div>
-              </div>
-              <div className="column is-half">
-                <strong>LabZone s.r.o.</strong>
-                <p>
-                  <br />
-                  Liptovská 2708/6
-                  <br />
-                  911 08 Trenčín
-                </p>
-
-                <p className="mt-3">
-                  IČO: 50753681
-                  <br />
-                  DIČ: 2120461266
-                  <br />
-                  IČ DPH: SK2120461266
-                </p>
               </div>
             </div>
           </Section>
@@ -274,7 +270,7 @@ export default function Home({ data, location }) {
 
 export const query = graphql`
   {
-    allPrismicProject(filter: {lang: {eq: "sk"}}, limit: 3) {
+    allPrismicProject(filter: { lang: { eq: "sk" } }, limit: 3) {
       edges {
         node {
           lang
@@ -298,7 +294,7 @@ export const query = graphql`
       }
     }
 
-    allPrismicPost(filter: {lang: {eq: "sk"}}, limit: 3) {
+    allPrismicPost(filter: { lang: { eq: "sk" } }, limit: 3) {
       edges {
         node {
           lang

@@ -11,6 +11,17 @@ const FullBleedDiv = styled.div`
 
   background: var(--${props => props.color});
 
+  &::after {
+    display: block;
+    content: "";
+    background: var(--${props => props.color});
+    width: 100%;
+    height: 50px;
+    transform: skewY(-1deg);
+    position: absolute;
+    margin-top: -25px;
+  }
+
   & img {
     width: 100%;
   }

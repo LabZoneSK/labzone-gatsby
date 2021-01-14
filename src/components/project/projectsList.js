@@ -5,6 +5,10 @@ import PropTypes from "prop-types"
 import { Link } from "gatsby"
 
 import { FormattedMessage } from "react-intl"
+import { useIntl } from 'react-intl';
+
+/** Utils */
+import { sanitizeLink } from "../../utils/helpers"
 
 /** Components */
 import ProjectItem from "./projectItem"
@@ -12,7 +16,8 @@ import ProjectItem from "./projectItem"
 import Center from "../center"
 
 export default function ProjectsList(props) {
-  const { projects, hasShowMore } = props
+  const { projects, hasShowMore, location } = props
+  const intl = useIntl()
 
   if (!projects) {
     return
@@ -32,8 +37,8 @@ export default function ProjectsList(props) {
 
       {hasShowMore && (
         <Center className="mt-5">
-          <Link className="lz-button button--isi" to="/portfolio/">
-            Show me portfolio
+          <Link className="lz-button button--isi" to={sanitizeLink(`/${intl.locale}/portfolio`)}>
+            <FormattedMessage id="showPortfolio" defaultMessage="Show me portfolio" />
           </Link>
         </Center>
       )}

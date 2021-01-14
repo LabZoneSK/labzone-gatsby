@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+@import "animations";
 @import "colors";
 @import "components";
 @import "variables";
@@ -28,6 +29,13 @@ html, body {
       padding-right: 0;
     }
   }
+}
+
+main {
+  min-height: calc(100vh - 250px);
+}
+.footer {
+  height: auto;
 }
 
 a {

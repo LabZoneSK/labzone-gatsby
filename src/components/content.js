@@ -16,7 +16,7 @@ export default function Content({ title, content, children, customClasses }) {
       {({ css, cx }) => {
         return (
           <section className="my-5">
-            <h3 className="section-title h3">{title}</h3>
+            <h2 className="section-title h2">{title}</h2>
             <div
               className={cx({
                 "section-content": true,
