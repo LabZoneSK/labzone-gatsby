@@ -43,7 +43,7 @@ export default function Layout({
 
         <main className="main-content">{children}</main>
 
-        <Footer hasLastDark={hasLastDark} />
+        <Footer hasLastDark={hasLastDark} lang={langKey} />
       </IntlProvider>
     </>
   )

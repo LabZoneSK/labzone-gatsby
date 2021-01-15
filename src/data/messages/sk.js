@@ -18,6 +18,7 @@ const messages = {
     taxID: "DIČ",
     companyID: "IČO",
     vatID: "IČ DPH",
+    privacyPolicy: "Vyhlásenie o ochrane osobných údajov",
 }
 
 export default messages;

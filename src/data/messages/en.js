@@ -18,6 +18,7 @@ const messages = {
     taxID: "Tax ID",
     companyID: "Business ID",
     vatID: "VAT ID",
+    privacyPolicy: "Privacy Policy",
 }
 
 export default messages;
