@@ -21,7 +21,6 @@ import SeoHelmet from "../components/seo/seoHelmet"
 import config from "../components/config"
 
 import ProjectsList from "../components/project/projectsList"
-import { color } from "../utils/color"
 import { device } from "../utils/device"
 
 /** Icons */
