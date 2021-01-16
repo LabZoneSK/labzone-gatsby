@@ -16,7 +16,7 @@ export default function PrivacyPolicy({ location }) {
       />
 
       <Layout location={location} hasLastDark>
-        <Section title="Privacy Policy" className="container">
+        <Section title="Privacy Policy" sectionClass="container">
           <div className="section-content columns">
             <div className="column">
               <p>

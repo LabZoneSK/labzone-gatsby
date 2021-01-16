@@ -2,10 +2,10 @@ import React from "react"
 import PropTypes from "prop-types"
 
 export default function Section(props) {
-  const { title, children, titleClass, className } = props
+  const { title, children, titleClass, sectionClass } = props
 
   return (
-    <section className={new Array("content-section", className).join(" ")}>
+    <section className={new Array("content-section", sectionClass).join(" ")}>
       <h2 className={"section-title has-text-centered-mobile " + titleClass}>{title}</h2>
       {children}
     </section>

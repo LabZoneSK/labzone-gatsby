@@ -20,7 +20,7 @@ export default function PrivacyPolicy({ location }) {
       <Layout location={location} hasLastDark>
         <Section
           title="Vyhlásenie o ochrane osobných údajov"
-          className="container"
+          sectionClass="container"
         >
           <div className="columns section-content">
             <div className="column">
