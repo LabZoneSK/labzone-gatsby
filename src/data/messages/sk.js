@@ -15,6 +15,10 @@ const messages = {
     fig: "Obr.",
     moreProjects: "Zobraziť ďalšie projekty",
     Contact: "Kontakt",
+    taxID: "DIČ",
+    companyID: "IČO",
+    vatID: "IČ DPH",
+    privacyPolicy: "Vyhlásenie o ochrane osobných údajov",
 }
 
 export default messages;

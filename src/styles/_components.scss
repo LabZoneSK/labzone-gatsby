@@ -81,7 +81,7 @@
   .section-content {
     h3 {
       font-size: 1.3rem;
-      font-weight: bold;
+      font-weight: 900;
       margin-bottom: 1rem;
     }
   }
@@ -194,6 +194,7 @@
   h2 {
     color: $primary;
     font-size: 1.6rem;
+    font-weight: 900;
     margin-top: 2rem;
     margin-bottom: 1rem;
   }
@@ -205,11 +206,21 @@
 
     li {
       margin-bottom: 1rem;
+
+      & > strong {
+        display: inline-block;
+        margin-bottom: 0.5rem;
+        margin-top: 1rem;
+      }
     }
   }
 
   ul {
     list-style: square outside none;
+  }
+
+  .title {
+    font-weight: 900;
   }
 }
 

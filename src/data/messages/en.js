@@ -7,7 +7,7 @@ const messages = {
     gotQuestions: "Got questions?",
     contactUs: "Contact us directly at {email}",
     readPost: "Read post",
-    summary: "Summary",
+    summary: "Introduction",
     challange: "The challenge",
     team: "Team",
     technologiesStack: "Technologies Stack",
@@ -15,6 +15,10 @@ const messages = {
     fig: "Fig.",
     moreProjects: "Show me other projects",
     Contact: "Contact Us",
+    taxID: "Tax ID",
+    companyID: "Business ID",
+    vatID: "VAT ID",
+    privacyPolicy: "Privacy Policy",
 }
 
 export default messages;

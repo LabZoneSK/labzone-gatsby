@@ -1,7 +1,7 @@
 import React from "react"
 
 /** Gatsby */
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 /** Emotion & Styling */
 import styled from "@emotion/styled"
