@@ -15,6 +15,7 @@ const messages = {
     fig: "Obr.",
     moreProjects: "Zobraziť ďalšie projekty",
     Contact: "Kontakt",
+    contactForm: "Kontaktný formulár",
     taxID: "DIČ",
     companyID: "IČO",
     vatID: "IČ DPH",

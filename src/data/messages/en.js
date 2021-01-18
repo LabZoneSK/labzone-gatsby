@@ -15,6 +15,7 @@ const messages = {
     fig: "Fig.",
     moreProjects: "Show me other projects",
     Contact: "Contact Us",
+    contactForm: "Contact Form",
     taxID: "Tax ID",
     companyID: "Business ID",
     vatID: "VAT ID",

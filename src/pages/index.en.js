@@ -1,7 +1,7 @@
 import React from "react"
 
 /** Gatsby */
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 /** Emotion & Styling */
 import styled from "@emotion/styled"
@@ -22,6 +22,7 @@ import config from "../components/config"
 
 import ProjectsList from "../components/project/projectsList"
 import { device } from "../utils/device"
+import { FormattedMessage } from "react-intl"
 
 /** Icons */
 import LinkedIn from "../images/svg/linkedin.inline.svg"
@@ -226,14 +227,25 @@ export default function Home({ data, location }) {
         <div className="grid-container">
           <Section title="Connect with us" className="container">
             <div className="columns">
-              <div className="column is-half">
+              <div className="column is-full-mobile is-half-tablet is-clearfix">
                 Got questions?
                 <br />
                 <div className="mt-1">
                   Contact us directly at info@labzone.sk
                 </div>
+                <div className="mt-5">
+                  <Link
+                    className="lz-button lz-button--border-thin button--isi button--isi--inverted"
+                    to={`/contact/`}
+                  >
+                    <FormattedMessage
+                      id="contactForm"
+                      defaultMessage="Contact Form"
+                    />
+                  </Link>
+                </div>
               </div>
-              <div className="column is-half">
+              <div className="column is-full-mobile is-half-tablet">
                 Or follow us to stay in touch
                 <br />
                 <div className="mt-1">
