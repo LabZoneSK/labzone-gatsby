@@ -1,5 +1,21 @@
 {
-  "Main": {
+  "SEO": {
+    "meta_title": {
+      "type": "Text",
+      "config": {
+        "label": "Meta Title",
+        "placeholder": "Meta title..."
+      }
+    },
+    "meta_description": {
+      "type": "Text",
+      "config": {
+        "label": "Meta Description",
+        "placeholder": "Meta Description..."
+      }
+    }
+  },
+  "Content": {
     "project_title": {
       "type": "StructuredText",
       "config": {
@@ -33,13 +49,15 @@
       "type": "StructuredText",
       "config": {
         "multi": "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, list-item, o-list-item",
+        "allowTargetBlank": true,
         "label": "assignment"
       }
     },
     "result": {
       "type": "StructuredText",
       "config": {
-        "multi": "paragraph, heading2, heading3, heading4, heading5, strong, em, list-item, o-list-item",
+        "multi": "paragraph, heading2, heading3, heading4, heading5, strong, em, hyperlink, list-item, o-list-item",
+        "allowTargetBlank": true,
         "label": "result"
       }
     },
@@ -85,6 +103,34 @@
           }
         },
         "label": "Testimonials"
+      }
+    },
+    "call_to_action": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "cta_description": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, list-item, o-list-item",
+              "label": "CTA Description"
+            }
+          },
+          "cta_button_text": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph",
+              "label": "CTA Button Text"
+            }
+          },
+          "cta_link": {
+            "type": "Link",
+            "config": {
+              "label": "CTA Link"
+            }
+          }
+        },
+        "label": "Call to action"
       }
     },
     "body": {

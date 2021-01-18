@@ -4,35 +4,30 @@ import PropTypes from "prop-types"
 /** Gatsby */
 import Img from "gatsby-image"
 
-export default function Gallery({ images }) {
-  if (!images) {
-    return <p>There are no images in gallery.</p>
-  }
-  const imageElements = images.map((data, index) => {
-    return (
-      <div className="column is-12">
-        <figure>
-          <Img fluid={data.image.fluid} alt={data.alt_text.text} />
-          <figcaption>{`Fig. ${index + 1}. ${data.caption.text}`}</figcaption>
-        </figure>
-      </div>
-    )
-  })
+import GatsbyGallery from "@browniebroke/gatsby-image-gallery"
+import "@browniebroke/gatsby-image-gallery/dist/style.css"
+
+import { injectIntl } from "react-intl"
+
+const Gallery = ({ images, intl }) => {
+
   return (
-    <div>
-      <div className="columns is-multiline">{imageElements}</div>
-    </div>
+    <GatsbyGallery images={images} />
   )
 }
 
 Gallery.propTypes = {
   images: PropTypes.arrayOf(
     PropTypes.shape({
-      alt_text: PropTypes.string,
-      caption: PropTypes.string,
       image: PropTypes.shape({
-        fluid: PropTypes.object,
+        thumb: PropTypes.object,
+        full: PropTypes.object,
+        thumbAlt: PropTypes.string,
+        title: PropTypes.string,
+        caption: PropTypes.string,
       }),
     })
   ),
 }
+
+export default injectIntl(Gallery)

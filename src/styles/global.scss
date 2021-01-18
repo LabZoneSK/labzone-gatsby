@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+@import "animations";
 @import "colors";
 @import "components";
 @import "variables";
@@ -8,8 +9,8 @@
 
 @import "~bulma/bulma.sass";
 
-html {
-  font-family: "Lato";
+html, body {
+  font-family: 'Montserrat';
   color: #202331;
 }
 
@@ -27,6 +28,22 @@ html {
       padding-left: 0;
       padding-right: 0;
     }
+  }
+}
+
+main {
+  min-height: calc(100vh - 250px);
+}
+.footer {
+  height: auto;
+}
+
+a {
+  color: var(--red-pigment);
+  transform: 100ms ease-in;
+
+  &:hover, &:active {
+    color: var(--red-shade1);
   }
 }
 
@@ -63,30 +80,4 @@ html {
   &.twitter:hover {
     fill: rgba(29, 161, 242, 1);
   }
-}
-
-/** Blog Article */
-.blog-article {
-  p {
-    line-height: 1.6rem;
-    margin-bottom: 2rem;
-  }
-
-  h2 {
-    color: $primary;
-    font-size: 1.6rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  ol,
-  ul {
-    margin: 0 0 2rem 0;
-    padding: 0 1.6rem;
-    list-style: square outside none;
-  }
-}
-
-.is-dark + footer {
-  margin-top: 0;
 }

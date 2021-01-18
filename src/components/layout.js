@@ -1,48 +1,59 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import PropTypes from "prop-types"
 
-/** Emotion */
-import styled from "@emotion/styled"
-import { device } from "../utils/device"
-
 /** Components */
-import Navbar from "../components/navbar"
-import Footer from "../components/footer"
+import Navbar from "./navbar"
+import Footer from "./footer"
 
-const HolyGrailMain = styled.main`
-  display: grid;
-  grid-template-columns: 1fr min(90ch, 100%) 1fr;
+/** i18n */
+import { getCurrentLangKey } from "ptz-i18n"
+import { IntlProvider } from "react-intl"
+import "intl"
 
-  & > .content-section {
-    grid-column: 2;
+import getMessages from '../data/messages';
 
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-
-    @media ${device.laptop} {
-      padding-left: 0;
-      padding-right: 0;
+export default function Layout({
+  children,
+  location,
+  hasLastDark,
+}) {
+  const data = useStaticQuery(graphql`
+    query LayoutQuery {
+      site {
+        siteMetadata {
+          languages {
+            defaultLangKey
+            langs
+          }
+        }
+      }
     }
-  }
-`
+  `)
 
-export default function Layout({ children, hasLastDark }) {
+  const url = location.pathname
+  const { langs, defaultLangKey } = data.site.siteMetadata.languages
+  const langKey = getCurrentLangKey(langs, defaultLangKey, url)
+  const homeLink = `/${langKey}/`.replace(`/${defaultLangKey}/`, "/")
+
   return (
     <>
-      <Navbar />
+      <IntlProvider locale={langKey} defaultLocale={defaultLangKey} messages={getMessages(langKey)}>
+        <Navbar homeLink={homeLink} lang={langKey} />
 
-      <HolyGrailMain>{children}</HolyGrailMain>
+        <main className="main-content">{children}</main>
 
-      <Footer hasLastDark={hasLastDark} />
+        <Footer hasLastDark={hasLastDark} lang={langKey} />
+      </IntlProvider>
     </>
   )
 }
 
 Layout.propTypes = {
   children: PropTypes.node,
-  hasLastDark: PropTypes.bool
+  hasLastDark: PropTypes.bool,
 }
 
 Layout.defaultProps = {
-  hasLastDark: false
+  hasLastDark: false,
 }

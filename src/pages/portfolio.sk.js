@@ -10,18 +10,19 @@ import ContactUs from "../components/contactUs"
 import SeoHelmet from "../components/seo/seoHelmet"
 
 import ProjectsList from "../components/project/projectsList"
-export default function Portfolio({ data }) {
+export default function Portfolio({ data, location }) {
   const projects = data.allPrismicProject.edges
 
   return (
     <>
       <SeoHelmet
-        title={`Portfolio | LabZone`}
-        description='Labzone teams have completed software development projects for clients from Slovakia, Czech Republic, and Finland.'
+        title={`Portfólio`}
+        description='Pozrite si ukážku projektov, na ktorých sme sa podielali.'
+        lang="sk"
       />
 
-      <Layout>
-        <Section title="Check our portfolio">
+      <Layout location={location}>
+        <Section title="Ukážky projektov, na ktorých sme pracovali">
           <ProjectsList projects={projects} />
 
           <ContactUs />
@@ -33,9 +34,10 @@ export default function Portfolio({ data }) {
 
 export const query = graphql`
   {
-    allPrismicProject {
+    allPrismicProject(filter: {lang: {eq: "sk"}}) {
       edges {
         node {
+          lang
           data {
             project_title {
               text

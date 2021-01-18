@@ -14,6 +14,7 @@ const {
 const isNetlifyProduction = NETLIFY_ENV === "production"
 const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
 const path = require("path")
+const languages = require('./src/data/languages');
 
 module.exports = {
   siteMetadata: {
@@ -21,6 +22,7 @@ module.exports = {
     description: `Using code, design and almost any other IT tool to solve business challenges. Exclusively remote.`,
     author: `LabZone`,
     siteUrl: `https://www.labzone.tech`,
+    languages
   },
   plugins: [
     {
@@ -32,7 +34,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#15b0d4`,
         display: `standalone`,
-        icon: `src/images/logo-black.png`,
+        icon: `src/images/logo-square-red.png`,
       },
     },
     {
@@ -89,6 +91,16 @@ module.exports = {
           project: require("./src/schemas/project.json"),
           post: require("./src/schemas/post.json"),
         },
+      },
+    },
+    /** Internationalization - i18n */
+    {
+      resolve: 'gatsby-plugin-i18n',
+      options: {
+        langKeyDefault: languages.defaultLangKey,
+        langKeyForNull: 'en',
+        prefixDefault: false,
+
       },
     },
     /* SEO */

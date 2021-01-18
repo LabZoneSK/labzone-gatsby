@@ -10,28 +10,34 @@ import FullBleed from "../components/fullBleed"
 import Img from "gatsby-image"
 import SeoHelmet from "../components/seo/seoHelmet"
 
-export default function PostDetail({ data }) {
+/** Prismic */
+import { RichText } from "prismic-reactjs"
+import { linkResolver } from "../utils/prismic"
+
+export default function PostDetail({ data, location }) {
   const { title, content, hero_image } = data.prismicPost.data
+  const lang = data.prismicPost.lang
 
   return (
     <>
-      <SeoHelmet title={`${title.text} | LabZone`} />
+      <SeoHelmet title={`${title.text}`} lang={lang} />
 
-      <Layout>
+      <Layout location={location}>
         <FullBleed>
-          <Img fluid={hero_image.fluid} alt={hero_image.alt} style={{
-              height:"500px"
-          }}/>
+          <Img
+            fluid={hero_image.fluid}
+            alt={hero_image.alt}
+            style={{
+              height: "500px",
+            }}
+          />
         </FullBleed>
         <article className="blog-article content-section mt-6">
           <h1 className="title is-size-2-desktop has-text-primary">
             {title.text}
           </h1>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: content.html,
-            }}
-          ></div>
+
+          <RichText render={content.raw} linkResolver={linkResolver}/>
 
           <ContactUs />
         </article>
@@ -44,9 +50,10 @@ export const query = graphql`
   query($id: String!) {
     prismicPost(id: { eq: $id }) {
       uid
+      lang
       data {
         content {
-          html
+          raw
         }
         hero_image {
           alt

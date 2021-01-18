@@ -1,5 +1,9 @@
 @import "colors";
 
+.text-red-pigment {
+  color: var(--red-pigment) !important;
+}
+
 .section-title {
   color: $primary;
   font-weight: 900;
@@ -10,38 +14,6 @@
   }
 }
 
-.section-content {
-  p,
-  ul,
-  table {
-    padding-bottom: 1rem;
-  }
-
-  ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  li {
-    &:before {
-      content: "+ ";
-      display: inline-block;
-      height: 1em;
-      width: 1em;
-      margin-right: 0.5em;
-    }
-  }
-  &.person {
-    li {
-      &:before {
-        content: "";
-        display: inline-block;
-        height: 1em;
-        width: 1em;
-        background-image: url(/images/icons/user.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        margin-right: 0.5em;
-      }
-    }
-  }
+.is-nowrap {
+  white-space: nowrap;
 }

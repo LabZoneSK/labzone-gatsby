@@ -9,7 +9,18 @@ const FullBleedDiv = styled.div`
   overflow: hidden;
   grid-column: 1 / 4;
 
-  background: ${props => props.color};
+  background: var(--${props => props.color});
+
+  &::after {
+    display: block;
+    content: "";
+    background: var(--${props => props.color});
+    width: 100%;
+    height: 50px;
+    transform: skewY(-1deg);
+    position: absolute;
+    margin-top: -25px;
+  }
 
   & img {
     width: 100%;

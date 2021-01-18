@@ -9,19 +9,24 @@ import PostsList from "../components/blog/postsList"
 import Section from "../components/section"
 import SeoHelmet from "../components/seo/seoHelmet"
 
-export default function Blog({ data }) {
+export default function Blog({ data, location }) {
   const posts = data.allPrismicPost.edges
 
   return (
     <>
       <SeoHelmet
-        title={`Blog | LabZone`}
-        description="Actionable ideas, news, trends and customer stories."
+        title={`Blog`}
+        description="Nápady, novinky, trendy, klientské príhody a iné zo života LabZone."
+        lang="sk"
       />
 
-      <Layout>
-        <Section title="The LabZone Blog">
-          <p className="is-size-5 mb-5">The blog delivers the “why, how, what” behind our services, products, and strategies to solve business and technical challenges. You will find here actionable ideas, news, trends and customer stories.</p>
+      <Layout location={location}>
+        <Section title="LabZone Blog">
+          <p className="is-size-5 mb-5">
+            Blog prináša „prečo, ako, čo“ za našimi službami, produktami a
+            stratégiami na riešenie obchodných a technických výziev. Nájdete tu
+            užitočné nápady, novinky, trendy a príbehy zákazníkov.
+          </p>
           <PostsList posts={posts} />
         </Section>
       </Layout>
@@ -31,7 +36,7 @@ export default function Blog({ data }) {
 
 export const query = graphql`
   {
-    allPrismicPost {
+    allPrismicPost(filter: { lang: { eq: "sk" } }) {
       edges {
         node {
           data {
@@ -50,6 +55,7 @@ export const query = graphql`
           }
           uid
           tags
+          lang
         }
       }
     }

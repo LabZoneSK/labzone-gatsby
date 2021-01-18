@@ -1,7 +1,7 @@
 import React from "react"
 
 /** Gatsby */
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 /** Emotion & Styling */
 import styled from "@emotion/styled"
@@ -21,7 +21,7 @@ import SeoHelmet from "../components/seo/seoHelmet"
 import config from "../components/config"
 
 import ProjectsList from "../components/project/projectsList"
-import { color } from "../utils/color"
+import { FormattedMessage } from "react-intl"
 import { device } from "../utils/device"
 
 /** Icons */
@@ -50,7 +50,7 @@ const TechIcons = styled.div`
   }
 `
 
-export default function Home({ data }) {
+export default function Home({ data, location }) {
   const projects = data.allPrismicProject.edges
   const posts = data.allPrismicPost.edges
 
@@ -58,19 +58,23 @@ export default function Home({ data }) {
 
   const services = [
     {
-      title: "Software Development",
+      title: "Vývoj softvéru",
       icon: "/images/icons/svg/labzone-software-development.svg",
-      list: ["Web sites / apps", "E-commerce", "Mobile applications"],
+      list: ["Web stránky / aplikácie", "E-commerce", "Mobilné aplikácie"],
     },
     {
-      title: "UX / UI Desgin",
+      title: "UX / UI dizajn",
       icon: "/images/icons/svg/labzone-web-design.svg",
-      list: ["User eXperience", "User Interface", "Copywritting"],
+      list: [
+        "Užívateľský zážitok (UX)",
+        "Grafické rozhranie / dizajn",
+        "Copywriting",
+      ],
     },
     {
       title: "SEO & Marketing",
       icon: "/images/icons/svg/labzone-digital-marketing.svg",
-      list: ["Banners", "Marketing Support", "On-line & Off-line"],
+      list: ["Banery", "Marketingová podpora", "On-line & Off-line"],
     },
   ]
 
@@ -99,22 +103,23 @@ export default function Home({ data }) {
   }
 
   return (
-    <Layout hasLastDark>
+    <Layout hasLastDark location={location}>
       <SeoHelmet
-        title="We build virtual teams"
-        description="Using code, design and almost any other IT tool<br/>to solve your business challenges. Exclusively remote."
+        title="Budujeme virtuálne softvérové tímy"
+        description="Pomocou kódu, dizajnu a takmer ľubovoľného iného IT nástroja s nami vyriešite svoje obchodné potreby. Exkluzívne remote."
         schemaOrgJSONLD={getOrganizationData()}
+        lang="sk"
       />
 
       <FullBleed>
         <Hero
-          title="We build virtual teams<br/>for your real success."
-          subtitle="Using code, design and almost any other IT tool<br/>to solve your business challenges. Exclusively remote."
-          image="lead-image.jpg"
+          title="Virtuálne tímy<br/>pre váš reálny úspech."
+          subtitle="Každé zadanie je jedinečné a pod palcom ho vždy majú naši najpovolanejší.<br>Používame overené technológie, ktoré v kombinácii s našim know-how garantujú top výsledok."
+          image="lead-v1.jpg"
         />
       </FullBleed>
 
-      <Section title="We can help you with">
+      <Section title="S čím vám vieme pomôcť">
         <div className="columns mt-5 mb-3">
           {services &&
             services.map((service, i) => {
@@ -127,12 +132,15 @@ export default function Home({ data }) {
         </div>
       </Section>
 
-      <FullBleed color={color.dark}>
+      <FullBleed color="dark">
         <div className="grid-container">
-          <Section title="Technologies we use">
+          <Section
+            title="Používame najmodernejšie technológie"
+            titleClass="text-red-pigment"
+          >
             <p className="has-text-white">
-              Our software speacilists will always adapt to your needs. Here are
-              some of the technologies we work with:
+              Náši špecialisti sa vždy prispôsobia vašim potrebám. Toto sú
+              niektoré z technológií, s ktorými pracujeme:
             </p>
 
             <TechIcons>
@@ -141,7 +149,7 @@ export default function Home({ data }) {
                   return (
                     <Icon
                       key={i}
-                      source={technnologyIcon.node.relativePath}
+                      source={`/${technnologyIcon.node.relativePath}`}
                       alt=""
                       size="md"
                       isWhite
@@ -153,16 +161,15 @@ export default function Home({ data }) {
         </div>
       </FullBleed>
 
-      <Section title="Some of our projects">
+      <Section titleClass="mt-6" title="Výsledky našej práce">
         <ProjectsList projects={projects} hasShowMore />
       </Section>
 
       <FullBleed>
-        <Hero image="community-home.jpg" isRounded>
+        <Hero image="community-labzone.jpg">
           <Spacer
-            title="We build community"
-            subtitle="In addition to various passion projects, we strive to build a solid
-          community around design and information technology."
+            title="Budujeme komunitu"
+            subtitle="Okrem rôznych passion projektov sa snažíme budovať solídnu komunitu okolo dizajnu a informčných technológií."
           >
             <div className="is-hidden-mobile">
               <div className="mt-3 is-pulled-right">
@@ -175,7 +182,7 @@ export default function Home({ data }) {
                       href="https://github.com/LabZoneSK"
                       className="has-text-white is-size-5"
                     >
-                      View repos
+                      Pozrieť si repozitáre
                     </a>
                   </div>
                 </div>
@@ -189,7 +196,7 @@ export default function Home({ data }) {
                       href="https://discord.gg/XmBm8K9"
                       className="has-text-white is-size-5"
                     >
-                      Join to Discord
+                      Pridať sa na Discord
                     </a>
                   </div>
                 </div>
@@ -202,7 +209,7 @@ export default function Home({ data }) {
                   className="has-text-white is-size-5"
                 >
                   <Github className="social-icon social-icon--line-centered p-0 mr-3" />
-                  View repos
+                  Pozrieť si repozitáre
                 </a>
               </div>
               <div className="mt-3">
@@ -211,7 +218,7 @@ export default function Home({ data }) {
                   className="has-text-white is-size-5"
                 >
                   <Discord className="social-icon social-icon--line-centered p-0 mr-3" />
-                  Join to Discord
+                  Pridať sa na Discord
                 </a>
               </div>
             </div>
@@ -219,18 +226,31 @@ export default function Home({ data }) {
         </Hero>
       </FullBleed>
 
-      <Section title="The LabZone Blog">
+      <Section title="Blog">
         <PostsList posts={posts} />
       </Section>
 
-      <FullBleed color="#f4f4f4">
+      <FullBleed color="columbia-blue">
         <div className="grid-container">
-          <Section title="Connect with us" className="container">
+          <Section title="Spojme sa" className="container">
             <div className="columns">
               <div className="column is-half">
-                Got questions?
+                <FormattedMessage
+                  id="gotQuestions"
+                  defaultMessage="Got questions?"
+                />
                 <br />
-                Contact us directly at info@labzone.sk
+                <div className="mt-1">
+                  <FormattedMessage
+                    id="contactUs"
+                    defaultMessage="Contact us directly at {email}"
+                    values={{ email: "info@labzone.sk" }}
+                  />
+                </div>
+              </div>
+              <div className="column is-half">
+                Alebo nás sledujte na sociálnych sieťach
+                <br />
                 <div className="mt-1">
                   <a href="https://www.linkedin.com/company/labzonesk">
                     <LinkedIn className="social-icon linkedin" />
@@ -239,23 +259,6 @@ export default function Home({ data }) {
                     <Twitter className="social-icon twitter" />
                   </a>
                 </div>
-              </div>
-              <div className="column is-half">
-                <strong>LabZone s.r.o.</strong>
-                <p>
-                  <br />
-                  Liptovská 2708/6
-                  <br />
-                  911 08 Trenčín
-                </p>
-
-                <p className="mt-3">
-                  IČO: 50753681
-                  <br />
-                  DIČ: 2120461266
-                  <br />
-                  IČ DPH: SK2120461266
-                </p>
               </div>
             </div>
           </Section>
@@ -267,9 +270,10 @@ export default function Home({ data }) {
 
 export const query = graphql`
   {
-    allPrismicProject {
+    allPrismicProject(filter: { lang: { eq: "sk" } }, limit: 3) {
       edges {
         node {
+          lang
           data {
             project_title {
               text
@@ -290,9 +294,10 @@ export const query = graphql`
       }
     }
 
-    allPrismicPost(limit: 3) {
+    allPrismicPost(filter: { lang: { eq: "sk" } }, limit: 3) {
       edges {
         node {
+          lang
           data {
             hero_image {
               alt
