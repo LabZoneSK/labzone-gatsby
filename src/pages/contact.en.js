@@ -84,6 +84,7 @@ export default function ContactEn({ location }) {
                     <FormattedMessage id="vatID" defaultMessage="VAT ID" />: SK
                     2120461266
                     <br />
+                    Company is registered in the Business Register of the District Court Trenčín, Section: Sro, Insert No.: 40402/R
                   </p>
                 </div>
               </div>

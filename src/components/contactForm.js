@@ -116,7 +116,7 @@ export default function Contactform() {
             }
           })
 
-          //formv3(fields)
+          formv3(fields)
           setSubmitted(true)
           setSubmitting(false)
         }}

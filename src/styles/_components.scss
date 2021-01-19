@@ -93,6 +93,11 @@
     &:hover {
       color: var(--red-pigment);
     }
+
+    /** Contact */
+    &.contact-navbar-link {
+      color: var(--red-pigment);
+    }
   }
 }
 
