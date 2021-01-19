@@ -197,7 +197,7 @@ export default function Contactform() {
               name="consent"
               render={msg => <p className="help is-danger">{msg}</p>}
             />
-            <div className="control mt-5">
+            <div className="control contact-form-submit-wapper">
               <button
                 className="lz-button button--isi"
                 type="submit"
