@@ -14,4 +14,8 @@ export const onRenderBody = (
       <script type="text/javascript">function OptanonWrapper() {}</script>,
     ])
   }
+
+  setPostBodyComponents([
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/6690555.js"></script>,
+  ])
 }

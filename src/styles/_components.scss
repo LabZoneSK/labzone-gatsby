@@ -167,7 +167,6 @@
 
 /** Main Content */
 .main-content {
-
   display: grid;
   grid-template-columns: unquote("1fr min(90ch, 100%) 1fr");
 
@@ -232,4 +231,26 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+/** Contact Form */
+.contact-form-wrapper {
+  min-height: 200px;
+}
+
+.thank-you-wrapper-animation {
+  position: relative;
+  animation-name: makeSmaller;
+  animation-duration: 1s;
+}
+
+@keyframes makeSmaller {
+  from {
+    height: 290px;
+    opacity: 0;
+  }
+  to {
+    height: 90px;
+    opacity: 1;
+  }
 }

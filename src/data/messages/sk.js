@@ -20,6 +20,20 @@ const messages = {
     companyID: "IČO",
     vatID: "IČ DPH",
     privacyPolicy: "Vyhlásenie o ochrane osobných údajov",
+    fullName: "Vaše meno",
+    fullNamePlaceholder: "Ako Vás máme oslovovať?",
+    email: "E-mail",
+    emailPlaceholder: "Kam Vám máme poslať odpoveď?",
+    emailErrorRequired: "Prosím, uveďte e-mail, aby sme Vás mohli kontaktovať.",
+    emailErrorInvalid: "Prosím, uveďte správny email, napr. peter.novak@example.sk.",
+    message: "Vaša správa",
+    messagePlaceholder: "Vaša správa pre nás",
+    sendMessage: "Odoslať správu",
+    consent: "Súhlasím som spracovaním mojich osobných údajov za účelom {purpose}",
+    consentError:  "Prosím, označte súhlas so spracovaním osobných údajov.",
+    contacting: "kontaktovania",
+    thankYouSend: "Ďakujeme, že ste nás oslovili.",
+    weWillRespond: "Vaša správa bola odoslaná a odpovieme Vám v čo najkratšej dobe."
 }
 
 export default messages;
