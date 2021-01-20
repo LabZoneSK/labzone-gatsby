@@ -40,7 +40,7 @@ Website URLs:
 3.  **Create and fill out .env***
 
     ```shell
-    cp .env.sample .evn
+    cp temp.env .evn
     ```
     *ask repo ownder for credentials and required values
 
