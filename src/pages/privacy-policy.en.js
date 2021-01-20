@@ -144,6 +144,7 @@ export default function PrivacyPolicy({ location }) {
                   <ul>
                     <li>Google Analytics</li>
                     <li>HubSpot CMS</li>
+                    <li>Microsoft Clarity</li>
                   </ul>
                 </li>
                 <li>
