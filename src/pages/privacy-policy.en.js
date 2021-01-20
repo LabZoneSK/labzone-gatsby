@@ -143,6 +143,7 @@ export default function PrivacyPolicy({ location }) {
                   solutions:
                   <ul>
                     <li>Google Analytics</li>
+                    <li>HubSpot CMS</li>
                   </ul>
                 </li>
                 <li>
