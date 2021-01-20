@@ -155,6 +155,7 @@ export default function PrivacyPolicy({ location }) {
                   používame nasledujúcu tretiu stranu:
                   <ul>
                     <li>Google Analytics</li>
+                    <li>HubSpot CMS</li>
                   </ul>
                 </li>
                 <li>

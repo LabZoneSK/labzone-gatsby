@@ -15,10 +15,25 @@ const messages = {
     fig: "Fig.",
     moreProjects: "Show me other projects",
     Contact: "Contact Us",
+    contactForm: "Contact Form",
     taxID: "Tax ID",
     companyID: "Business ID",
     vatID: "VAT ID",
     privacyPolicy: "Privacy Policy",
+    fullName: "Name",
+    fullNamePlaceholder: "How we can call you?",
+    email: "E-mail",
+    emailErrorRequired: "Please, enter e-mail so we can reply back to you.",
+    emailErrorInvalid: "Please, enter valid e-mail address.",
+    emailPlaceholder: "Where we can respond to you?",
+    message: "Your message",
+    messagePlaceholder: "Body of your message",
+    sendMessage: "Send message",
+    consent: "I agree to the processing of personal data for the purpose of {purpose}",
+    consentError:  "Please, agree with processing of personal data so we can reply to you.",
+    contacting: "contact",
+    thankYouSend: "Thank you for contacting us.",
+    weWillRespond: "Your message has been sent to us, and we will respond as soon as possible."
 }
 
 export default messages;
