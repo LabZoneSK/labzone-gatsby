@@ -234,7 +234,7 @@ export default function Home({ data, location }) {
         <div className="grid-container">
           <Section title="Spojme sa" className="container">
             <div className="columns">
-              <div className="column is-half">
+              <div className="column is-full-mobile is-half-tablet is-clearfix">
                 <FormattedMessage
                   id="gotQuestions"
                   defaultMessage="Got questions?"
@@ -247,8 +247,20 @@ export default function Home({ data, location }) {
                     values={{ email: "info@labzone.sk" }}
                   />
                 </div>
+
+                <div className="mt-5">
+                  <Link
+                    className="lz-button lz-button--border-thin button--isi button--isi--inverted"
+                    to={`/contact/`}
+                  >
+                    <FormattedMessage
+                      id="contactForm"
+                      defaultMessage="Contact Form"
+                    />
+                  </Link>
+                </div>
               </div>
-              <div className="column is-half">
+              <div className="column is-full-mobile is-half-tablet">
                 Alebo nás sledujte na sociálnych sieťach
                 <br />
                 <div className="mt-1">
