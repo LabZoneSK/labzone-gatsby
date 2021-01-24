@@ -234,7 +234,7 @@ export default function PrivacyPolicy({ location }) {
                 you may contact the our principal supervisory authority - the{" "}
                 <a
                   href="https://dataprotection.gov.sk/uoou/sk"
-                  rel="nofollow,noopener"
+                  rel="noreferrer nofollow"
                   target="_blank"
                 >
                   Personal Data Protection Office of the Slovak Republic

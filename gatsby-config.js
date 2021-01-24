@@ -21,7 +21,7 @@ module.exports = {
     title: `Welcome to LabZone s.r.o.`,
     description: `Using code, design and almost any other IT tool to solve business challenges. Exclusively remote.`,
     author: `LabZone`,
-    siteUrl: `https://www.labzone.tech`,
+    siteUrl: siteUrl,
     languages
   },
   plugins: [
@@ -79,6 +79,7 @@ module.exports = {
       options: {
         rule: {
           include: /\.inline\.svg$/,
+          omitKeys: ['xmlnsSerif', 'xmlnsDc', 'xmlnsCc', 'xmlnsRdf', 'xmlnsSvg', 'xmlnsSodipodi', 'xmlnsInkscape']
         },
       },
     },

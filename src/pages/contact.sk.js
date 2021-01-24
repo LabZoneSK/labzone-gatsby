@@ -39,9 +39,9 @@ export default function ContactEn({ location }) {
                 <br />
                 <br />
                 <br />
-                Zostaňme v kontakte
-                <br />
-                <div className="mt-1">
+                Zostaňme v kontakte                
+              </p>
+              <div className="mt-1">
                   <a href="https://www.linkedin.com/company/labzonesk">
                     <LinkedIn className="social-icon linkedin" />
                   </a>
@@ -49,7 +49,6 @@ export default function ContactEn({ location }) {
                     <Twitter className="social-icon twitter" />
                   </a>
                 </div>
-              </p>
             </div>
           </div>
           </Section>
