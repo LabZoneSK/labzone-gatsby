@@ -154,6 +154,8 @@
 	background: var(--red-pigment);
   overflow: hidden;
 
+  font-family: var(--text-font-family);
+
   &:hover {
     color: var(--white);
   }
