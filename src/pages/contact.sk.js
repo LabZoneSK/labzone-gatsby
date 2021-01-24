@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 
 /** Components */
 import Layout from "../components/layout"
@@ -14,17 +14,19 @@ import LinkedIn from "../images/svg/linkedin.inline.svg"
 import Twitter from "../images/svg/twitter.inline.svg"
 
 export default function ContactEn({ location }) {
-    return (
-        <>
+  return (
+    <>
       <SeoHelmet
         title={`Kontaktujte nás`}
-        description='Máte otázky? Spojte sa s nami. Stránka s kontaktnými a fakturačnými údajmi.'
+        description="Máte otázky? Spojte sa s nami. Stránka s kontaktnými a fakturačnými údajmi."
       />
 
       <Layout location={location} hasLastDark>
-      <Section title="Spojte sa s nami" className="container">
-      <p>
-            Preferujeme kontakt cez e-mail. Štandardne odpovedáme do 24 hodín.
+        <Section title="Spojte sa s nami" className="container">
+          <p>
+            Prosím, pošlite e-mail na{" "}
+            <a href="mailto:info@labzone.sk">info@labzone.sk</a> alebo vyplňte kontaktný formulár nižšie.{" "}
+            <b>Odpovieme Vám do 48 hodín</b> - okrem víkendov.
           </p>
           <div className="columns is-vcentered">
             <div className="column is-half pt-6">
@@ -33,9 +35,9 @@ export default function ContactEn({ location }) {
 
             <div className="column is-half has-text-centered">
               <p className="mt-5">
-                Alebo nás kontaktujte na <strong>info@labzone.sk</strong>,
+                <strong>info@labzone.sk</strong>
                 <br />
-                telefonicky <strong>+421 948 272 880</strong>
+                +421 948 272 880
                 <br />
                 <br />
                 <br />
@@ -52,9 +54,9 @@ export default function ContactEn({ location }) {
               </p>
             </div>
           </div>
-          </Section>
+        </Section>
 
-          <FullBleed color="columbia-blue">
+        <FullBleed color="columbia-blue">
           <div className="grid-container">
             <Section title="Fakturačné údaje" className="container">
               <div className="columns">
@@ -71,13 +73,20 @@ export default function ContactEn({ location }) {
                 </div>
                 <div className="column is-half">
                   <p className="mt-3">
-                    <FormattedMessage id="companyID" defaultMessage="Business ID" />: 50753681
+                    <FormattedMessage
+                      id="companyID"
+                      defaultMessage="Business ID"
+                    />
+                    : 50753681
                     <br />
-                    <FormattedMessage id="taxID" defaultMessage="Tax ID" />: 2120461266
+                    <FormattedMessage id="taxID" defaultMessage="Tax ID" />:
+                    2120461266
                     <br />
-                    <FormattedMessage id="vatID" defaultMessage="VAT ID" />: SK 2120461266
-                    <br/>
-                    Spoločnosť zapísaná v Obchodnom registry Okresného súdu v Trenčíne, Oddiel: Sro, vložka číslo 40402/R
+                    <FormattedMessage id="vatID" defaultMessage="VAT ID" />: SK
+                    2120461266
+                    <br />
+                    Spoločnosť zapísaná v Obchodnom registry Okresného súdu v
+                    Trenčíne, Oddiel: Sro, vložka číslo 40402/R
                   </p>
                 </div>
               </div>
@@ -86,5 +95,5 @@ export default function ContactEn({ location }) {
         </FullBleed>
       </Layout>
     </>
-    )
+  )
 }

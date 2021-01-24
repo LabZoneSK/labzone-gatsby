@@ -24,8 +24,10 @@ export default function ContactEn({ location }) {
       <Layout location={location} hasLastDark>
         <Section title="Connect with us" className="container">
           <p>
-            Our preffered contact method is by e-mail. Normally we respond
-            within 24 hours.
+            Send your email to{" "}
+            <a href="mailto:info@labzone.sk">info@labzone.sk</a> or fill in the
+            contact form bellow. <b>You can expect a response within 48 hours</b> -
+            expect for weekends.
           </p>
           <div className="columns is-vcentered">
             <div className="column is-half pt-6">
@@ -34,9 +36,9 @@ export default function ContactEn({ location }) {
 
             <div className="column is-half has-text-centered">
               <p className="mt-5">
-                Or contact us by e-mail at <strong>info@labzone.sk</strong>,
+                <strong>info@labzone.sk</strong>
                 <br />
-                by telephone <strong>+421 948 272 880</strong>
+                +421 948 272 880
                 <br />
                 <br />
                 <br />
@@ -84,7 +86,8 @@ export default function ContactEn({ location }) {
                     <FormattedMessage id="vatID" defaultMessage="VAT ID" />: SK
                     2120461266
                     <br />
-                    Company is registered in the Business Register of the District Court Trenčín, Section: Sro, Insert No.: 40402/R
+                    Company is registered in the Business Register of the
+                    District Court Trenčín, Section: Sro, Insert No.: 40402/R
                   </p>
                 </div>
               </div>
