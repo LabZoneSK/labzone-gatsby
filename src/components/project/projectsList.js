@@ -16,7 +16,7 @@ import ProjectItem from "./projectItem"
 import Center from "../center"
 
 export default function ProjectsList(props) {
-  const { projects, hasShowMore, location } = props
+  const { projects, hasShowMore } = props
   const intl = useIntl()
 
   if (!projects) {

@@ -249,7 +249,7 @@ export default function PrivacyPolicy({ location }) {
                 neuspokojivo neriešil vaše obavy, môžete sa obrátiť na - {""}
                 <a
                   href="https://dataprotection.gov.sk/uoou/sk"
-                  rel="nofollow,noopener"
+                  rel="noreferrer nofollow"
                   target="_blank"
                 >
                   Úrad na ochranu osobných údajov Slovenskej republiky

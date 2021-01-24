@@ -8,7 +8,7 @@ export default function PostsList({ posts }) {
     return (
         <div className="columns">
             {posts.map(post => 
-                <PostItem post={post.node} />
+                <PostItem key={post.node.uid} post={post.node} />
             )}
         </div>
     )

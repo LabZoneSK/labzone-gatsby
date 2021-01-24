@@ -5,7 +5,7 @@ export default function Tags({ tags }) {
   return (
     <div className="tags mb-0">
       {tags && tags.map(tag => (
-        <span className="tag is-dark">{tag}</span>
+        <span key={`tag-${tag.split(' ').join('-')}`} className="tag is-dark">{tag}</span>
       ))}
     </div>
   )
