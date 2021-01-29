@@ -12,7 +12,7 @@ export default function PrivacyPolicy({ location }) {
     <>
       <SeoHelmet
         title={`Privacy Policy | LabZone`}
-        description="Labzone teams have completed software development projects for clients from Slovakia, Czech Republic, and Finland."
+        description="This privacy policy will explain how our organization uses the personal data we collect from you when you use our website."
       />
 
       <Layout location={location} hasLastDark>
