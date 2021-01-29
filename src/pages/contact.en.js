@@ -22,12 +22,16 @@ export default function ContactEn({ location }) {
       />
 
       <Layout location={location} hasLastDark>
-        <Section title="Connect with us" className="container">
+        <Section className="container">
+          <h1 className="section-title has-text-centered-mobile ">
+            Connect with us
+          </h1>
           <p>
             Send your email to{" "}
             <a href="mailto:info@labzone.sk">info@labzone.sk</a> or fill in the
-            contact form bellow. <b>You can expect a response within 48 hours</b> -
-            expect for weekends.
+            contact form bellow.<br/>
+            <b>You can expect a response within 48 hours</b> - expect for
+            weekends.
           </p>
           <div className="columns is-vcentered">
             <div className="column is-half pt-6">
@@ -45,13 +49,13 @@ export default function ContactEn({ location }) {
                 Stay in touch
               </p>
               <div className="mt-1">
-                  <a href="https://www.linkedin.com/company/labzonesk">
-                    <LinkedIn className="social-icon linkedin" />
-                  </a>
-                  <a href="https://twitter.com/LabZoneSK">
-                    <Twitter className="social-icon twitter" />
-                  </a>
-                </div>
+                <a href="https://www.linkedin.com/company/labzonesk">
+                  <LinkedIn className="social-icon linkedin" />
+                </a>
+                <a href="https://twitter.com/LabZoneSK">
+                  <Twitter className="social-icon twitter" />
+                </a>
+              </div>
             </div>
           </div>
         </Section>

@@ -16,7 +16,10 @@ export default function PrivacyPolicy({ location }) {
       />
 
       <Layout location={location} hasLastDark>
-        <Section title="Privacy Policy" sectionClass="container">
+        <Section sectionClass="container">
+          <h1 className="section-title has-text-centered-mobile ">
+            Privacy Policy
+          </h1>
           <div className="section-content columns">
             <div className="column">
               <p>
