@@ -12,9 +12,7 @@ export default function PrivacyPolicy({ location }) {
     <>
       <SeoHelmet
         title={`Vyhlásenie o ochrane osobných údajov | LabZone`}
-        description="Toto vyhlásenie o ochrane osobných údajov popisuje, ako 
-        spoločnosť LabZone s.r.o. používa osobné údaje, ktoré sme získali od vás pri
-        používaní našich web stránok."
+        description="Toto vyhlásenie o ochrane osobných údajov popisuje, ako spoločnosť LabZone s.r.o. používa vaše osobné údaje."
       />
 
       <Layout location={location} hasLastDark>

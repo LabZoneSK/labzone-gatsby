@@ -17,7 +17,7 @@ export default function Portfolio({ data, location }) {
     <>
       <SeoHelmet
         title={`Portfólio`}
-        description="Pozrite si ukážku projektov, na ktorých sme sa podielali."
+        description="Hľadáte softvérových špecialistov pre váš projekt? Pozrite si ukážky projektov pre našich klientov."
         lang="sk"
       />
 
