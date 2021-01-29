@@ -2,9 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 /** Gatsby */
-import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
-import Img from "gatsby-image"
 
 /** Emotion & Styling */
 import styled from "@emotion/styled"
@@ -20,11 +18,6 @@ import { sanitizeLink } from "../utils/helpers"
 const CustomizedNav = styled.nav`
   box-shadow: 0 2px 0 0 #f5f5f5;
 `
-
-const BrandIcon = styled(Img)`
-  margin-right: 0.5rem;
-`
-
 const Button = styled.button`
   background-color: transparent;
   border: 0;
@@ -36,17 +29,6 @@ const Button = styled.button`
 `
 
 export default function Navbar({ homeLink, lang }) {
-  const data = useStaticQuery(graphql`
-    {
-      file(relativePath: { eq: "images/lz_logo_black.png" }) {
-        childImageSharp {
-          fixed(height: 30) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-    }
-  `)
 
   const handleMobileButtonClick = event => {
     const el = event.target

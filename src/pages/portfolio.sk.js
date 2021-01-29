@@ -17,12 +17,15 @@ export default function Portfolio({ data, location }) {
     <>
       <SeoHelmet
         title={`Portfólio`}
-        description='Pozrite si ukážku projektov, na ktorých sme sa podielali.'
+        description="Hľadáte softvérových špecialistov pre váš projekt? Pozrite si ukážky projektov pre našich klientov."
         lang="sk"
       />
 
       <Layout location={location}>
-        <Section title="Ukážky projektov, na ktorých sme pracovali">
+        <Section>
+          <h1 className="section-title has-text-centered-mobile ">
+            Ukážky projektov, na ktorých sme pracovali
+          </h1>
           <ProjectsList projects={projects} />
 
           <ContactUs />
@@ -34,7 +37,7 @@ export default function Portfolio({ data, location }) {
 
 export const query = graphql`
   {
-    allPrismicProject(filter: {lang: {eq: "sk"}}) {
+    allPrismicProject(filter: { lang: { eq: "sk" } }) {
       edges {
         node {
           lang

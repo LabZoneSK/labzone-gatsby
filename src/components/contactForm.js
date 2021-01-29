@@ -7,51 +7,7 @@ import cx from "classnames"
 
 /** Utils */
 import { sanitizeLink } from "../utils/helpers"
-
-function formv3(fields) {
-  if (!fields) {
-    return false
-  }
-
-  var xhr = new XMLHttpRequest()
-  var url =
-    "https://api.hsforms.com/submissions/v3/integration/submit/6690555/d5ea374b-8855-4c0c-9e23-589f3e61bbbe"
-
-  var data = {
-    submittedAt: new Date().getTime(),
-    fields,
-    context: {
-      pageName: "Contact page",
-    },
-    legalConsentOptions: {
-      consent: {
-        consentToProcess: true,
-        text:
-          "I agree to the processing of personal data for the purpose of contacting.",
-        communications: [],
-      },
-    },
-  }
-
-  var final_data = JSON.stringify(data)
-
-  xhr.open("POST", url)
-  xhr.setRequestHeader("Content-Type", "application/json")
-
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState == 4 && xhr.status == 200) {
-      alert(xhr.responseText) // Returns a 200 response if the submission is successful.
-    } else if (xhr.readyState == 4 && xhr.status == 400) {
-      alert(xhr.responseText) // Returns a 400 error the submission is rejected.
-    } else if (xhr.readyState == 4 && xhr.status == 403) {
-      alert(xhr.responseText) // Returns a 403 error if the portal isn't allowed to post submissions.
-    } else if (xhr.readyState == 4 && xhr.status == 404) {
-      alert(xhr.responseText) //Returns a 404 error if the formGuid isn't found
-    }
-  }
-
-  xhr.send(final_data)
-}
+import { formv3 } from "../utils/hubspot"
 
 export default function Contactform() {
   const intl = useIntl()

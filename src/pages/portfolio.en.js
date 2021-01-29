@@ -17,11 +17,14 @@ export default function Portfolio({ data, location }) {
     <>
       <SeoHelmet
         title={`Portfolio | LabZone`}
-        description='Labzone teams have completed software development projects for clients from Slovakia, Czech Republic, and Finland.'
+        description="Are you looking for remote software development team? Labzone teams have completed severral projects for international clients - fully remote."
       />
 
       <Layout location={location}>
-        <Section title="Check our portfolio">
+        <Section>
+          <h1 className="section-title has-text-centered-mobile ">
+            Check our portfolio
+          </h1>
           <ProjectsList projects={projects} />
 
           <ContactUs />
@@ -33,7 +36,7 @@ export default function Portfolio({ data, location }) {
 
 export const query = graphql`
   {
-    allPrismicProject(filter: {lang: {eq: "en"}}) {
+    allPrismicProject(filter: { lang: { eq: "en" } }) {
       edges {
         node {
           lang

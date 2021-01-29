@@ -12,11 +12,14 @@ export default function PrivacyPolicy({ location }) {
     <>
       <SeoHelmet
         title={`Privacy Policy | LabZone`}
-        description="Labzone teams have completed software development projects for clients from Slovakia, Czech Republic, and Finland."
+        description="This privacy policy will explain how our organization uses the personal data we collect from you when you use our website."
       />
 
       <Layout location={location} hasLastDark>
-        <Section title="Privacy Policy" sectionClass="container">
+        <Section sectionClass="container">
+          <h1 className="section-title has-text-centered-mobile ">
+            Privacy Policy
+          </h1>
           <div className="section-content columns">
             <div className="column">
               <p>
@@ -234,7 +237,7 @@ export default function PrivacyPolicy({ location }) {
                 you may contact the our principal supervisory authority - the{" "}
                 <a
                   href="https://dataprotection.gov.sk/uoou/sk"
-                  rel="nofollow,noopener"
+                  rel="noreferrer nofollow"
                   target="_blank"
                 >
                   Personal Data Protection Office of the Slovak Republic

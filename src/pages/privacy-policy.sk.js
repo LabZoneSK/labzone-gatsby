@@ -12,16 +12,14 @@ export default function PrivacyPolicy({ location }) {
     <>
       <SeoHelmet
         title={`Vyhlásenie o ochrane osobných údajov | LabZone`}
-        description="Toto vyhlásenie o ochrane osobných údajov popisuje, ako 
-        spoločnosť LabZone s.r.o. používa osobné údaje, ktoré sme získali od vás pri
-        používaní našich web stránok."
+        description="Toto vyhlásenie o ochrane osobných údajov popisuje, ako spoločnosť LabZone s.r.o. používa vaše osobné údaje."
       />
 
       <Layout location={location} hasLastDark>
-        <Section
-          title="Vyhlásenie o ochrane osobných údajov"
-          sectionClass="container"
-        >
+        <Section sectionClass="container">
+          <h1 className="section-title has-text-centered-mobile ">
+            Vyhlásenie o ochrane osobných údajov
+          </h1>
           <div className="columns section-content">
             <div className="column">
               <p>
@@ -202,36 +200,34 @@ export default function PrivacyPolicy({ location }) {
 
               <h3>Právny základ</h3>
               <p>
-                V súlade s požiadavkami ochrany osobných údajov
-                a právnych predpisov vás musíme informovať o právnych základoch pre
+                V súlade s požiadavkami ochrany osobných údajov a právnych
+                predpisov vás musíme informovať o právnych základoch pre
                 spracúvanie vašich osobných údajov, ktorými sú:
               </p>
               <ol>
                 <li>
-                  <b> Plnenie zmluvy </b> - v prípade uzavretia
-                  zmluvy o poskytovaní služieb, zmluvy o dielo, zmluvy z
-                  dôvernosť a iné.
+                  <b> Plnenie zmluvy </b> - v prípade uzavretia zmluvy o
+                  poskytovaní služieb, zmluvy o dielo, zmluvy z dôvernosť a iné.
                 </li>
                 <li>
-                  <b> Plnenie našich právnych povinností </b> - pri vytváraní údajov
-                  k dispozícii pre štátne a iné orgány, ktoré dohliadajú na naše
-                  činnosti alebo ktoré sa zaoberajú spormi alebo vymáhaním
-                  rozhodnutia.
+                  <b> Plnenie našich právnych povinností </b> - pri vytváraní
+                  údajov k dispozícii pre štátne a iné orgány, ktoré dohliadajú
+                  na naše činnosti alebo ktoré sa zaoberajú spormi alebo
+                  vymáhaním rozhodnutia.
                 </li>
 
                 <li>
-                  <b> Náš oprávnený záujem </b> - na zlepšovaní a
-                  personalizáciu našich služieb, niektorých marketingových aktivít alebo v
+                  <b> Náš oprávnený záujem </b> - na zlepšovaní a personalizáciu
+                  našich služieb, niektorých marketingových aktivít alebo v
                   bezpečnosti a ochrane práv.
                 </li>
               </ol>
 
               <h3>Zmeny v našich zásadách ochrany osobných údajov</h3>
               <p>
-                LabZone pravidelne udržiava svoje zásady ochrany osobných
-                údajov a aktualizuje ich na tejto
-                webovej stránke. Tieto zásady ochrany osobných údajov boli
-                naposledy aktualizované 15. januára 2021.
+                LabZone pravidelne udržiava svoje zásady ochrany osobných údajov
+                a aktualizuje ich na tejto webovej stránke. Tieto zásady ochrany
+                osobných údajov boli naposledy aktualizované 15. januára 2021.
               </p>
 
               <h3>Ako nás kontaktovať</h3>
@@ -249,7 +245,7 @@ export default function PrivacyPolicy({ location }) {
                 neuspokojivo neriešil vaše obavy, môžete sa obrátiť na - {""}
                 <a
                   href="https://dataprotection.gov.sk/uoou/sk"
-                  rel="nofollow,noopener"
+                  rel="noreferrer nofollow"
                   target="_blank"
                 >
                   Úrad na ochranu osobných údajov Slovenskej republiky

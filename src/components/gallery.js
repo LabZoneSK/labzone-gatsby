@@ -1,9 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-/** Gatsby */
-import Img from "gatsby-image"
-
 import GatsbyGallery from "@browniebroke/gatsby-image-gallery"
 import "@browniebroke/gatsby-image-gallery/dist/style.css"
 
