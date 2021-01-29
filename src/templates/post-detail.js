@@ -15,12 +15,13 @@ import { RichText } from "prismic-reactjs"
 import { linkResolver } from "../utils/prismic"
 
 export default function PostDetail({ data, location }) {
-  const { title, content, hero_image } = data.prismicPost.data
+  const { title, content, hero_image, summary } = data.prismicPost.data
+
   const lang = data.prismicPost.lang
 
   return (
     <>
-      <SeoHelmet title={`${title.text}`} lang={lang} />
+      <SeoHelmet title={`${title.text}`} lang={lang} description={summary.text} image={hero_image.fluid.src}/>
 
       <Layout location={location}>
         <FullBleed>
@@ -37,7 +38,7 @@ export default function PostDetail({ data, location }) {
             {title.text}
           </h1>
 
-          <RichText render={content.raw} linkResolver={linkResolver}/>
+          <RichText render={content.raw} linkResolver={linkResolver} />
 
           <ContactUs />
         </article>
@@ -62,6 +63,9 @@ export const query = graphql`
           }
         }
         title {
+          text
+        }
+        summary {
           text
         }
       }
