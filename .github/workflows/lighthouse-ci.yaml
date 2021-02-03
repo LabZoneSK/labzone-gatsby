@@ -19,3 +19,4 @@ jobs:
         run: lhci autorun
         env:
           PRISMIC_API: ${{ secrets.PRISMIC_API }}
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
