@@ -6,7 +6,7 @@ module.exports = {
     collect: {
       startServerCommand: "npm run build && npm run serve",
       url: ["http://localhost:9000/"],
-      startServerReadyPattern: "Server is running on PORT 9000",
+      startServerReadyPattern: "You can now view gatsby-starter-hello-world in the browser.",
       startServerReadyTimeout: 20000, // milliseconds
       numberOfRuns: 5,
     },
