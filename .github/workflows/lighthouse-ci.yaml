@@ -1,6 +1,7 @@
 # .github/workflow/lighthouse-ci.yaml
 name: Lighthouse
-push:
+on:
+  push:
     branches:
       - dev
 jobs:
