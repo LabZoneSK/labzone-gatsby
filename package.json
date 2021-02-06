@@ -12,7 +12,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "deploy:gh": "gatsby clean && gatsby build --prefix-paths && gh-pages -d public -b gh-pages"
+    "deploy:gh": "gatsby clean && gatsby build --prefix-paths && gh-pages -d public -b gh-pages",
+    "test:lhci": "lhci autorun"
   },
   "dependencies": {
     "@browniebroke/gatsby-image-gallery": "^4.0.2",

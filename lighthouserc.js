@@ -6,19 +6,21 @@ module.exports = {
     collect: {
       startServerCommand: "npm run build && npm run serve",
       url: ["http://localhost:9000/"],
-      startServerReadyPattern: "You can now view gatsby-starter-hello-world in the browser.",
+      startServerReadyPattern: "http://localhost:9000/",
       startServerReadyTimeout: 20000, // milliseconds
       numberOfRuns: 5,
     },
-    assert: {
+   /* assert: {
       preset: "lighthouse:no-pwa",
       assertions: {
-        "categories:performance": ["error", { minScore: 0.9 }],
+        "categories:performance": ["warn", { minScore: 0.9 }],
         "categories:accessibility": ["warn", { minScore: 0.9 }],
       },
-    },
+    },*/
     upload: {
-      target: "temporary-public-storage",
+      target: "lhci",
+      serverBaseUrl: "https://frozen-cove-22680.herokuapp.com/",
+      token: "76f3530f-070f-4fb2-b8e0-52f7b54aef54"
     },
   },
 }
