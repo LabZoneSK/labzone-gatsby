@@ -56,6 +56,8 @@ export default function Navbar({ homeLink, lang }) {
           className="brand-logo"
               src="/images/labzone-logo.svg"
               alt="Logo LabZone s.r.o."
+              width="123"
+              height="21"
             />
         </Link>
 
