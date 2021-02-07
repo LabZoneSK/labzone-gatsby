@@ -21,27 +21,38 @@ const StyledIcon = styled.img`
   height: ${props => handleIconSize(props.size)};
   margin: 0.5rem;
   display: inline;
-  ${props => props.isGrayscale? 'filter: grayscale(100%);' : ''};
-  ${props => props.isWhite? 'filter: brightness(0) invert(1);;' : ''};
+  ${props => (props.isGrayscale ? "filter: grayscale(100%);" : "")};
+  ${props => (props.isWhite ? "filter: brightness(0) invert(1);;" : "")};
 `
 
 export default function Icon(props) {
   const { source, size, isGrayscale, isWhite, alt } = props
 
-  return <StyledIcon size={size} src={source} isGrayscale={isGrayscale} isWhite={isWhite} alt={alt} title={alt} />
+  return (
+    <StyledIcon
+      size={size}
+      src={source}
+      isGrayscale={isGrayscale}
+      isWhite={isWhite}
+      alt={alt}
+      title={alt}
+      height={handleIconSize(size).replace("px", "")}
+      width={handleIconSize(size).replace("px", "")}
+    />
+  )
 }
 
 Icon.defaultProps = {
-  size: 'lg',
+  size: "lg",
   isGrayscale: false,
-  isWhite: false
+  isWhite: false,
 }
 
 Icon.propTypes = {
   source: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  size: PropTypes.oneOf(["sm", "md", "lg"]),
   isGrayscale: PropTypes.bool,
   isWhite: PropTypes.bool,
-  title: PropTypes.string
+  title: PropTypes.string,
 }
