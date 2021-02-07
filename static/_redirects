@@ -3,4 +3,4 @@ https://www.labzone.sk/* https://www.labzone.tech/sk/:splat 301!
 https://labzone.sk/* https://www.labzone.tech/sk/:splat 301!
 
 # Missing lang key for blog posts (legacy Google Index)
-/blog/* /en/blog/:splat 301!
+/blog/* /en/blog/:splat 301

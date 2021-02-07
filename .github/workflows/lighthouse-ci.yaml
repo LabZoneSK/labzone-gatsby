@@ -1,0 +1,26 @@
+# .github/workflow/lighthouse-ci.yaml
+name: Lighthouse
+on:
+  push:
+    branches:
+      - dev
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          check-latest: true
+
+      - name: Install dependencies
+        run: npm install && npm install -g @lhci/cli@0.7.x
+
+      - name: Build site with Gatsby and run LHCI
+        run: lhci autorun
+        env:
+          PRISMIC_API: ${{ secrets.PRISMIC_API }}
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+          LHCI_GITHUB_TOKEN=: ${{ secrets.LHCI_GITHUB_TOKEN }}
