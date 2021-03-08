@@ -30,7 +30,7 @@ export default function ContactEn({ location }) {
             Send your email to{" "}
             <a href="mailto:info@labzone.sk">info@labzone.sk</a> or fill in the
             contact form bellow.<br/>
-            <b>You can expect a response within 48 hours</b> - expect for
+            <b>You can expect a response within 48 hours</b> - except for
             weekends.
           </p>
           <div className="columns is-vcentered">
