@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 /** Emotion & Styling */
 import styled from "@emotion/styled";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 
 import Icon from "../components/icon"
 

@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 /** Emotion and Styling */
-import { ClassNames } from "@emotion/core"
+import { ClassNames } from "@emotion/react"
 
 import { extractTextFromHTMLString } from "../utils/helpers"
 
