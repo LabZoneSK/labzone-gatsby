@@ -265,10 +265,10 @@ export default function Home({ data, location }) {
                 <br />
                 <div className="mt-1">
                   <a href="https://www.linkedin.com/company/labzonesk">
-                    <LinkedIn className="social-icon linkedin" />
+                    <LinkedIn className="social-icon linkedin" /><span className="is-sr-only">Odkaz na LabZone LinkedIn stránku</span>
                   </a>
                   <a href="https://twitter.com/LabZoneSK">
-                    <Twitter className="social-icon twitter" />
+                    <Twitter className="social-icon twitter" /><span className="is-sr-only">Odkaz na LabZone Twitter účet</span>
                   </a>
                 </div>
               </div>
