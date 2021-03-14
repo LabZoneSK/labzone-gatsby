@@ -52,8 +52,9 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -127,13 +128,19 @@ module.exports = {
         },
       },
     },
-    /* Analytics */
     {
-      resolve: `gatsby-plugin-gtag`,
+      resolve: "gatsby-plugin-google-tagmanager",
       options: {
-        trackingId: `G-0CX996YZ0C`,
-        head: false,
-        anonymize: true,
+        id: "GTM-N45QDX",
+  
+        // Include GTM in development.
+        includeInDevelopment: false,
+  
+        // datalayer to be set before GTM is loaded
+        // should be an object or a function that is executed in the browser
+        //
+        // Defaults to null
+        defaultDataLayer: { platform: "gatsby" },
       },
     },
   ],

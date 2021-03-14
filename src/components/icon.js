@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 
 /** Emotion & Styling */
 import styled from "@emotion/styled"
-// import { css } from "@emotion/core"
 
 const handleIconSize = size => {
   switch (size) {

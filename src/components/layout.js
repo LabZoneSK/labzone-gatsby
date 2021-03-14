@@ -13,6 +13,8 @@ import "intl"
 
 import getMessages from '../data/messages';
 
+import { ConnectSlideIn } from './linkedin';
+
 export default function Layout({
   children,
   location,
@@ -43,6 +45,7 @@ export default function Layout({
 
         <main className="main-content">{children}</main>
 
+        <ConnectSlideIn />
         <Footer hasLastDark={hasLastDark} lang={langKey} />
       </IntlProvider>
     </>
