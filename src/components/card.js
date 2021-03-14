@@ -43,7 +43,6 @@ css`
   }
 `
 const CardWrapper = styled.div`
-  border-radius: var(--global-border-radius);
   padding: 1rem;
   ${CardWrapperVariant};
 `
