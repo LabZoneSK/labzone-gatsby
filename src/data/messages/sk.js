@@ -36,7 +36,8 @@ const messages = {
     weWillRespond: "Vaša správa bola odoslaná a odpovieme Vám v čo najkratšej dobe.",
     liSliderTitle: "P.S. Už sme v spojeni na LinkedIn?",
     liSliderContent: "LinkedIn je skvelý biznis nástroj. Spojme sa na tejto profesiénalnej sieti a poďme prediskutovať, ako si vieme pomôcť.",
-    liSliderButton: "Spojme sa"
+    liSliderButton: "Spojme sa",
+    closePP:"Zatvoriť pop-up okno"
 }
 
 export default messages;
