@@ -33,7 +33,10 @@ const messages = {
     consentError:  "Prosím, označte súhlas so spracovaním osobných údajov.",
     contacting: "kontaktovania",
     thankYouSend: "Ďakujeme, že ste nás oslovili.",
-    weWillRespond: "Vaša správa bola odoslaná a odpovieme Vám v čo najkratšej dobe."
+    weWillRespond: "Vaša správa bola odoslaná a odpovieme Vám v čo najkratšej dobe.",
+    liSliderTitle: "P.S. Už sme v spojeni na LinkedIn?",
+    liSliderContent: "LinkedIn je skvelý biznis nástroj. Spojme sa na tejto profesiénalnej sieti a poďme prediskutovať, ako si vieme pomôcť.",
+    liSliderButton: "Spojme sa"
 }
 
 export default messages;
