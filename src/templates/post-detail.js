@@ -21,7 +21,7 @@ export default function PostDetail({ data, location }) {
 
   return (
     <>
-      <SeoHelmet title={`${title.text}`} lang={lang} description={summary.text} image={hero_image.fluid.src}/>
+      <SeoHelmet title={`${title.text}`} lang={lang} description={summary.text} image={ ( hero_image.fluid !== null && hero_image.fluid.src !== null ) ? hero_image.fluid.src : false }/>
 
       <Layout location={location}>
         <FullBleed>

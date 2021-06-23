@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react"
-import { FormattedMessage } from "react-intl"
+import { useIntl, FormattedMessage } from "react-intl"
 import { getCookie, setCookie } from "../../utils/helpers"
 
 export default function Connectslidein() {
   const [visibility, setVisibility] = useState(true)
+  const intl = useIntl();
 
   const closeSlider = () => {
     setCookie("linkedInSliderShow", false, 30)
@@ -27,8 +28,12 @@ export default function Connectslidein() {
 
   return (
     <div className="linkedInSlider">
-      <button className="close-button" onClick={() => closeSlider()}>
-        <img src="/images/icons/cancel.svg" />
+      <button className="close-button" onClick={() => closeSlider()} aria-label={intl.formatMessage({
+              id: "closePP",
+              defaultMessage:
+                "Close pop-up window",
+            })}>
+        <img src="/images/icons/cancel.svg" alt="" />
       </button>
       <h2 className="linkedInSlider-title">
         <FormattedMessage

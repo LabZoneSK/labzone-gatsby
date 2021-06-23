@@ -6,7 +6,7 @@ import PostItem from "./postItem";
 
 export default function PostsList({ posts }) {
     return (
-        <div className="columns">
+        <div className="columns is-multiline">
             {posts.map(post => 
                 <PostItem key={post.node.uid} post={post.node} />
             )}

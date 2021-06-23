@@ -36,7 +36,8 @@ const messages = {
     weWillRespond: "Your message has been sent to us, and we will respond as soon as possible.",
     liSliderTitle: "Hey, are we already connected on LinkedIn?",
     liSliderContent: "LinkedIn is the largest business-oriented network, and is always smart to be connected. Let's discuss how we can help each other. Looking forward to connect with you on LinkedIn.",
-    liSliderButton: "Get connected"
+    liSliderButton: "Get connected",
+    closePP:"Close pop-up window"
 }
 
 export default messages;
