@@ -22,7 +22,7 @@ export default function Footer ({ hasLastDark, lang }) {
     <StyledFooter className='footer' hasLastDark={hasLastDark}>
       <div className='content has-text-centered'>
         <p>
-          <strong className='has-text-white'>© 2020 LabZone s.r.o</strong>
+          <strong className='has-text-white'>© { new Date().getFullYear() } LabZone s.r.o</strong>
         </p>
         <p>
           <Link to={sanitizeLink(`/${lang}/privacy-policy/`)}  className='has-text-white'><FormattedMessage id="privacyPolicy" defaultMessage="Privacy Policy" /></Link>
