@@ -28,6 +28,7 @@
     "gatsby-background-image": "^1.4.1",
     "gatsby-image": "^3.6.0",
     "gatsby-plugin-emotion": "^6.6.0",
+    "gatsby-plugin-google-gtag": "^3.8.0",
     "gatsby-plugin-google-tagmanager": "^3.6.0",
     "gatsby-plugin-gtag": "^1.0.13",
     "gatsby-plugin-i18n": "^1.0.1",

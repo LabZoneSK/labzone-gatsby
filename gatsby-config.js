@@ -129,18 +129,11 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-google-tagmanager",
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        id: "GTM-N45QDX",
-  
-        // Include GTM in development.
-        includeInDevelopment: false,
-  
-        // datalayer to be set before GTM is loaded
-        // should be an object or a function that is executed in the browser
-        //
-        // Defaults to null
-        defaultDataLayer: { platform: "gatsby" },
+        trackingIds: [
+          "G-0CX996YZ0C", // Google Analytics / GA
+        ],
       },
     },
   ],
