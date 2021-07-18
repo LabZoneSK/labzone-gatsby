@@ -31,6 +31,10 @@ export default function Blog({ data, location }) {
             užitočné nápady, novinky, trendy a príbehy zákazníkov.
           </p>
           <PostsList posts={posts} />
+
+          <p>
+            <a href="/blog">Viac článkov nájdete na našom blogu v angličitine.</a>
+          </p>
         </Section>
       </Layout>
     </>

@@ -28,6 +28,10 @@ export default function Portfolio({ data, location }) {
           </h1>
           <ProjectsList projects={projects} />
 
+          <p>
+            <a href="/portfolio">Viac projektov nájdete na našich stránkach v angličitine.</a>
+          </p>
+
           <ContactUs />
         </Section>
       </Layout>
