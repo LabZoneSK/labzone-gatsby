@@ -9,7 +9,7 @@ export default function Section(props) {
   return (
     <section className={["content-section", sectionClass].join(" ")}>
       {title && (
-        <h2 className={"section-title has-text-centered-mobile " + classSectionTitle}>
+        <h2 className={"section-title has-text-centered-mobile mt-3" + classSectionTitle}>
           {title}
         </h2>
       )}

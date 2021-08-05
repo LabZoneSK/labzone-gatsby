@@ -37,7 +37,8 @@ const messages = {
     liSliderTitle: "P.S. Už sme v spojeni na LinkedIn?",
     liSliderContent: "LinkedIn je skvelý biznis nástroj. Spojme sa na tejto profesiénalnej sieti a poďme prediskutovať, ako si vieme pomôcť.",
     liSliderButton: "Spojme sa",
-    closePP:"Zatvoriť pop-up okno"
+    closePP:"Zatvoriť pop-up okno",
+    seeAllProjects:"Zobraziť všetky projekty"
 }
 
 export default messages;
