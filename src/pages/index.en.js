@@ -24,6 +24,8 @@ import ProjectsList from "../components/project/projectsList"
 import { device } from "../utils/device"
 import { FormattedMessage } from "react-intl"
 
+import Client from "../components/client";
+
 /** Icons */
 import LinkedIn from "../images/svg/linkedin.inline.svg"
 import Twitter from "../images/svg/twitter.inline.svg"
@@ -157,6 +159,22 @@ export default function Home({ data, location }) {
         <ProjectsList projects={projects} hasShowMore />
       </Section>
 
+      <FullBleed color="spacer">
+        <div className="grid-container">
+          <Section titleClass="mt-6" title="Some of clients">
+            <div class="clients columns is-multiline is-mobile my-6 is-vcentered">
+              <Client logo="images/clients/majolika-SLM-logo.png" alt="SLM logo" />
+              <Client logo="images/clients/salusfin-logo.png" alt="Salusfin logo" />
+              <Client logo="images/clients/cvti-sr-logo.png" alt="CVTI SR logo" />
+              <Client logo="images/clients/qex-logo.png" alt="QEX a.s. logo" />
+              <Client logo="images/clients/jedenrodic-logo.png" alt="Jedenrodic n.o. logo" />
+              <Client logo="images/clients/bait-logo.svg" alt="BAIT s.r.o. logo" />
+              <Client logo="images/clients/asbis-logo.png" alt="ASBIS SK logo" />
+            </div>
+          </Section>
+        </div>
+      </FullBleed>
+
       <FullBleed>
         <Hero image="community-labzone.jpg">
           <Spacer
@@ -219,7 +237,7 @@ export default function Home({ data, location }) {
         </Hero>
       </FullBleed>
 
-      <Section title="The LabZone Blog">
+      <Section title="Latest Blog Posts">
         <PostsList posts={posts} />
       </Section>
 
@@ -250,10 +268,16 @@ export default function Home({ data, location }) {
                 <br />
                 <div className="mt-1">
                   <a href="https://www.linkedin.com/company/labzonesk">
-                    <LinkedIn className="social-icon linkedin" /><span className="is-sr-only">Link to LabZone LinkedIn page</span>
+                    <LinkedIn className="social-icon linkedin" />
+                    <span className="is-sr-only">
+                      Link to LabZone LinkedIn page
+                    </span>
                   </a>
                   <a href="https://twitter.com/LabZoneSK">
-                    <Twitter className="social-icon twitter" /><span className="is-sr-only">Link to LabZone Twitter profile</span>
+                    <Twitter className="social-icon twitter" />
+                    <span className="is-sr-only">
+                      Link to LabZone Twitter profile
+                    </span>
                   </a>
                 </div>
               </div>

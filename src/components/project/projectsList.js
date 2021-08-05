@@ -38,7 +38,7 @@ export default function ProjectsList(props) {
       {hasShowMore && (
         <Center className="mt-5">
           <Link className="lz-button button--isi" to={sanitizeLink(`/${intl.locale}/portfolio`)}>
-            <FormattedMessage id="showPortfolio" defaultMessage="Show me portfolio" />
+            <FormattedMessage id="seeAllProjects" defaultMessage="See all projects" />
           </Link>
         </Center>
       )}
