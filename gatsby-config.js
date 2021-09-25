@@ -92,6 +92,7 @@ module.exports = {
         schemas: {
           project: require("./src/schemas/project.json"),
           post: require("./src/schemas/post.json"),
+          joboffer: require("./src/schemas/joboffer.json"),
         },
       },
     },

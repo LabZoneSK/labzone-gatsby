@@ -37,7 +37,14 @@ const messages = {
     liSliderTitle: "Hey, are we already connected on LinkedIn?",
     liSliderContent: "LinkedIn is the largest business-oriented network, and is always smart to be connected. Let's discuss how we can help each other. Looking forward to connect with you on LinkedIn.",
     liSliderButton: "Get connected",
-    closePP:"Close pop-up window"
+    closePP:"Close pop-up window",
+    Careers: "Careers",
+    ApplyNow: "Apply Now",
+    whatInvolves: "What it involves",
+    lookingForSkills: "Skills we´re looking for",
+    delightedToHave: "Delighted if you have",
+    whatOffer: "What we offer",
+    jobClosingText:"There's a lot more to us than meets the eye. So if this resonates with you, we´d like to hear from you.",
 }
 
 export default messages;

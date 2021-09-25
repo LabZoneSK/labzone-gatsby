@@ -38,7 +38,14 @@ const messages = {
     liSliderContent: "LinkedIn je skvelý biznis nástroj. Spojme sa na tejto profesiénalnej sieti a poďme prediskutovať, ako si vieme pomôcť.",
     liSliderButton: "Spojme sa",
     closePP:"Zatvoriť pop-up okno",
-    seeAllProjects:"Zobraziť všetky projekty"
+    seeAllProjects:"Zobraziť všetky projekty",
+    Careers: "Kariéra",
+    ApplyNow: "Prihlásiť sa",
+    whatInvolves: "Náplň práce",
+    lookingForSkills: "Požiadavky",
+    delightedToHave: "Máte navrch, keď",
+    whatOffer: "Čo ponúkame",
+    jobClosingText:"Je v nás oveľa viac, než sa na prvý pohľad zdá. Ak ste sa v pozícii našli, radi by sme sa o Vás dozvedeli. Tešíme sa na našu spoluprácu.",
 }
 
 export default messages;
