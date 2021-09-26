@@ -22,6 +22,9 @@ export default function JobDetail({ data, location }) {
   const {
     title,
     basesalary,
+    validto,
+    validfrom,
+    role,
     description,
     responsibilities,
     requirements,
@@ -33,15 +36,15 @@ export default function JobDetail({ data, location }) {
   const metadata = {
     "@context": "https://schema.org/",
     "@type": "JobPosting",
-    title: title.text,
-    description:description.text,
+    title: role.text,
+    description: description.text,
     identifier: {
       "@type": "PropertyValue",
       name: "LabZone",
       value: "Job-" + title.text,
     },
-    datePosted: "2017-01-18",
-    validThrough: "2017-03-18T00:00",
+    datePosted: validfrom,
+    validThrough: validto,
     jobLocationType: "TELECOMMUTE",
     employmentType: "CONTRACT",
     hiringOrganization: {
@@ -134,6 +137,11 @@ export const query = graphql`
       lang
       data {
         basesalary
+        validto(formatString: "YYYY-MM-DDT00:00")
+        validfrom(formatString: "YYYY-MM-DD")
+        role {
+          text
+        }
         title {
           text
         }

@@ -6,7 +6,7 @@ export default function JobItem({ job }) {
   return (
     <div className="mb-5">
       <Link to={`/${job.lang}/career/${job.uid}/`}>
-        <h2 className="item-title">{job.data.title.text}</h2>
+        <h2 className="item-title">{job.data.role.text}</h2>
       </Link>
       <div>
         <span>Full-time</span>

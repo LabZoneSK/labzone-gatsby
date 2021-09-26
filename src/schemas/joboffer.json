@@ -7,6 +7,25 @@
         "label": "Job Title"
       }
     },
+    "role": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "role"
+      }
+    },
+    "validfrom": {
+      "type": "Date",
+      "config": {
+        "label": "validFrom"
+      }
+    },
+    "validto": {
+      "type": "Date",
+      "config": {
+        "label": "validTo"
+      }
+    },
     "uid": {
       "type": "UID",
       "config": {

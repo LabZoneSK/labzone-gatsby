@@ -20,26 +20,28 @@ export default function Career({ data, location }) {
       />
 
       <Layout location={location}>
-        <Section title="Staňte sa súčasťou nášho tímu">
+        <Section title="Rastite s nami">
           <p className="is-size-5 mb-5">
-            Nie je jednoduché nájsť ľudí s vášňou pre svoju prácu, zanietením
-            zodpovedne plniť svoje úlohy a s chuťou posúvať dopredu seba i celú
-            spoločnosť. My takých ľudí v tíme máme a hľadáme aj ďalších.
+            V Labzone budujeme komunitnú kultúru developerov, v ktorej môžu
+            talentovaní ľudia ako Vy robiť najlepšiu prácu. Ak ste pripravení
+            naštartovať svoju kariéru a pomôcť zažiariť popredným organizáciám v
+            EÚ, ste na správnom mieste.
           </p>
           <h2 className="list-title">Voľné pracovné pozície</h2>
           <JobsList jobs={jobs} />
         </Section>
 
-        <Section title="Nenašli ste žiadnu vhodnú pozíciu?" className="container">
+        <Section
+          title="Nevidíte vhodnú pozíciu?"
+          className="container"
+        >
           <p>
-            Chcete sa pridať k LabZone, ale nenašli ste žiadnu vhodnú pozíciu pre vás? Nevadí, stále hľadáme šikovných ľudí. Tak neváhajte a spojte sa s nami.
+          Myslíte si, že by ste sa hodili do LabZone, ale nenašli ste vhodnú pozíciu? Vždy hľadáme nové talenty, tak sa nám ozvite a spolu zistíme, či k nám zapadnete.
+
           </p>
 
           <div className="mt-6">
-            <a
-              className="lz-button button--isi"
-              href="/sk/contact/"
-            >
+            <a className="lz-button button--isi" href="/sk/contact/">
               Kontaktovať LabZone
             </a>
           </div>
@@ -61,7 +63,7 @@ export const query = graphql`
                 ...GatsbyPrismicImageFluid
               }
             }
-            title {
+            role {
               text
             }
             description {

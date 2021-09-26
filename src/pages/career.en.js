@@ -20,28 +20,26 @@ export default function Career({ data, location }) {
       />
 
       <Layout location={location}>
-        <Section title="Become part of one of our amazing team">
+        <Section title="Let´s grow together">
           <p className="is-size-5 mb-5">
-            It's not easy to find people who have a passion for their job, are
-            enthusiastic to fulfill their tasks, like to grow and also help the
-            company to grow. We have such people in our team and we are
-            searching for others.
+            We´re building a remote dev community culture at Labzone where
+            talented people like you can do their best work. If you´re ready to
+            kickstart or accelerate your career and help the leading EU
+            organizations to shine, you´ve come to the right place.
           </p>
           <h2 className="list-title">Open positions</h2>
           <JobsList jobs={jobs} />
         </Section>
 
-        <Section title="No suitable position for you?" className="container">
+        <Section title="No suitable position?" className="container">
           <p>
-            Think you would fit in at LabZone but have not found the right open
-            position? We are always on the lookout for new talent.
+            Think you would fit in at LabZone but haven´t found the right
+            position? We are always on the lookout for new talent, so get in
+            touch to see if we´re a match.
           </p>
 
           <div className="mt-6">
-            <a
-              className="lz-button button--isi"
-              href="/contact/"
-            >
+            <a className="lz-button button--isi" href="/contact/">
               Contact Us
             </a>
           </div>
@@ -63,7 +61,7 @@ export const query = graphql`
                 ...GatsbyPrismicImageFluid
               }
             }
-            title {
+            role {
               text
             }
             description {
