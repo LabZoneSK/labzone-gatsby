@@ -1,0 +1,100 @@
+{
+  "Main": {
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Job Title"
+      }
+    },
+    "role": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "role"
+      }
+    },
+    "validfrom": {
+      "type": "Date",
+      "config": {
+        "label": "validFrom"
+      }
+    },
+    "validto": {
+      "type": "Date",
+      "config": {
+        "label": "validTo"
+      }
+    },
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "slug"
+      }
+    },
+    "allocation": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "allocation"
+      }
+    },
+    "location": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "location"
+      }
+    },
+    "featuredimage": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "featuredImage"
+      }
+    },
+    "description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "description"
+      }
+    },
+    "responsibilities": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "responsibilities"
+      }
+    },
+    "requirements": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "requirements"
+      }
+    },
+    "nicetohave": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "nicetohave"
+      }
+    },
+    "offer": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "offer"
+      }
+    },
+    "basesalary": {
+      "type": "Number",
+      "config": {
+        "label": "baseSalary",
+        "placeholder": "Base monthly salary in EUR"
+      }
+    }
+  }
+}
