@@ -84,6 +84,12 @@ export default function Navbar({ homeLink, lang }) {
           >
             <FormattedMessage id="Portfolio" defaultMessage="Portfolio" />
           </Link>
+          <Link
+            to={sanitizeLink(`/${lang}/career/`)}
+            className="navbar-item"
+          >
+            <FormattedMessage id="Careers" defaultMessage="Careers" />
+          </Link>
           <Link to={sanitizeLink(`/${lang}/blog/`)} className="navbar-item">
             <FormattedMessage id="Blog" defaultMessage="Blog" />
           </Link>
