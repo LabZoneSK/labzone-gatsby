@@ -41,10 +41,10 @@ const messages = {
     Careers: "Careers",
     ApplyNow: "Apply Now",
     whatInvolves: "What it involves",
-    lookingForSkills: "Skills we´re looking for",
+    lookingForSkills: "Skills we're looking for",
     delightedToHave: "Delighted if you have",
     whatOffer: "What we offer",
-    jobClosingText:"There's a lot more to us than meets the eye. So if this resonates with you, we´d like to hear from you.",
+    jobClosingText:"There's a lot more to us than meets the eye. So if this resonates with you, we'd like to hear from you.",
 }
 
 export default messages;
