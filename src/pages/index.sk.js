@@ -310,7 +310,7 @@ export default function Home({ data, location }) {
 
 export const query = graphql`
   {
-    allPrismicProject(filter: { lang: { eq: "sk" } }, limit: 3) {
+    allPrismicProject(filter: { lang: { eq: "sk" } }, limit: 3, sort: { fields: [first_publication_date], order: [DESC] }) {
       edges {
         node {
           lang
@@ -334,7 +334,7 @@ export const query = graphql`
       }
     }
 
-    allPrismicPost(filter: { lang: { eq: "sk" } }, limit: 3) {
+    allPrismicPost(filter: { lang: { eq: "sk" } }, limit: 3, sort: { fields: [first_publication_date], order: [DESC] }) {
       edges {
         node {
           lang

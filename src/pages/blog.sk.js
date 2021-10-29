@@ -33,7 +33,9 @@ export default function Blog({ data, location }) {
           <PostsList posts={posts} />
 
           <p>
-            <a href="/blog">Viac článkov nájdete na našom blogu v angličitine.</a>
+            <a href="/blog">
+              Viac článkov nájdete na našom blogu v angličitine.
+            </a>
           </p>
         </Section>
       </Layout>
@@ -43,7 +45,10 @@ export default function Blog({ data, location }) {
 
 export const query = graphql`
   {
-    allPrismicPost(filter: { lang: { eq: "sk" } }) {
+    allPrismicPost(
+      filter: { lang: { eq: "sk" } }
+      sort: { fields: [first_publication_date], order: [DESC] }
+    ) {
       edges {
         node {
           data {

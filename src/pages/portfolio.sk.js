@@ -29,7 +29,9 @@ export default function Portfolio({ data, location }) {
           <ProjectsList projects={projects} />
 
           <p>
-            <a href="/portfolio">Viac projektov nájdete na našich stránkach v angličitine.</a>
+            <a href="/portfolio">
+              Viac projektov nájdete na našich stránkach v angličitine.
+            </a>
           </p>
 
           <ContactUs />
@@ -41,7 +43,10 @@ export default function Portfolio({ data, location }) {
 
 export const query = graphql`
   {
-    allPrismicProject(filter: { lang: { eq: "sk" } }) {
+    allPrismicProject(
+      filter: { lang: { eq: "sk" } }
+      sort: { fields: [first_publication_date], order: [DESC] }
+    ) {
       edges {
         node {
           lang
