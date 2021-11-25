@@ -36,7 +36,10 @@ export default function Portfolio({ data, location }) {
 
 export const query = graphql`
   {
-    allPrismicProject(filter: { lang: { eq: "en" } }) {
+    allPrismicProject(
+      filter: { lang: { eq: "en" } }
+      sort: { fields: [last_publication_date], order: [DESC] }
+    ) {
       edges {
         node {
           lang

@@ -21,8 +21,15 @@ export default function Blog({ data, location }) {
 
       <Layout location={location}>
         <Section>
-          <h1 className="section-title has-text-centered-mobile ">The LabZone Blog</h1>
-          <p className="is-size-5 mb-5">The blog delivers the “why, how, what” behind our services, products, and strategies to solve business and technical challenges. You will find here actionable ideas, news, trends and customer stories.</p>
+          <h1 className="section-title has-text-centered-mobile ">
+            The LabZone Blog
+          </h1>
+          <p className="is-size-5 mb-5">
+            The blog delivers the “why, how, what” behind our services,
+            products, and strategies to solve business and technical challenges.
+            You will find here actionable ideas, news, trends and customer
+            stories.
+          </p>
           <PostsList posts={posts} />
         </Section>
       </Layout>
@@ -32,7 +39,10 @@ export default function Blog({ data, location }) {
 
 export const query = graphql`
   {
-    allPrismicPost(filter: {lang: {eq: "en"}}) {
+    allPrismicPost(
+      filter: { lang: { eq: "en" } }
+      sort: { fields: [last_publication_date], order: [DESC] }
+    ) {
       edges {
         node {
           data {
