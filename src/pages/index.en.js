@@ -312,7 +312,7 @@ export const query = graphql`
     allPrismicProject(
       filter: { lang: { eq: "en" } }
       limit: 3
-      sort: { fields: [first_publication_date], order: [DESC] }
+      sort: { fields: [last_publication_date], order: [DESC] }
     ) {
       edges {
         node {
@@ -340,7 +340,7 @@ export const query = graphql`
     allPrismicPost(
       filter: { lang: { eq: "en" } }
       limit: 3
-      sort: { fields: [first_publication_date], order: [DESC] }
+      sort: { fields: [last_publication_date], order: [DESC] }
     ) {
       edges {
         node {

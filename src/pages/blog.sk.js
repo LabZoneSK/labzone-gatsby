@@ -47,7 +47,7 @@ export const query = graphql`
   {
     allPrismicPost(
       filter: { lang: { eq: "sk" } }
-      sort: { fields: [first_publication_date], order: [DESC] }
+      sort: { fields: [last_publication_date], order: [DESC] }
     ) {
       edges {
         node {

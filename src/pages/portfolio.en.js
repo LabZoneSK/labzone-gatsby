@@ -38,7 +38,7 @@ export const query = graphql`
   {
     allPrismicProject(
       filter: { lang: { eq: "en" } }
-      sort: { fields: [first_publication_date], order: [DESC] }
+      sort: { fields: [last_publication_date], order: [DESC] }
     ) {
       edges {
         node {
