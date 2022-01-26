@@ -24,7 +24,7 @@
     "classnames": "^2.2.6",
     "dotenv": "^8.6.0",
     "formik": "^2.2.6",
-    "gatsby": "^3.6.1",
+    "gatsby": "^4.6.0",
     "gatsby-background-image": "^1.4.1",
     "gatsby-image": "^3.6.0",
     "gatsby-plugin-emotion": "^6.6.0",
