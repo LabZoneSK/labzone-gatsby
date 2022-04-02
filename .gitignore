@@ -73,3 +73,6 @@ yarn-error.log
 
 #Lighthouse CI
 .Lighthouseci
+
+#ddcache
+.ddcache

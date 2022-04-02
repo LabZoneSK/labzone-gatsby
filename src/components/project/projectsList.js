@@ -20,7 +20,7 @@ export default function ProjectsList(props) {
   const intl = useIntl()
 
   if (!projects) {
-    return
+    return <></>;
   }
 
   return (

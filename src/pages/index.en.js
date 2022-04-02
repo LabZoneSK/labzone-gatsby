@@ -162,7 +162,7 @@ export default function Home({ data, location }) {
       <FullBleed color="spacer">
         <div className="grid-container">
           <Section titleClass="mt-6" title="Some of clients">
-            <div class="clients columns is-multiline is-mobile my-6 is-vcentered">
+            <div className="clients columns is-multiline is-mobile my-6 is-vcentered">
               <Client
                 logo="images/clients/majolika-SLM-logo.png"
                 alt="SLM logo"

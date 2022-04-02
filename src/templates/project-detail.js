@@ -43,6 +43,7 @@ export default function ProjectDetail({ data, location }) {
         size="sm"
         alt={technology}
         isWhite
+        key={technology}
       />
     )
   })
