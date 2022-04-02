@@ -34,17 +34,20 @@ export function formv3(fields) {
   var final_data = JSON.stringify(data)
 
   xhr.open("POST", url)
-  xhr.setRequestHeader("Content-Type", "application/json")
+  xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8")
 
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
-      console.log(xhr.responseText) // Returns a 200 response if the submission is successful.
-    } else if (xhr.readyState === 4 && xhr.status === 400) {
-      console.log(xhr.responseText) // Returns a 400 error the submission is rejected.
-    } else if (xhr.readyState === 4 && xhr.status === 403) {
-      console.log(xhr.responseText) // Returns a 403 error if the portal isn't allowed to post submissions.
-    } else if (xhr.readyState === 4 && xhr.status === 404) {
-      console.log(xhr.responseText) //Returns a 404 error if the formGuid isn't found
+      switch(xhr.status) {
+        case 200:
+        case 400:
+        case 403:
+        case 404:
+          console.log(xhr.responseText);
+          break;
+        default:
+          console.log("error");
+      }
     }
   }
 

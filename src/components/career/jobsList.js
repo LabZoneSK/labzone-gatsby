@@ -7,7 +7,7 @@ export default function JobsList({ jobs}) {
     return (
         <div className="">
             {jobs.map(job => 
-                <JobItem job={job.node} />
+                <JobItem key={job.uid} job={job.node} />
             )}
         </div>
     )

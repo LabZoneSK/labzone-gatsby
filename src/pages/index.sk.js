@@ -170,7 +170,7 @@ export default function Home({ data, location }) {
       <FullBleed color="spacer">
         <div className="grid-container">
           <Section titleClass="mt-6" title="Niektorí naši klienti">
-            <div class="clients columns is-multiline is-mobile my-6 is-vcentered">
+            <div className="clients columns is-multiline is-mobile my-6 is-vcentered">
               <Client logo="/images/clients/majolika-SLM-logo.png" alt="SLM logo" />
               <Client logo="/images/clients/salusfin-logo.png" alt="Salusfin logo" />
               <Client logo="/images/clients/cvti-sr-logo.png" alt="CVTI SR logo" />
