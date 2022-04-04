@@ -18,7 +18,7 @@
   "dependencies": {
     "@browniebroke/gatsby-image-gallery": "^4.1.1",
     "@emotion/core": "^11.0.0",
-    "@emotion/react": "^11.1.5",
+    "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.1.5",
     "bulma": "^0.9.2",
     "classnames": "^2.2.6",
