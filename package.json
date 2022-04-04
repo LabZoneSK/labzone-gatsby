@@ -25,7 +25,7 @@
     "dotenv": "^8.6.0",
     "formik": "^2.2.6",
     "gatsby": "^4.11.1",
-    "gatsby-background-image": "^1.4.1",
+    "gatsby-background-image": "^1.6.0",
     "gatsby-image": "^3.6.0",
     "gatsby-plugin-emotion": "^6.6.0",
     "gatsby-plugin-google-gtag": "^3.8.0",
