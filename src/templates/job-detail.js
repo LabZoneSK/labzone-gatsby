@@ -138,7 +138,7 @@ export const query = graphql`
       data {
         basesalary
         validto(formatString: "YYYY-MM-DDT00:00")
-        validfrom(formatString: "YYYY-MM-DD")
+        validfrom(formatString: "YYYY-MM-DDT00:00")
         role {
           text
         }
