@@ -1,5 +1,5 @@
 {
-  "name": "Labzone/labzone-web",
+  "name": "labzone-web",
   "private": true,
   "description": "Company page built on Gatsby.",
   "version": "1.0.0",
@@ -31,6 +31,7 @@
     "gatsby-plugin-google-gtag": "^3.8.0",
     "gatsby-plugin-google-tagmanager": "^3.6.0",
     "gatsby-plugin-gtag": "^1.0.13",
+    "gatsby-plugin-hotjar": "^1.1.1",
     "gatsby-plugin-i18n": "^1.0.1",
     "gatsby-plugin-image": "^1.14.2",
     "gatsby-plugin-manifest": "^3.6.0",
