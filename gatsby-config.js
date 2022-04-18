@@ -140,5 +140,12 @@ module.exports = {
         sv: 6,
       },
     },
+    {
+      resolve: "@sentry/gatsby",
+      options: {
+        dsn: "https://5ce10b347e554b958bd78766f2ec4202@o1208704.ingest.sentry.io/6341964",
+        sampleRate: 0.7,
+      },
+    },
   ],
 }
