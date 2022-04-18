@@ -60,7 +60,9 @@ module.exports = {
       resolve: `gatsby-plugin-sharp`,
       options: {
         // Defaults used for gatsbyImageData and StaticImage
-        defaults: {},
+        defaults: {
+          formats: [`auto`, `webp`],
+        },
         // Set to false to allow builds to continue on image errors
         failOnError: false,
       },
