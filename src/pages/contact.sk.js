@@ -13,6 +13,8 @@ import { FormattedMessage } from "react-intl"
 import LinkedIn from "../images/svg/linkedin.inline.svg"
 import Twitter from "../images/svg/twitter.inline.svg"
 
+import { GENERAL_EMAIL } from "common/constants";
+
 export default function ContactEn({ location }) {
   return (
     <>
@@ -28,7 +30,7 @@ export default function ContactEn({ location }) {
           </h1>
           <p>
             Prosím, pošlite e-mail na{" "}
-            <a href="mailto:info@labzone.sk">info@labzone.sk</a> alebo vyplňte
+            <a href={`mailto:${GENERAL_EMAIL}`}>{ GENERAL_EMAIL}</a> alebo vyplňte
             kontaktný formulár nižšie.
             <br /> <b>Odpovieme Vám do 48 hodín</b> - okrem víkendov.
           </p>
@@ -39,7 +41,7 @@ export default function ContactEn({ location }) {
 
             <div className="column is-half has-text-centered">
               <p className="mt-5">
-                <strong>info@labzone.sk</strong>
+                <strong>{ GENERAL_EMAIL}</strong>
                 <br />
                 +421 948 272 880
                 <br />

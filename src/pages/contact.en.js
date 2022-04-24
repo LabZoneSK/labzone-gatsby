@@ -1,17 +1,18 @@
 import React from "react"
 
 /** Components */
-import Layout from "../components/layout"
-import Section from "../components/section"
-import FullBleed from "../components/fullBleed"
-import SeoHelmet from "../components/seo/seoHelmet"
-import ContactForm from "../components/contactForm"
+import Layout from "components/layout"
+import Section from "components/section"
+import FullBleed from "components/fullBleed"
+import SeoHelmet from "components/seo/seoHelmet"
+import ContactForm from "components/contactForm"
 
 import { FormattedMessage } from "react-intl"
+import { GENERAL_EMAIL } from 'common/constants';
 
 /** Icons */
-import LinkedIn from "../images/svg/linkedin.inline.svg"
-import Twitter from "../images/svg/twitter.inline.svg"
+import LinkedIn from "images/svg/linkedin.inline.svg"
+import Twitter from "images/svg/twitter.inline.svg"
 
 export default function ContactEn({ location }) {
   return (
@@ -28,7 +29,7 @@ export default function ContactEn({ location }) {
           </h1>
           <p>
             Send your email to{" "}
-            <a href="mailto:info@labzone.sk">info@labzone.sk</a> or fill in the
+            <a href={`mailto:${ GENERAL_EMAIL }`}>{ GENERAL_EMAIL }</a> or fill in the
             contact form bellow.<br/>
             <b>You can expect a response within 48 hours</b> - except for
             weekends.
@@ -40,7 +41,7 @@ export default function ContactEn({ location }) {
 
             <div className="column is-half has-text-centered">
               <p className="mt-5">
-                <strong>info@labzone.sk</strong>
+                <strong>{ GENERAL_EMAIL }</strong>
                 <br />
                 +421 948 272 880
                 <br />

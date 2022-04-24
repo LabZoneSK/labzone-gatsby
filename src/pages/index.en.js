@@ -7,30 +7,32 @@ import { Link, graphql } from "gatsby"
 import styled from "@emotion/styled"
 
 /** Components */
-import Layout from "../components/layout"
-import Hero from "../components/hero"
-import Section from "../components/section"
-import FullBleed from "../components/fullBleed"
-import Spacer from "../components/spacer"
-import PostsList from "../components/blog/postsList"
+import Layout from "components/layout"
+import Hero from "components/hero"
+import Section from "components/section"
+import FullBleed from "components/fullBleed"
+import Spacer from "components/spacer"
+import PostsList from "components/blog/postsList"
 
-import Card from "../components/card"
-import Icon from "../components/icon"
+import Card from "components/card"
+import Icon from "components/icon"
 
-import SeoHelmet from "../components/seo/seoHelmet"
-import config from "../components/config"
+import SeoHelmet from "components/seo/seoHelmet"
+import config from "components/config"
 
-import ProjectsList from "../components/project/projectsList"
-import { device } from "../utils/device"
+import ProjectsList from "components/project/projectsList"
+import { device } from "utils/device"
 import { FormattedMessage } from "react-intl"
 
-import Client from "../components/client"
+import Client from "components/client"
 
 /** Icons */
-import LinkedIn from "../images/svg/linkedin.inline.svg"
-import Twitter from "../images/svg/twitter.inline.svg"
-import Discord from "../images/svg/discord.inline.svg"
-import Github from "../images/svg/github.inline.svg"
+import LinkedIn from "images/svg/linkedin.inline.svg"
+import Twitter from "images/svg/twitter.inline.svg"
+import Discord from "images/svg/discord.inline.svg"
+import Github from "images/svg/github.inline.svg"
+
+import { GENERAL_EMAIL} from "common/constants";
 
 const TechIcons = styled.div`
   padding-top: 40px;
@@ -267,7 +269,7 @@ export default function Home({ data, location }) {
                 Got questions?
                 <br />
                 <div className="mt-1">
-                  Contact us directly at info@labzone.sk
+                  Contact us directly at { GENERAL_EMAIL}
                 </div>
                 <div className="mt-5">
                   <Link

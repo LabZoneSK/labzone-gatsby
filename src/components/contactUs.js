@@ -7,6 +7,8 @@ import { Link } from "gatsby"
 import Center from "./center"
 import { FormattedMessage } from "react-intl"
 
+import { GENERAL_EMAIL } from 'common/constants';
+
 export default function ContactUs({ hasLinkToPortfolio}) {
   return (
     <Center>
@@ -16,7 +18,7 @@ export default function ContactUs({ hasLinkToPortfolio}) {
         <FormattedMessage
           id="contactUs"
           defaultMessage="Contact us directly at {email}"
-          values={{ email: "info@labzone.sk" }}
+          values={{ email: GENERAL_EMAIL }}
         />
 
         {hasLinkToPortfolio && (
