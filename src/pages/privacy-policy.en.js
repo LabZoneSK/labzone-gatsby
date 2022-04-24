@@ -1,9 +1,11 @@
 import React from "react"
 
 /** Components */
-import Layout from "../components/layout"
-import Section from "../components/section"
-import SeoHelmet from "../components/seo/seoHelmet"
+import Layout from "components/layout"
+import Section from "components/section"
+import SeoHelmet from "components/seo/seoHelmet"
+
+import { GENERAL_EMAIL} from "common/constants";
 
 /** @source: https://gdpr.eu/privacy-notice/?cn-reloaded=1 */
 
@@ -42,7 +44,7 @@ export default function PrivacyPolicy({ location }) {
               <p>
                 We take full responsibility for the protection of your personal
                 data, and if you have any questions about this document you may
-                contact us by info@labzone.sk.
+                contact us by { GENERAL_EMAIL }.
               </p>
               <h3 className="h3">What Data We Collect</h3>
               <p>LabZone collects the following data:</p>
@@ -98,7 +100,7 @@ export default function PrivacyPolicy({ location }) {
               <p>
                 If you make a request, we have one month to respond to you. If
                 you would like to exercise any of these rights, please contact
-                us at our email: info@labzone.sk
+                us at our email: { GENERAL_EMAIL }.
               </p>
 
               <h3>Cookies</h3>
@@ -227,7 +229,7 @@ export default function PrivacyPolicy({ location }) {
                 If you have any questions about LabZone’s privacy policy, the
                 data we hold on you, or you would like to exercise one of your
                 data protection rights, please do not hesitate to contact us.
-                Email us at info@labzone.sk
+                Email us at {GENERAL_EMAIL}
               </p>
 
               <h3>How to contact the appropriate authority</h3>

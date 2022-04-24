@@ -28,6 +28,7 @@ module.exports = {
     languages
   },
   plugins: [
+    'gatsby-plugin-resolve-src',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
