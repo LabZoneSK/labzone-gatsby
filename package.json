@@ -50,7 +50,7 @@
     "gatsby-plugin-typography": "^4.12.1",
     "gatsby-source-filesystem": "^3.6.0",
     "gatsby-source-prismic": "^3.3.4",
-    "gatsby-transformer-remark": "^4.5.0",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^4.12.1",
     "html-react-parser": "^1.4.8",
     "intl": "^1.2.5",
