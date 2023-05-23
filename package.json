@@ -45,7 +45,7 @@
     "gatsby-plugin-resolve-src": "^2.1.0",
     "gatsby-plugin-robots-txt": "^1.7.0",
     "gatsby-plugin-sass": "^4.6.0",
-    "gatsby-plugin-sharp": "^4.12.1",
+    "gatsby-plugin-sharp": "^4.23.0",
     "gatsby-plugin-sitemap": "^3.3.0",
     "gatsby-plugin-typography": "^4.12.1",
     "gatsby-source-filesystem": "^3.6.0",
