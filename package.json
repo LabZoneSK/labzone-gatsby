@@ -47,7 +47,7 @@
     "gatsby-plugin-sass": "^4.6.0",
     "gatsby-plugin-sharp": "^5.10.0",
     "gatsby-plugin-sitemap": "^3.3.0",
-    "gatsby-plugin-typography": "^4.12.1",
+    "gatsby-plugin-typography": "^4.13.0",
     "gatsby-source-filesystem": "^3.6.0",
     "gatsby-source-prismic": "^3.3.4",
     "gatsby-transformer-remark": "^6.10.0",
