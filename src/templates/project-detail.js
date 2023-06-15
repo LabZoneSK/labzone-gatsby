@@ -190,7 +190,7 @@ export default function ProjectDetail({ data, location }) {
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     prismicProject(data: { slug: { text: { eq: $slug } } }) {
       id
       lang
@@ -244,7 +244,7 @@ export const query = graphql`
           }
         }
         body {
-          ... on PrismicProjectBodyImageGallery {
+          ... on PrismicProjectDataBodyImageGallery {
             id
             items {
               caption {

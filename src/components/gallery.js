@@ -1,16 +1,11 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import GatsbyGallery from "@browniebroke/gatsby-image-gallery"
-import "@browniebroke/gatsby-image-gallery/dist/style.css"
-
 import { injectIntl } from "react-intl"
 
+//TODO: implement gallery
 const Gallery = ({ images, intl }) => {
-
-  return (
-    <GatsbyGallery images={images} />
-  )
+  return <div></div>
 }
 
 Gallery.propTypes = {
