@@ -16,7 +16,6 @@
     "test:lhci": "lhci autorun"
   },
   "dependencies": {
-    "@browniebroke/gatsby-image-gallery": "^8.1.0",
     "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.1.5",
@@ -62,6 +61,7 @@
     "react-helmet": "^6.1.0",
     "react-intl": "^6.4.4",
     "react-typography": "^0.16.19",
+    "sharp": "^0.32.1",
     "typography": "^0.16.19",
     "typography-theme-fairy-gates": "^0.16.19"
   },
