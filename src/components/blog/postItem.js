@@ -17,11 +17,21 @@ export default function PostItem({ post }) {
         <Img
           fluid={post.data.hero_image.fluid}
           alt={post.data.hero_image.alt}
+          className={"image is-3by2"}
         />
 
         <h2 className="title is-size-5-desktop my-3">{post.data.title.text}</h2>
       </Link>
-      <p className="my-3">{post.data.summary && post.data.summary.text} <span className="is-nowrap">[<Link to={`/${post.lang}/blog/${post.uid}/`}><FormattedMessage id="readPost" defaultMessage="Read&nbsp;post" /></Link>]</span></p>
+      <p className="my-3">
+        {post.data.summary && post.data.summary.text}{" "}
+        <span className="is-nowrap">
+          [
+          <Link to={`/${post.lang}/blog/${post.uid}/`}>
+            <FormattedMessage id="readPost" defaultMessage="Read&nbsp;post" />
+          </Link>
+          ]
+        </span>
+      </p>
     </div>
   )
 }
