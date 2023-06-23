@@ -5,7 +5,8 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
+    "build": "yarn tw:build && gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
@@ -13,7 +14,8 @@
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "deploy:gh": "gatsby clean && gatsby build --prefix-paths && gh-pages -d public -b gh-pages",
-    "test:lhci": "lhci autorun"
+    "test:lhci": "lhci autorun",
+    "tw:build": "tailwindcss build -i src/styles/main.css -o src/styles/build.css"
   },
   "dependencies": {
     "@emotion/core": "^11.0.0",
@@ -63,9 +65,13 @@
     "react-typography": "^0.16.19",
     "sharp": "^0.32.1",
     "typography": "^0.16.19",
-    "typography-theme-fairy-gates": "^0.16.19"
+    "typography-theme-fairy-gates": "^0.16.19",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
+    "autoprefixer": "^10.4.14",
     "eslint": "^8.43.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-config-standard": "^17.1.0",
@@ -74,9 +80,13 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.22.0",
     "gatsby-plugin-netlify": "^5.1.0",
+    "gatsby-plugin-postcss": "^6.11.0",
     "gh-pages": "^5.0.0",
-    "prettier": "2.8.8",
-    "sass": "^1.63.6"
+    "postcss": "^8.4.24",
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.3.0",
+    "sass": "^1.63.6",
+    "tailwindcss": "^3.3.2"
   },
   "repository": {
     "type": "git",

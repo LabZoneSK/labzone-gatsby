@@ -14,22 +14,23 @@ const {
 const isNetlifyProduction = NETLIFY_ENV === "production"
 const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
 const path = require("path")
-const languages = require('./src/data/languages');
+const languages = require("./src/data/languages")
 
 module.exports = {
   flags: {
-    PARALLEL_QUERY_RUNNING: true
+    PARALLEL_QUERY_RUNNING: true,
   },
   siteMetadata: {
     title: `Welcome to LabZone s.r.o.`,
     description: `Using code, design and almost any other IT tool to solve business challenges. Exclusively remote.`,
     author: `LabZone`,
     siteUrl: siteUrl,
-    languages
+    languages,
   },
   plugins: [
-    'gatsby-plugin-resolve-src',
-    'gatsby-plugin-netlify',
+    "gatsby-plugin-resolve-src",
+    "gatsby-plugin-netlify",
+    `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -95,7 +96,15 @@ module.exports = {
       options: {
         rule: {
           include: /\.inline\.svg$/,
-          omitKeys: ['xmlnsSerif', 'xmlnsDc', 'xmlnsCc', 'xmlnsRdf', 'xmlnsSvg', 'xmlnsSodipodi', 'xmlnsInkscape']
+          omitKeys: [
+            "xmlnsSerif",
+            "xmlnsDc",
+            "xmlnsCc",
+            "xmlnsRdf",
+            "xmlnsSvg",
+            "xmlnsSodipodi",
+            "xmlnsInkscape",
+          ],
         },
       },
     },
@@ -113,23 +122,22 @@ module.exports = {
     },
     /** Internationalization - i18n */
     {
-      resolve: 'gatsby-plugin-i18n',
+      resolve: "gatsby-plugin-i18n",
       options: {
         langKeyDefault: languages.defaultLangKey,
-        langKeyForNull: 'en',
+        langKeyForNull: "en",
         prefixDefault: false,
-
       },
     },
     /* SEO */
     `gatsby-plugin-sitemap`,
     {
-      resolve: 'gatsby-plugin-robots-txt',
+      resolve: "gatsby-plugin-robots-txt",
       options: {
-        host: 'https://labzone.tech',
-        sitemap: 'https://labzone.tech/sitemap.xml',
-        policy: [{ userAgent: '*', allow: '/' }]
-      }
+        host: "https://labzone.tech",
+        sitemap: "https://labzone.tech/sitemap.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
     },
     {
       resolve: `gatsby-plugin-google-gtag`,

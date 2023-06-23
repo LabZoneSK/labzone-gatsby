@@ -32,7 +32,7 @@ import Twitter from "images/svg/twitter.inline.svg"
 import Discord from "images/svg/discord.inline.svg"
 import Github from "images/svg/github.inline.svg"
 
-import { GENERAL_EMAIL} from "common/constants";
+import { GENERAL_EMAIL } from "common/constants"
 
 const TechIcons = styled.div`
   padding-top: 40px;
@@ -112,7 +112,7 @@ export default function Home({ data, location }) {
 
       <FullBleed>
         <Hero
-          title="We build <span class=text-red-pigment>virtual teams</span><br/>for your real success"
+          title="Custom Software Development for Startups and SMEs:<br/><span class='block mt-3 bg-gradient-to-r from-[#ff1d25] to-[#ED213A] bg-clip-text text-transparent'>Building Virtual Teams for Real Success.</span>"
           subtitle="Using code, design and almost any other IT tool<br/>to solve your business challenges. <span class=text-red-pigment>Exclusively remote.</span>"
           image="lead-v1.jpg"
         />
@@ -133,7 +133,7 @@ export default function Home({ data, location }) {
 
       <FullBleed color="dark">
         <div className="grid-container">
-          <Section title="Technologies we use" titleClass="text-red-pigment">
+          <Section title="Technologies we use" titleClass="!text-white">
             <p className="has-text-white">
               Our software speacilists will always adapt to your needs. Here are
               some of the technologies we work with:
@@ -269,7 +269,7 @@ export default function Home({ data, location }) {
                 Got questions?
                 <br />
                 <div className="mt-1">
-                  Contact us directly at { GENERAL_EMAIL}
+                  Contact us directly at {GENERAL_EMAIL}
                 </div>
                 <div className="mt-5">
                   <Link
