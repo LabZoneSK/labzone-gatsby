@@ -4,12 +4,12 @@ import PropTypes from "prop-types"
 export default function Section(props) {
   const { title, children, titleClass, sectionClass } = props
 
-  const classSectionTitle = sectionClass ? sectionClass : '';
-
   return (
     <section className={["content-section", sectionClass].join(" ")}>
       {title && (
-        <h2 className={"section-title has-text-centered-mobile mt-3" + classSectionTitle}>
+        <h2
+          className={`section-title has-text-centered-mobile mt-3 ${titleClass}`}
+        >
           {title}
         </h2>
       )}

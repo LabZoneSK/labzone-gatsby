@@ -40,12 +40,14 @@ export default function Hero(props) {
       <div className="hero-body">
         <div className="container">
           {title && (
-            <>
-              <h1 className="hero--title">
+            <div className="mx-auto max-w-3xl text-center">
+              <h1 className="font-nunito text-3xl font-extrabold text-white sm:text-5xl">
                 {parse(title)}
               </h1>
-              <p className="hero--subtitle">{parse(subtitle)}</p>
-            </>
+              <p className="mx-auto mt-4 max-w-xl font-monserrat font-extralight text-white sm:text-xl sm:leading-relaxed">
+                {parse(subtitle)}
+              </p>
+            </div>
           )}
 
           {children}
