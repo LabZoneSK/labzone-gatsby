@@ -1,12 +1,22 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React, { FC } from "react"
 
 import parse from "html-react-parser"
 
 import { graphql, useStaticQuery } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 
-export default function Hero(props) {
+import { z } from "zod"
+
+const heroSchema = z.object({
+  title: z.string(),
+  subtitle: z.string(),
+  image: z.string(),
+  children: z.custom<JSX.Element>()
+})
+
+type HeroProps = z.infer<typeof heroSchema>
+
+const Hero: FC<HeroProps> = (props) => {
   const { title, subtitle, image, children } = props
 
   const data = useStaticQuery(
@@ -57,9 +67,4 @@ export default function Hero(props) {
   )
 }
 
-Hero.propTypes = {
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  image: PropTypes.string.isRequired,
-  children: PropTypes.node,
-}
+export default Hero;
