@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       colors: {
         "labzone-red": "#e30613",
+        "dark": "#111517",
       },
       fontFamily: {
         nunito: ["Nunito Sans", "sans-serif"],

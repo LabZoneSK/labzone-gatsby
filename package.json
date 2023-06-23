@@ -15,7 +15,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "deploy:gh": "gatsby clean && gatsby build --prefix-paths && gh-pages -d public -b gh-pages",
     "test:lhci": "lhci autorun",
-    "tw:build": "tailwindcss build -i src/styles/main.css -o public/styles/main.css"
+    "tw:build": "tailwindcss build -i src/styles/main.css -o src/styles/build.css"
   },
   "dependencies": {
     "@emotion/core": "^11.0.0",

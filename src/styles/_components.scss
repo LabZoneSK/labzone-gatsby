@@ -273,19 +273,6 @@
   margin: 1.5rem 0 5rem 0;
 }
 
-/** Tags **/
-.tags {
-  min-height: 2rem;
-
-  .tag {
-    border-radius: 0;
-
-    &:not(body) {
-      border-radius: 0;
-    }
-  }
-}
-
 /** LinkedIn Slider */
 .linkedInSlider {
   position: fixed;
