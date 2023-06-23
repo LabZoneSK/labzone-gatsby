@@ -1,4 +1,4 @@
-name: Movapp run all tests
+name: Labzone CI
 
 on: [push]
 
@@ -26,7 +26,7 @@ jobs:
 
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
-        run: npm ci
+        run: npm install
       
   lint:
     name: Run Lint
@@ -61,7 +61,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: Use cached node modules
         uses: actions/cache@v3
