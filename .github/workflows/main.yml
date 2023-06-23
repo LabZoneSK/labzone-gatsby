@@ -1,6 +1,7 @@
-name: Labzone CI
+name: Labzone CI/CD
 
-on: [push]
+on:
+  push
 
 jobs:
   install_dependencies:
@@ -17,57 +18,11 @@ jobs:
         with:
           node-version: 18
 
-      - name: Cache node modules
-        id: cache
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
-
       - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: npm install
+        run: yarn install --frozen-lockfile
       
-  lint:
-    name: Run Lint
-    needs: install_dependencies
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      - name: Use cached node modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
-
       - name: Run Lint
-        run: npm run lint
-
-  unit_test:
-    name: Run Unit Tests
-    needs: install_dependencies
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      - name: Use cached node modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+        run: yarn lint
 
       - name: Run unit tests
-        run: npm run test
+        run: yarn test
