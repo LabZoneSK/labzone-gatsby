@@ -25,11 +25,7 @@ export default function PostDetail({ data, location }) {
                 title={`${title.text}`}
                 lang={lang}
                 description={summary.text}
-                image={
-                    hero_image.fluid !== null && hero_image.fluid.src !== null
-                        ? hero_image.fluid.src
-                        : false
-                }
+                image={hero_image.src}
             />
 
             <Layout location={location}>
@@ -71,6 +67,7 @@ export const query = graphql`
                 hero_image {
                     alt
                     gatsbyImageData
+                    url
                 }
                 title {
                     text
