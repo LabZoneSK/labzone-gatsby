@@ -1,34 +1,31 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import { useStaticQuery, graphql } from 'gatsby'
 
 export default function Imagefluid(props) {
-  const { originalName } = props
+    const { originalName } = props
 
-  const data = useStaticQuery(
-    graphql`
-      query {
-        allImageSharp {
-          nodes {
-            fluid {
-              originalName
-              ...GatsbyImageSharpFluid
+    const data = useStaticQuery(graphql`
+        query {
+            allImageSharp {
+                nodes {
+                    fluid {
+                        originalName
+                        ...GatsbyImageSharpFluid
+                    }
+                }
             }
-          }
         }
-      }
-    `
-  )
+    `)
 
-  const imageFluid = data.allImageSharp.nodes.find(image => {
-    return image.fluid.originalName === originalName
-  })
+    const imageFluid = data.allImageSharp.nodes.find(image => {
+        return image.fluid.originalName === originalName
+    })
 
-  return <>{imageFluid && <Img fluid={imageFluid.fluid} />}</>
+    return <>{imageFluid}</>
 }
 
 Imagefluid.propTypes = {
-  originalName: PropTypes.string.isRequired
+    originalName: PropTypes.string.isRequired,
 }

@@ -77,3 +77,5 @@ yarn-error.log
 #ddcache
 .ddcache
 .dccache
+
+dist
