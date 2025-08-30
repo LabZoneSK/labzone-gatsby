@@ -1,1 +1,1 @@
-export const GENERAL_EMAIL = 'info@labzone.tech';
+export const GENERAL_EMAIL = 'info@labzone.tech'

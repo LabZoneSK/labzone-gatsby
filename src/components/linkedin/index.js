@@ -1,3 +1,3 @@
-import connectSlideIn from './connectSlideIn';
+import connectSlideIn from './connectSlideIn'
 
-export const ConnectSlideIn = connectSlideIn;
+export const ConnectSlideIn = connectSlideIn

@@ -1,14 +1,14 @@
-import en from './en';
-import sk from './sk';
+import en from './en'
+import sk from './sk'
 
-const getMessages = (langKey) => {
-    switch( langKey ) {
+const getMessages = langKey => {
+    switch (langKey) {
         case 'sk':
-          return sk;
+            return sk
         case 'en':
         default:
-            return en;
-      }
+            return en
+    }
 }
 
-export default getMessages;
+export default getMessages
