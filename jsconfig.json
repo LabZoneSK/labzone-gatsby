@@ -1,11 +1,11 @@
 {
     "compilerOptions": {
-      "jsx": "react",
-      "baseUrl": "./src",
-      "paths": {
-        "*": [
-          "*"
-        ]
-      }
-    },
-  }
+        "jsx": "react-jsx",
+        "baseUrl": "./src",
+        "paths": {
+            "*": ["*"]
+        },
+        "checkJs": true,
+        "moduleResolution": "bundler"
+    }
+}

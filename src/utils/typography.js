@@ -8,30 +8,19 @@ const typography = new Typography({
     bodyFontFamily: ['Montserrat', 'serif'],
     googleFonts: [
         {
-          name: 'Lato',
-          styles: [
-            '400',
-            '900'
-          ],
+            name: 'Lato',
+            styles: ['400', '900'],
         },
         {
-          name: 'Nunito Sans',
-          styles: [
-            '400',
-            '700',
-            '900'
-          ],
+            name: 'Nunito Sans',
+            styles: ['400', '700', '900'],
         },
         {
-          name: 'Montserrat',
-          styles: [
-            '400',
-            '700'
-          ],
+            name: 'Montserrat',
+            styles: ['400', '700'],
         },
-
-      ],
-  })
+    ],
+})
 
 export const { scale, rhythm, options } = typography
 export default typography

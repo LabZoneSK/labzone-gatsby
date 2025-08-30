@@ -9,6 +9,37 @@
 
 @import "~bulma/bulma.sass";
 
+// Force hero styling to override Bulma
+.hero .hero-body .hero-title {
+  font-size: 1.875rem !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
+  font-family: "Nunito Sans", sans-serif !important;
+}
+
+@media (min-width: 640px) {
+  .hero .hero-body .hero-title {
+    font-size: 3rem !important;
+  }
+}
+
+.hero .hero-body .hero-subtitle {
+  font-size: 1rem !important;
+  font-weight: 200 !important;
+  color: #ffffff !important;
+  line-height: 1.5 !important;
+  margin: 1rem 0 0 0 !important;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+@media (min-width: 640px) {
+  .hero .hero-body .hero-subtitle {
+    font-size: 1.25rem !important;
+  }
+}
+
 html,
 body {
   font-family: "Montserrat";
