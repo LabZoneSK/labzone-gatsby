@@ -51,7 +51,9 @@ exports.createPages = async ({ graphql, actions }) => {
         })
     })
 
-    result.data.posts.edges.forEach(({ node }) => {
+    const posts = result.data.posts.edges
+    posts.forEach(({ node }) => {
+        if (!node?.id || !node?.uid || !node?.lang) return
         createPage({
             path: `/${node.lang}/blog/${node.uid}/`,
             component: blogTemplate,
@@ -61,7 +63,9 @@ exports.createPages = async ({ graphql, actions }) => {
         })
     })
 
-    result.data.jobs.edges.forEach(({ node }) => {
+    const jobs = result.data.jobs.edges
+    jobs.forEach(({ node }) => {
+        if (!node?.id || !node?.uid || !node?.lang) return
         createPage({
             path: `/${node.lang}/career/${node.uid}/`,
             component: jobTemplate,

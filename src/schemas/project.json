@@ -112,7 +112,7 @@
                     "cta_description": {
                         "type": "StructuredText",
                         "config": {
-                            "multi": "paragraph, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, list-item, o-list-item",
+                            "multi": "paragraph, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, list-item, o-list-item",
                             "label": "CTA Description"
                         }
                     },

@@ -10,7 +10,7 @@
 @import "~bulma/bulma.sass";
 
 // Force hero styling to override Bulma
-.hero .hero-body .container .mx-auto.max-w-3xl.text-center .hero-title {
+.hero .hero-body .hero-title {
   font-size: 1.875rem !important;
   font-weight: 800 !important;
   color: #ffffff !important;
@@ -20,12 +20,12 @@
 }
 
 @media (min-width: 640px) {
-  .hero .hero-body .container .mx-auto.max-w-3xl.text-center .hero-title {
+  .hero .hero-body .hero-title {
     font-size: 3rem !important;
   }
 }
 
-.hero .hero-body .container .mx-auto.max-w-3xl.text-center .hero-subtitle {
+.hero .hero-body .hero-subtitle {
   font-size: 1rem !important;
   font-weight: 200 !important;
   color: #ffffff !important;
@@ -35,7 +35,7 @@
 }
 
 @media (min-width: 640px) {
-  .hero .hero-body .container .mx-auto.max-w-3xl.text-center .hero-subtitle {
+  .hero .hero-body .hero-subtitle {
     font-size: 1.25rem !important;
   }
 }

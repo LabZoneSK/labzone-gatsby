@@ -26,7 +26,7 @@ export function formv3(fields) {
         },
     }
 
-    if (hubspotutk.length > 0) {
+    if (hubspotutk && hubspotutk.length > 0 && data.context) {
         data.context.hutk = hubspotutk
     }
 

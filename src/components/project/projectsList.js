@@ -19,9 +19,7 @@ export default function ProjectsList(props) {
     const { projects, hasShowMore } = props
     const intl = useIntl()
 
-    if (!projects) {
-        return <></>
-    }
+    if (!projects) return null
 
     return (
         <div>
@@ -31,7 +29,7 @@ export default function ProjectsList(props) {
                     description={project.node.data.project_summary.html}
                     featured={project.node.data.featured_image}
                     slug={`${project.node.lang}/${project.node.data.slug.text}`}
-                    key={project.node.data.project_title.text}
+                    key={`${project.node.lang}/${project.node.data.slug.text}`}
                 />
             ))}
 

@@ -62,7 +62,7 @@ export default function Contactform() {
                         })
                     }
 
-                    if (!values.consent && values.consent === false) {
+                    if (!values.consent) {
                         errors.consent = intl.formatMessage({
                             id: 'consentError',
                             defaultMessage:
@@ -81,9 +81,12 @@ export default function Contactform() {
                         }
                     })
 
-                    formv3(fields)
-                    setSubmitted(true)
-                    setSubmitting(false)
+                    try {
+                        formv3(fields)
+                        setSubmitted(true)
+                    } finally {
+                        setSubmitting(false)
+                    }
                 }}
             >
                 {({ isSubmitting, errors, values }) => (

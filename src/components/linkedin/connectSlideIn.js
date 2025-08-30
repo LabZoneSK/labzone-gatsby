@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { useIntl, FormattedMessage } from 'react-intl'
 import { getCookie, setCookie } from '../../utils/helpers'
 
-export default function Connectslidein() {
+export default function ConnectSlideIn() {
     const [visibility, setVisibility] = useState(true)
     const intl = useIntl()
 
     const closeSlider = () => {
-        setCookie('linkedInSliderShow', false, 30)
+        setCookie('linkedInSliderShow', 'false', 30)
         setVisibility(false)
     }
 
@@ -30,7 +30,7 @@ export default function Connectslidein() {
         <div className="linkedInSlider">
             <button
                 className="close-button"
-                onClick={() => closeSlider()}
+                onClick={closeSlider}
                 aria-label={intl.formatMessage({
                     id: 'closePP',
                     defaultMessage: 'Close pop-up window',
@@ -57,7 +57,7 @@ export default function Connectslidein() {
                 className="lz-button button--isi mt-5"
                 href="https://www.linkedin.com/in/martinstarosta"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
             >
                 <FormattedMessage
                     id="liSliderButton"

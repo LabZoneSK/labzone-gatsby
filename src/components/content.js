@@ -11,7 +11,7 @@ export default function Content({ title, content, children, customClasses }) {
         (!content || extractTextFromHTMLString(content).length === 0) &&
         !children
     ) {
-        return ``
+        return null
     }
 
     return (
@@ -30,7 +30,7 @@ export default function Content({ title, content, children, customClasses }) {
                             }}
                         />
 
-                        <div>{children}</div>
+                        {children ? <div>{children}</div> : null}
                     </section>
                 )
             }}

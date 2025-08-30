@@ -1,19 +1,15 @@
-import React, { FC } from 'react'
-import { z } from 'zod'
+import type { FC } from 'react'
 
-const tagSchema = z.object({
-    tags: z.array(z.string()),
-})
+type TagProps = { tags: string[] }
 
-type TagProps = z.infer<typeof tagSchema>
-
-const Tags: FC<TagProps> = ({ tags }) => {
+function Tags({ tags = [] }: TagProps) {
     return (
-        <div className="flex gap-2 mb-2">
-            {tags?.map(tag => (
+        <div className="flex gap-2 mb-2" role="list">
+            {tags.map((tag, i) => (
                 <span
-                    key={`tag-${tag.split(' ').join('-')}`}
+                    key={`tag-${tag.toLowerCase().replace(/\s+/g, '-')}-${i}`}
                     className="text-sm py-1 px-2 bg-black text-white rounded-none"
+                    role="listitem"
                 >
                     {tag}
                 </span>

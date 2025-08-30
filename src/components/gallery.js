@@ -1,11 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { injectIntl } from 'react-intl'
-
-//TODO: implement gallery
-const Gallery = ({ images, intl }) => {
-    return <div></div>
+// TODO: implement gallery
+const Gallery = ({ images = [] }) => {
+    if (!images.length) return null
+    return <div role="list" aria-label="Gallery" />
 }
 
 Gallery.propTypes = {
@@ -22,4 +21,8 @@ Gallery.propTypes = {
     ),
 }
 
-export default injectIntl(Gallery)
+Gallery.defaultProps = {
+    images: [],
+}
+
+export default Gallery

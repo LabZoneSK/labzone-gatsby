@@ -1,10 +1,13 @@
-/** Link resolver for Prismic documentrs
+/** Link resolver for Prismic documents
  * @see: https://prismic.io/docs/technologies/link-resolving-reactjs
  */
 const linkResolver = doc => {
-    switch (doc.type) {
+    const lang = doc?.lang || 'en'
+    switch (doc?.type) {
         case 'post':
-            return `/${doc.lang}/blog/${doc.uid}`
+            return `/${lang}/blog/${doc.uid}`
+        case 'job':
+            return `/${lang}/career/${doc.uid}`
         default:
             return '/'
     }

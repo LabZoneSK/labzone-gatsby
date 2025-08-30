@@ -13,11 +13,15 @@ const PrimaryButton = styled.button`
     &:active {
         color: #fff;
     }
+    &:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 2px;
+    }
 `
 
 export default function Button({ children }) {
     return (
-        <PrimaryButton className="button is-rounded" style={{}}>
+        <PrimaryButton className="button is-rounded">
             {children}
         </PrimaryButton>
     )

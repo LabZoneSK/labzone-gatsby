@@ -93,7 +93,10 @@
             "type": "Number",
             "config": {
                 "label": "baseSalary",
-                "placeholder": "Base monthly salary in EUR"
+                "placeholder": "Base monthly salary in EUR",
+                "min": 0,
+                "step": 50,
+                "suffix": "€"
             }
         }
     }

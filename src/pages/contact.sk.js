@@ -15,7 +15,7 @@ import Twitter from '../images/svg/twitter.inline.svg'
 
 import { GENERAL_EMAIL } from 'common/constants'
 
-export default function ContactEn({ location }) {
+export default function ContactSk({ location }) {
     return (
         <>
             <SeoHelmet

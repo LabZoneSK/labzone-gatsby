@@ -6,9 +6,9 @@ export function extractTextFromHTMLString(string) {
 
 export function sanitizeLink(path, langKey) {
     if (langKey) {
-        return path.replace(`/${langKey}/`, '/')
+        return path.replace(new RegExp(`^/${langKey}/`), '/')
     }
-    return path.replace(`/${defaultLangKey}/`, '/')
+    return path.replace(new RegExp(`^/${defaultLangKey}/`), '/')
 }
 
 /** Function gets cookie by specified name */

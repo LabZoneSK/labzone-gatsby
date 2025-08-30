@@ -24,7 +24,7 @@ export default function ContactEn({ location }) {
 
             <Layout location={location} hasLastDark>
                 <Section className="container">
-                    <h1 className="section-title has-text-centered-mobile ">
+                    <h1 className="section-title has-text-centered-mobile">
                         Connect with us
                     </h1>
                     <p>
@@ -44,7 +44,9 @@ export default function ContactEn({ location }) {
                             <p className="mt-5">
                                 <strong>{GENERAL_EMAIL}</strong>
                                 <br />
-                                +421 948 272 880
+                                <a href="tel:+421948272880">
+                                    +421 948 272 880
+                                </a>
                                 <br />
                                 <br />
                                 <br />

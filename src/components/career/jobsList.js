@@ -14,5 +14,9 @@ export default function JobsList({ jobs }) {
 }
 
 JobsList.propTypes = {
-    jobs: PropTypes.arrayOf(PropTypes.object).isRequired,
+    jobs: PropTypes.arrayOf(
+        PropTypes.shape({
+            node: PropTypes.object.isRequired,
+        })
+    ).isRequired,
 }

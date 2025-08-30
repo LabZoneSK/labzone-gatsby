@@ -19,8 +19,8 @@ export default function Section(props) {
 }
 
 Section.propTypes = {
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     children: PropTypes.node,
     titleClass: PropTypes.string,
-    className: PropTypes.string,
+    sectionClass: PropTypes.string,
 }

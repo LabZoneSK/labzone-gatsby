@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 
 import parse from 'html-react-parser'
 
@@ -8,13 +8,12 @@ import BackgroundImage from 'gatsby-background-image'
 import { z } from 'zod'
 
 const heroSchema = z.object({
-    title: z.string(),
-    subtitle: z.string(),
-    image: z.string(),
-    children: z.custom<JSX.Element>(),
+    title: z.string().optional(),
+    subtitle: z.string().optional(),
+    image: z.string().optional(),
 })
 
-type HeroProps = z.infer<typeof heroSchema>
+type HeroProps = z.infer<typeof heroSchema> & { children?: ReactNode }
 
 const Hero: FC<HeroProps> = props => {
     const { title, subtitle, image, children } = props
@@ -47,14 +46,18 @@ const Hero: FC<HeroProps> = props => {
         >
             <div className="hero-body">
                 <div className="container">
-                    {title && (
+                    {(title || subtitle) && (
                         <div className="mx-auto max-w-3xl text-center flex flex-col items-center justify-center">
-                            <h1 className="hero-title font-nunito text-3xl font-extrabold text-white sm:text-5xl">
-                                {parse(title)}
-                            </h1>
-                            <p className="hero-subtitle text-center mx-auto mt-4 max-w-xl font-montserrat font-extralight text-white sm:text-xl sm:leading-relaxed">
-                                {parse(subtitle)}
-                            </p>
+                            {title && (
+                                <h1 className="hero-title font-nunito text-3xl font-extrabold text-white sm:text-5xl">
+                                    {parse(title)}
+                                </h1>
+                            )}
+                            {subtitle && (
+                                <p className="hero-subtitle text-center mx-auto mt-4 max-w-xl font-montserrat font-extralight text-white sm:text-xl sm:leading-relaxed">
+                                    {parse(subtitle)}
+                                </p>
+                            )}
                         </div>
                     )}
 

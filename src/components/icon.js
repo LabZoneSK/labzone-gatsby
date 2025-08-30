@@ -20,12 +20,16 @@ const StyledIcon = styled.img`
     height: ${props => handleIconSize(props.size)};
     margin: 0.5rem;
     display: inline;
-    ${props => (props.isGrayscale ? 'filter: grayscale(100%);' : '')};
-    ${props => (props.isWhite ? 'filter: brightness(0) invert(1);;' : '')};
+    ${p => {
+        const f = []
+        if (p.isGrayscale) f.push('grayscale(100%)')
+        if (p.isWhite) f.push('brightness(0) invert(1)')
+        return f.length ? `filter: ${f.join(' ')};` : ''
+    }};
 `
 
 export default function Icon(props) {
-    const { source, size, isGrayscale, isWhite, alt } = props
+    const { source, size, isGrayscale, isWhite, alt, title } = props
 
     return (
         <StyledIcon
@@ -34,9 +38,9 @@ export default function Icon(props) {
             isGrayscale={isGrayscale}
             isWhite={isWhite}
             alt={alt}
-            title={alt}
-            height={handleIconSize(size).replace('px', '')}
-            width={handleIconSize(size).replace('px', '')}
+            title={title ?? alt}
+            height={parseInt(handleIconSize(size), 10)}
+            width={parseInt(handleIconSize(size), 10)}
         />
     )
 }

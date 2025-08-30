@@ -2,10 +2,7 @@ import React, { FC } from 'react'
 import { Link } from 'gatsby'
 import { z } from 'zod'
 
-import PropTypes from 'prop-types'
-
-/** Emotion / Styling */
-import styled from '@emotion/styled'
+// (emotion styled removed; not used)
 
 /** Utils */
 import { sanitizeLink } from '../utils/helpers'
@@ -13,13 +10,14 @@ import { FormattedMessage } from 'react-intl'
 
 const footerSchema = z.object({
     lang: z.string().optional(),
+    hasLastDark: z.boolean().optional(),
 })
 
 type FooterProps = z.infer<typeof footerSchema>
 
-const Footer: FC<FooterProps> = ({ lang }) => {
+const Footer: FC<FooterProps> = ({ lang /*, hasLastDark*/ }) => {
     return (
-        <div className="bg-dark text-white">
+        <div className="bg-zinc-900 text-white">
             <footer className="container">
                 <div className="flex flex-row py-12 w-full">
                     <div className="grow">
@@ -29,7 +27,7 @@ const Footer: FC<FooterProps> = ({ lang }) => {
                     </div>
                     <div>
                         <Link
-                            to={sanitizeLink(`/${lang}/privacy-policy/`)}
+                            to={sanitizeLink(`/${lang || 'en'}/privacy-policy/`, lang)}
                             className="has-text-white"
                         >
                             <FormattedMessage

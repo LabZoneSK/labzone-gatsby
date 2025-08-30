@@ -29,7 +29,7 @@ export default function Layout({ children, location, hasLastDark }) {
         }
     `)
 
-    const url = location.pathname
+    const url = (location && location.pathname) || '/'
     const { langs, defaultLangKey } = data.site.siteMetadata.languages
     const langKey = getCurrentLangKey(langs, defaultLangKey, url)
     const homeLink = `/${langKey}/`.replace(`/${defaultLangKey}/`, '/')
@@ -55,6 +55,7 @@ export default function Layout({ children, location, hasLastDark }) {
 Layout.propTypes = {
     children: PropTypes.node,
     hasLastDark: PropTypes.bool,
+    location: PropTypes.object,
 }
 
 Layout.defaultProps = {

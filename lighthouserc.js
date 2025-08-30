@@ -8,7 +8,7 @@ module.exports = {
             url: ['http://localhost:9000/'],
             startServerReadyPattern: 'http://localhost:9000/',
             startServerReadyTimeout: 20000, // milliseconds
-            numberOfRuns: 5,
+            numberOfRuns: 3,
         },
         /* assert: {
       preset: "lighthouse:no-pwa",
