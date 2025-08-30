@@ -48,11 +48,11 @@ const Hero: FC<HeroProps> = props => {
             <div className="hero-body">
                 <div className="container">
                     {title && (
-                        <div className="mx-auto max-w-3xl text-center">
-                            <h1 className="font-nunito text-3xl font-extrabold text-white sm:text-5xl">
+                        <div className="mx-auto max-w-3xl text-center flex flex-col items-center justify-center">
+                            <h1 className="hero-title font-nunito text-3xl font-extrabold text-white sm:text-5xl">
                                 {parse(title)}
                             </h1>
-                            <p className="mx-auto mt-4 max-w-xl font-montserrat font-extralight text-white sm:text-xl sm:leading-relaxed">
+                            <p className="hero-subtitle text-center mx-auto mt-4 max-w-xl font-montserrat font-extralight text-white sm:text-xl sm:leading-relaxed">
                                 {parse(subtitle)}
                             </p>
                         </div>
