@@ -198,7 +198,7 @@ export default function SecurityCheckForm({ interestedIn = '' }) {
 
                         <button
                             type="submit"
-                            disabled={isSubmitting || !turnstileToken}
+                            disabled={isSubmitting || !values.turnstileToken}
                             className="w-full bg-[#5852A3] text-white hover:bg-[#2e2b55] text-white py-3 px-6 font-semibold transition-colors disabled:opacity-50"
                         >
                             {isSubmitting ? 'Sending Request...' : 'Request My Free Security Check'}
