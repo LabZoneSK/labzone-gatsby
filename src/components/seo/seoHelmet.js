@@ -74,6 +74,12 @@ export default function SeoHelmet(props) {
                     <meta name="twitter:description" content={description} />
                 )}
                 <meta name="twitter:image" content={imageUrl} />
+
+                {/* Cloudflare Turnstile */}
+                <script 
+                    src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" 
+                    defer
+                />
             </Helmet>
         </>
     )

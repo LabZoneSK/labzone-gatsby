@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
+import TurnstileWidget from './TurnstileWidget'
 
 const SecurityCheckSchema = Yup.object().shape({
     fullName: Yup.string()
@@ -17,14 +18,22 @@ const SecurityCheckSchema = Yup.object().shape({
     websiteUrl: Yup.string()
         .url('Please enter a valid URL')
         .required('Required'),
+    turnstileToken: Yup.string()
+        .required('Please complete the security verification'),
 })
 
 export default function SecurityCheckForm({ interestedIn = '' }) {
     const [submitted, setSubmitted] = useState(false)
+    const [turnstileToken, setTurnstileToken] = useState('')
 
-    const handleSubmit = async (values, { setSubmitting }) => {
+    const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
         try {
-            const response = await fetch('http://n8n.labdemo.eu:5678/webhook/wordpress-security-shield', {
+            if (!values.turnstileToken) {
+                setFieldError('turnstileToken', 'Please complete the security verification')
+                return
+            }
+
+            const response = await fetch('/.netlify/functions/security-check-submit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -79,11 +88,12 @@ export default function SecurityCheckForm({ interestedIn = '' }) {
                     email: '',
                     websiteUrl: '',
                     interestedIn: interestedIn,
+                    turnstileToken: '',
                 }}
                 validationSchema={SecurityCheckSchema}
                 onSubmit={handleSubmit}
             >
-                {({ isSubmitting }) => (
+                {({ isSubmitting, setFieldValue, values }) => (
                     <Form className="space-y-4">
                         <div>
                             <Field
@@ -130,9 +140,33 @@ export default function SecurityCheckForm({ interestedIn = '' }) {
                             type="hidden"
                         />
 
+                        <div className="mb-4">
+                            <TurnstileWidget
+                                sitekey={process.env.GATSBY_TURNSTILE_SITE_KEY || '1x00000000000000000000AA'}
+                                onVerify={(token) => {
+                                    setTurnstileToken(token)
+                                    setFieldValue('turnstileToken', token)
+                                }}
+                                onError={() => {
+                                    setTurnstileToken('')
+                                    setFieldValue('turnstileToken', '')
+                                }}
+                                onExpire={() => {
+                                    setTurnstileToken('')
+                                    setFieldValue('turnstileToken', '')
+                                }}
+                            />
+                        </div>
+
+                        <Field
+                            name="turnstileToken"
+                            type="hidden"
+                        />
+                        <ErrorMessage name="turnstileToken" component="div" className="text-red-600 text-sm mt-1" />
+
                         <button
                             type="submit"
-                            disabled={isSubmitting}
+                            disabled={isSubmitting || !turnstileToken}
                             className="w-full bg-[#5852A3] text-white hover:bg-[#2e2b55] text-white py-3 px-6 font-semibold transition-colors disabled:opacity-50"
                         >
                             {isSubmitting ? 'Sending Request...' : 'Request My Free Security Check'}
