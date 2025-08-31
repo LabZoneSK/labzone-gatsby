@@ -3,6 +3,8 @@ import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import TurnstileWidget from './TurnstileWidget'
 
+const isLocalhost = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+
 const SecurityCheckSchema = Yup.object().shape({
     fullName: Yup.string()
         .min(2, 'Too Short!')
@@ -18,8 +20,7 @@ const SecurityCheckSchema = Yup.object().shape({
     websiteUrl: Yup.string()
         .url('Please enter a valid URL')
         .required('Required'),
-    phone: Yup.string(),
-    turnstileToken: Yup.string()
+    turnstileToken: isLocalhost ? Yup.string() : Yup.string()
         .required('Please complete the security verification'),
 })
 
@@ -42,14 +43,8 @@ export default function SecurityCheckForm({ interestedIn = '' }) {
 
     const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
         try {
-            if (!values.turnstileToken) {
+            if (!isLocalhost && !values.turnstileToken) {
                 setFieldError('turnstileToken', 'Please complete the security verification')
-                return
-            }
-
-            // Honeypot check - if phone field is filled, it's likely a bot
-            if (values.phone && values.phone.trim() !== '') {
-                setSubmitting(false)
                 return
             }
 
@@ -110,7 +105,6 @@ export default function SecurityCheckForm({ interestedIn = '' }) {
                     organization: '',
                     email: '',
                     websiteUrl: '',
-                    phone: '',
                     interestedIn,
                     turnstileToken: '',
                 }}
@@ -164,16 +158,6 @@ export default function SecurityCheckForm({ interestedIn = '' }) {
                             type="hidden"
                         />
 
-                        <div style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }} aria-hidden="true">
-                            <label htmlFor="phone">Phone (leave blank)</label>
-                            <Field
-                                id="phone"
-                                name="phone"
-                                type="text"
-                                tabIndex="-1"
-                                autoComplete="off"
-                            />
-                        </div>
 
                         <div className="mb-4">
                             <TurnstileWidget
@@ -201,7 +185,7 @@ export default function SecurityCheckForm({ interestedIn = '' }) {
 
                         <button
                             type="submit"
-                            disabled={isSubmitting || !values.turnstileToken}
+                            disabled={isSubmitting || (!isLocalhost && !values.turnstileToken)}
                             className="w-full bg-[#5852A3] text-white hover:bg-[#2e2b55] text-white py-3 px-6 font-semibold transition-colors disabled:opacity-50"
                         >
                             {isSubmitting ? 'Sending Request...' : 'Request My Free Security Check'}

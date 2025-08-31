@@ -62,13 +62,7 @@ exports.handler = async (event) => {
         )
 
         const body = JSON.parse(event.body || '{}')
-        const { turnstileToken, phone, ...formData } = body
-
-        // Honeypot check - if phone field is filled, reject as bot
-        if (phone && phone.trim() !== '') {
-            console.log('Bot detected via honeypot field')
-            return json(400, { error: 'Invalid submission' })
-        }
+        const { turnstileToken, ...formData } = body
 
         if (!turnstileToken) {
             return json(400, { error: 'Missing Turnstile token' })
