@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Layout from '../components/layout'
 import SEO from '../components/seo/seoHelmet'
 import Section from '../components/section'
@@ -7,11 +7,19 @@ import SecurityCheckForm from '../components/SecurityCheckForm'
 import FullBleed from '../components/fullBleed'
 import { StaticImage } from 'gatsby-plugin-image'
 export default function WordPressSecurityShield() {
+    const [interestedPlan, setInterestedPlan] = useState('')
+
     const handlePricingAction = (tier) => {
         console.log(`Selected ${tier} tier`)
+        setInterestedPlan(tier)
+        const leadMagnet = document.getElementById('lead-magnet')
+        if (leadMagnet) {
+            leadMagnet.scrollIntoView({ behavior: 'smooth' })
+        }
     }
 
     const handleLeadMagnetAction = () => {
+        setInterestedPlan('')
         const leadMagnet = document.getElementById('lead-magnet')
         if (leadMagnet) {
             leadMagnet.scrollIntoView({ behavior: 'smooth' })
@@ -151,7 +159,7 @@ export default function WordPressSecurityShield() {
             <Section sectionClass="py-16 bg-[#efeef6]">
                 <div className="container mx-auto px-4">
                     <div id="lead-magnet" className="max-w-2xl mx-auto">
-                        <SecurityCheckForm />
+                        <SecurityCheckForm interestedIn={interestedPlan} />
                     </div>
                 </div>
             </Section>
@@ -194,7 +202,7 @@ export default function WordPressSecurityShield() {
             </Section>
 
             {/* Closing CTA Section */}
-            <Section sectionClass="py-16 bg-[#5852A3] text-white">
+            <Section sectionClass="py-16 bg-[#5852A3] text-white mb-6">
                 <div className="container mx-auto px-4 text-center flex flex-col items-center justify-center gap-4">
                     <h2 className="is-size-3 font-bold mb-4">
                         Don’t Let a Plugin Vulnerability Put Your Mission at Risk
@@ -202,9 +210,15 @@ export default function WordPressSecurityShield() {
                     <p className="is-size-5 mb-8 max-w-2xl mx-auto">
                         LabZone stops the WordPress exploits your host can’t.
                     </p>
-                    <button className="bg-white text-[#5852A3] px-8 py-4 font-semibold hover:bg-gray-100 transition-colors">
-                        Secure My Website Now
-                    </button>
+                    <a
+                        href="https://cal.com/labzone/security-consult"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-4 button is-white is-medium"
+                        style={{ border: 'none' }}
+                    >
+                        Book Security Consultation
+                    </a>
                 </div>
             </Section>
         </Layout>

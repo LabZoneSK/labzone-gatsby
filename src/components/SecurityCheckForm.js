@@ -19,15 +19,27 @@ const SecurityCheckSchema = Yup.object().shape({
         .required('Required'),
 })
 
-export default function SecurityCheckForm() {
+export default function SecurityCheckForm({ interestedIn = '' }) {
     const [submitted, setSubmitted] = useState(false)
 
     const handleSubmit = async (values, { setSubmitting }) => {
         try {
-            console.log('Security check form submitted:', values)
+            const response = await fetch('http://n8n.labdemo.eu:5678/webhook/wordpress-security-shield', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(values)
+            })
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`)
+            }
+
             setSubmitted(true)
         } catch (error) {
             console.error('Form submission error:', error)
+            // You might want to show an error message to the user here
         } finally {
             setSubmitting(false)
         }
@@ -66,6 +78,7 @@ export default function SecurityCheckForm() {
                     organization: '',
                     email: '',
                     websiteUrl: '',
+                    interestedIn: interestedIn,
                 }}
                 validationSchema={SecurityCheckSchema}
                 onSubmit={handleSubmit}
@@ -111,6 +124,11 @@ export default function SecurityCheckForm() {
                             />
                             <ErrorMessage name="websiteUrl" component="div" className="text-red-600 text-sm mt-1" />
                         </div>
+
+                        <Field
+                            name="interestedIn"
+                            type="hidden"
+                        />
 
                         <button
                             type="submit"
