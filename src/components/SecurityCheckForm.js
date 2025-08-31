@@ -61,8 +61,11 @@ export default function SecurityCheckForm({ interestedIn = '' }) {
                 body: JSON.stringify({ ...values, ...queryParams })
             })
 
+            console.log('Form submitted successfully:', response)
+
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`)
+                setSubmitting(false)
             }
 
             setSubmitted(true)
