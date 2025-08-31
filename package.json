@@ -4,6 +4,9 @@
   "description": "Company page built on Gatsby.",
   "version": "1.0.0",
   "license": "MIT",
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "scripts": {
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
     "build": "gatsby build",
