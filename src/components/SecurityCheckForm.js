@@ -18,6 +18,7 @@ const SecurityCheckSchema = Yup.object().shape({
     websiteUrl: Yup.string()
         .url('Please enter a valid URL')
         .required('Required'),
+    phone: Yup.string(),
     turnstileToken: Yup.string()
         .required('Please complete the security verification'),
 })
@@ -43,6 +44,12 @@ export default function SecurityCheckForm({ interestedIn = '' }) {
         try {
             if (!values.turnstileToken) {
                 setFieldError('turnstileToken', 'Please complete the security verification')
+                return
+            }
+
+            // Honeypot check - if phone field is filled, it's likely a bot
+            if (values.phone && values.phone.trim() !== '') {
+                setSubmitting(false)
                 return
             }
 
@@ -100,7 +107,8 @@ export default function SecurityCheckForm({ interestedIn = '' }) {
                     organization: '',
                     email: '',
                     websiteUrl: '',
-                    interestedIn: interestedIn,
+                    phone: '',
+                    interestedIn,
                     turnstileToken: '',
                 }}
                 validationSchema={SecurityCheckSchema}
@@ -152,6 +160,17 @@ export default function SecurityCheckForm({ interestedIn = '' }) {
                             name="interestedIn"
                             type="hidden"
                         />
+
+                        <div style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }} aria-hidden="true">
+                            <label htmlFor="phone">Phone (leave blank)</label>
+                            <Field
+                                id="phone"
+                                name="phone"
+                                type="text"
+                                tabIndex="-1"
+                                autoComplete="off"
+                            />
+                        </div>
 
                         <div className="mb-4">
                             <TurnstileWidget
