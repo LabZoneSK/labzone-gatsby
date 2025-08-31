@@ -7,11 +7,12 @@ import cx from 'classnames'
 
 /** Utils */
 import { sanitizeLink } from '../utils/helpers'
-import { formv3 } from '../utils/hubspot'
+import TurnstileWidget from './TurnstileWidget'
 
 export default function Contactform() {
     const intl = useIntl()
     const [submitted, setSubmitted] = useState(false)
+    const [turnstileToken, setTurnstileToken] = useState('')
 
     if (submitted) {
         return (
@@ -41,6 +42,7 @@ export default function Contactform() {
                     email: '',
                     message: '',
                     consent: false,
+                    turnstileToken: '',
                 }}
                 validate={values => {
                     const errors = {}
@@ -72,24 +74,34 @@ export default function Contactform() {
 
                     return errors
                 }}
-                onSubmit={(values, { setSubmitting }) => {
-                    delete values['consent']
-                    const fields = Object.keys(values).map(key => {
-                        return {
-                            name: key,
-                            value: values[key],
-                        }
-                    })
-
+                onSubmit={async (values, { setSubmitting, setFieldError }) => {
                     try {
-                        formv3(fields)
+                        if (!values.turnstileToken) {
+                            setFieldError('turnstileToken', 'Please complete the security verification')
+                            return
+                        }
+
+                        const payload = { ...values }
+                        delete payload['consent']
+
+                        const resp = await fetch('/.netlify/functions/contact-submit', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload),
+                        })
+                        if (!resp.ok) {
+                            throw new Error(`HTTP ${resp.status}`)
+                        }
                         setSubmitted(true)
+                    } catch (e) {
+                        // Optionally surface error to user
+                        console.error('Contact submit failed', e)
                     } finally {
                         setSubmitting(false)
                     }
                 }}
             >
-                {({ isSubmitting, errors, values }) => (
+                {({ isSubmitting, errors, values, setFieldValue }) => (
                     <Form className="contact-form-wrapper">
                         <div className="field">
                             <label htmlFor="full_name" className="label">
@@ -184,11 +196,40 @@ export default function Contactform() {
                                 <p className="help is-danger">{msg}</p>
                             )}
                         />
+
+                        <div className="field">
+                            <TurnstileWidget
+                                sitekey={process.env.GATSBY_TURNSTILE_SITE_KEY || '1x00000000000000000000AA'}
+                                onVerify={(token) => {
+                                    setTurnstileToken(token)
+                                    setFieldValue('turnstileToken', token)
+                                }}
+                                onError={() => {
+                                    setTurnstileToken('')
+                                    setFieldValue('turnstileToken', '')
+                                }}
+                                onExpire={() => {
+                                    setTurnstileToken('')
+                                    setFieldValue('turnstileToken', '')
+                                }}
+                            />
+                        </div>
+
+                        <Field
+                            name="turnstileToken"
+                            type="hidden"
+                        />
+                        <ErrorMessage
+                            name="turnstileToken"
+                            render={msg => (
+                                <p className="help is-danger">{msg}</p>
+                            )}
+                        />
                         <div className="control contact-form-submit-wapper">
                             <button
                                 className="lz-button button--isi"
                                 type="submit"
-                                disabled={isSubmitting}
+                                disabled={isSubmitting || !turnstileToken}
                             >
                                 <FormattedMessage
                                     id="sendMessage"
