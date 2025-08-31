@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import TurnstileWidget from './TurnstileWidget'
@@ -25,6 +25,19 @@ const SecurityCheckSchema = Yup.object().shape({
 export default function SecurityCheckForm({ interestedIn = '' }) {
     const [submitted, setSubmitted] = useState(false)
     const [turnstileToken, setTurnstileToken] = useState('')
+    const [queryParams, setQueryParams] = useState({})
+
+    useEffect(() => {
+        if (typeof window === 'undefined') {
+            return;
+        }
+        const urlParams = new URLSearchParams(window.location.search)
+        const params = {}
+        if (urlParams.get('lead_id')) params.lead_id = urlParams.get('lead_id')
+        if (urlParams.get('utm_source')) params.utm_source = urlParams.get('utm_source')
+        if (urlParams.get('utm_campaign')) params.utm_campaign = urlParams.get('utm_campaign')
+        setQueryParams(params)
+    }, [])
 
     const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
         try {
@@ -38,7 +51,7 @@ export default function SecurityCheckForm({ interestedIn = '' }) {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(values)
+                body: JSON.stringify({ ...values, ...queryParams })
             })
 
             if (!response.ok) {
