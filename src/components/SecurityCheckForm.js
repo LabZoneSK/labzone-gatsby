@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import TurnstileWidget from './TurnstileWidget'
@@ -18,6 +18,7 @@ const SecurityCheckSchema = Yup.object().shape({
     websiteUrl: Yup.string()
         .url('Please enter a valid URL')
         .required('Required'),
+    phone: Yup.string(),
     turnstileToken: Yup.string()
         .required('Please complete the security verification'),
 })
@@ -25,6 +26,19 @@ const SecurityCheckSchema = Yup.object().shape({
 export default function SecurityCheckForm({ interestedIn = '' }) {
     const [submitted, setSubmitted] = useState(false)
     const [turnstileToken, setTurnstileToken] = useState('')
+    const [queryParams, setQueryParams] = useState({})
+
+    useEffect(() => {
+        if (typeof window === 'undefined') {
+            return;
+        }
+        const urlParams = new URLSearchParams(window.location.search)
+        const params = {}
+        if (urlParams.get('lead_id')) params.lead_id = urlParams.get('lead_id')
+        if (urlParams.get('utm_source')) params.utm_source = urlParams.get('utm_source')
+        if (urlParams.get('utm_campaign')) params.utm_campaign = urlParams.get('utm_campaign')
+        setQueryParams(params)
+    }, [])
 
     const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
         try {
@@ -33,12 +47,18 @@ export default function SecurityCheckForm({ interestedIn = '' }) {
                 return
             }
 
+            // Honeypot check - if phone field is filled, it's likely a bot
+            if (values.phone && values.phone.trim() !== '') {
+                setSubmitting(false)
+                return
+            }
+
             const response = await fetch('/.netlify/functions/security-check-submit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(values)
+                body: JSON.stringify({ ...values, ...queryParams })
             })
 
             if (!response.ok) {
@@ -87,7 +107,8 @@ export default function SecurityCheckForm({ interestedIn = '' }) {
                     organization: '',
                     email: '',
                     websiteUrl: '',
-                    interestedIn: interestedIn,
+                    phone: '',
+                    interestedIn,
                     turnstileToken: '',
                 }}
                 validationSchema={SecurityCheckSchema}
@@ -139,6 +160,17 @@ export default function SecurityCheckForm({ interestedIn = '' }) {
                             name="interestedIn"
                             type="hidden"
                         />
+
+                        <div style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }} aria-hidden="true">
+                            <label htmlFor="phone">Phone (leave blank)</label>
+                            <Field
+                                id="phone"
+                                name="phone"
+                                type="text"
+                                tabIndex="-1"
+                                autoComplete="off"
+                            />
+                        </div>
 
                         <div className="mb-4">
                             <TurnstileWidget

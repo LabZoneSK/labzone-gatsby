@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 
@@ -13,6 +13,18 @@ export default function Contactform() {
     const intl = useIntl()
     const [submitted, setSubmitted] = useState(false)
     const [turnstileToken, setTurnstileToken] = useState('')
+    const [queryParams, setQueryParams] = useState({})
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const urlParams = new URLSearchParams(window.location.search)
+            const params = {}
+            if (urlParams.get('lead_id')) params.lead_id = urlParams.get('lead_id')
+            if (urlParams.get('utm_source')) params.utm_source = urlParams.get('utm_source')
+            if (urlParams.get('utm_campaign')) params.utm_campaign = urlParams.get('utm_campaign')
+            setQueryParams(params)
+        }
+    }, [])
 
     if (submitted) {
         return (
@@ -81,7 +93,7 @@ export default function Contactform() {
                             return
                         }
 
-                        const payload = { ...values }
+                        const payload = { ...values, ...queryParams }
                         delete payload['consent']
 
                         const resp = await fetch('/.netlify/functions/contact-submit', {
