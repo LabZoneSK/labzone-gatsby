@@ -10,7 +10,6 @@ export default function WordPressSecurityShield() {
     const [interestedPlan, setInterestedPlan] = useState('')
 
     const handlePricingAction = (tier) => {
-        console.log(`Selected ${tier} tier`)
         setInterestedPlan(tier)
         const leadMagnet = document.getElementById('lead-magnet')
         if (leadMagnet) {
