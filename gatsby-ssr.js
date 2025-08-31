@@ -14,8 +14,13 @@ export const onRenderBody = (
                 data-domain-script="833401ed-6965-4b06-a80b-9282226ea246"
             ></script>,
             <script key="optanon-inline" type="text/javascript">
-                function OptanonWrapper() {}
+                function OptanonWrapper() { }
             </script>,
+            <script
+                key="cf-turnstile"
+                src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+                defer
+            ></script>,
         ])
     }
 
