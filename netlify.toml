@@ -1,6 +1,10 @@
 [build]
   functions = "netlify/functions"
 
+[[edge_functions]]
+  path = "/*"
+  function = "currency"
+
 [build.environment]
   NODE_VERSION = "22"
 
