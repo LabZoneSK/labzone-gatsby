@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Layout from '../components/layout'
 import SEO from '../components/seo/seoHelmet'
 import Section from '../components/section'
@@ -6,8 +6,28 @@ import PricingCard from '../components/PricingCard'
 import SecurityCheckForm from '../components/SecurityCheckForm'
 import FullBleed from '../components/fullBleed'
 import { StaticImage } from 'gatsby-plugin-image'
+import { getCurrencyFromCookie, convertPrice } from '../utils/currency'
 export default function WordPressSecurityShield() {
     const [interestedPlan, setInterestedPlan] = useState('')
+    const [currency, setCurrency] = useState('USD')
+    const [prices, setPrices] = useState({
+        essential: 59,
+        advanced: 149,
+        enterprise: 349
+    })
+
+    // Load currency and convert prices on component mount
+    useEffect(() => {
+        const userCurrency = getCurrencyFromCookie()
+        setCurrency(userCurrency)
+
+        // Convert base USD prices to user's currency
+        setPrices({
+            essential: convertPrice(59, userCurrency),
+            advanced: convertPrice(149, userCurrency),
+            enterprise: convertPrice(349, userCurrency)
+        })
+    }, [])
 
     const handlePricingAction = (tier) => {
         setInterestedPlan(tier)
@@ -102,8 +122,9 @@ export default function WordPressSecurityShield() {
                         <PricingCard
                             title="Advanced Shield"
                             description="Complete protection for growing organizations"
-                            price="149"
+                            price={prices.advanced}
                             period="month"
+                            currency={currency}
                             features={[
                                 "Everything in Essential, plus:",
                                 "Virtual patching for plugin & theme vulnerabilities",
@@ -118,8 +139,9 @@ export default function WordPressSecurityShield() {
                         <PricingCard
                             title="Essential Shield"
                             description="Basic protection for small nonprofits"
-                            price="59"
+                            price={prices.essential}
                             period="month"
+                            currency={currency}
                             features={[
                                 "Weekly plugin & theme updates",
                                 "Automated daily backups (30-day retention)",
@@ -136,8 +158,9 @@ export default function WordPressSecurityShield() {
                         <PricingCard
                             title="Enterprise Shield"
                             description="Custom security for large nonprofits"
-                            price="349"
+                            price={prices.enterprise}
                             period="month"
+                            currency={currency}
                             features={[
                                 "Everything in Advanced, plus:",
                                 "24/7 incident response",

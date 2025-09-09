@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { twMerge } from 'tailwind-merge'
+import { getCurrencyFromCookie, formatPrice } from '../utils/currency'
 
 export default function PricingCard({
     title,
@@ -11,8 +12,14 @@ export default function PricingCard({
     ctaText,
     ctaAction,
     isPopular = false,
-    isEnterprise = false
+    isEnterprise = false,
+    currency = null
 }) {
+    // Get currency from cookie if not provided
+    const displayCurrency = currency || getCurrencyFromCookie()
+
+    // Format price with currency symbol
+    const formattedPrice = formatPrice(price, displayCurrency)
     return (
         <div className={twMerge('relative pricing-card bg-white rounded-lg shadow-lg p-6 relative', isPopular ? 'border-2 border-[#5852A3] bg-[#efeef6]' : 'border border-gray-200')}>
             {isPopular && (
@@ -27,9 +34,9 @@ export default function PricingCard({
 
                 <div className="pricing-amount mb-4">
                     {isEnterprise ? (
-                        <span className="text-2xl font-bold text-gray-900">From ${price}</span>
+                        <span className="text-2xl font-bold text-gray-900">From {formattedPrice}</span>
                     ) : (
-                        <span className="text-3xl font-bold text-gray-900">${price}</span>
+                        <span className="text-3xl font-bold text-gray-900">{formattedPrice}</span>
                     )}
                     <span className="text-gray-500 ml-1">/ {period}</span>
                 </div>
@@ -62,11 +69,12 @@ export default function PricingCard({
 PricingCard.propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
+    price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     period: PropTypes.string.isRequired,
     features: PropTypes.arrayOf(PropTypes.string).isRequired,
     ctaText: PropTypes.string.isRequired,
     ctaAction: PropTypes.func,
     isPopular: PropTypes.bool,
     isEnterprise: PropTypes.bool,
+    currency: PropTypes.string,
 }
